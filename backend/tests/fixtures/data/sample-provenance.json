@@ -1,0 +1,39 @@
+{
+  "description": "Compact samples are exact windows cut from acquired source rasters.",
+  "samples": [
+    {
+      "path": "mola_megt44n000hb_jezero_window.tif",
+      "source_filename": "MEGT44N000HB.IMG",
+      "source_sha256": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+      "sample_sha256": "859fd371928a2a20b26005e6daa1f092ef0312c28186ea478f4b60af875cd06e",
+      "window_col_offset": 9887,
+      "window_row_offset": 3245,
+      "width": 64,
+      "height": 64,
+      "center_longitude": 77.5,
+      "center_latitude": 18.4,
+      "provider": "NASA/JPL MOLA via NASA PDS Geosciences Node",
+      "product_id": "MGS-M-MOLA-5-MEGDR-L3-V1.0 / MEGT44N000HB",
+      "vertical_reference": "GMM3 Mars areoid degree/order 50; radial topography, meters",
+      "source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img",
+      "label_sha256": "bc624a238ba6d71a770a09f959ead96f1c144970fae435b8ca5e26208b42eec5"
+    },
+    {
+      "path": "copernicus_glo30_n18_e077_window.tif",
+      "source_filename": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989.tif",
+      "source_sha256": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+      "sample_sha256": "0c7b5d20bbf200216a1c8df7b88a97ca6cf59c5989813c77e1ecf553a9eac752",
+      "window_col_offset": 1768,
+      "window_row_offset": 1768,
+      "width": 64,
+      "height": 64,
+      "center_longitude": 77.5,
+      "center_latitude": 18.5,
+      "provider": "Copernicus Programme; public AWS mirror",
+      "product_id": "Copernicus DEM GLO-30 Public DSM, 2021 release",
+      "vertical_reference": "EGM2008 orthometric height, meters",
+      "source_url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E077_00_DEM/Copernicus_DSM_COG_10_N18_00_E077_00_DEM.tif",
+      "surface_type": "DSM including structures and vegetation"
+    }
+  ]
+}

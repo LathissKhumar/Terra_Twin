@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  body { @apply bg-background text-foreground antialiased; }
+  :focus-visible { @apply outline outline-2 outline-offset-4 outline-cyan-400; }
+}
+

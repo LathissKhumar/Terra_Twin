@@ -1,0 +1,42 @@
+name: Phase 1 quality
+on: [push, pull_request]
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.13.6"
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: docker compose up -d --wait db
+      - working-directory: backend
+        run: |
+          uv sync --locked
+          uv run --locked ruff check app tests migrations
+          uv run --locked ruff format --check app tests migrations
+          uv run --locked mypy app
+          uv run --locked alembic upgrade head
+          RUN_DB_TESTS=1 uv run --locked pytest -q
+      - working-directory: frontend
+        run: |
+          npm ci --ignore-scripts
+          npm run lint
+          npm run typecheck
+          npm test
+          npm run build
+          npx playwright install --with-deps chromium
+          npm run test:e2e
+          npm audit --audit-level=high
+      - run: docker compose up --build -d --wait
+      - run: curl --fail http://localhost:8000/api/v1/health
+      - working-directory: frontend
+        run: LIVE_STACK=1 npm run test:e2e
+      - if: always()
+        run: docker compose logs --tail=100
+

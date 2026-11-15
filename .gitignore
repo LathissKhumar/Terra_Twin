@@ -54,6 +54,7 @@ data/derived/*
 data/results/*
 !data/results/.gitkeep
 data/manifests/*.json
+data/manifests/ancillary/*.json
 
 # Environment variables & secrets
 .env

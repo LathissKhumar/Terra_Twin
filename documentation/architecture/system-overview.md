@@ -1,31 +1,51 @@
 # TerraTwin system overview
 
-## Implemented in Phase 1
-TerraTwin is a modular monolith with a separate Next.js client. FastAPI exposes
-root metadata and versioned service health. PostgreSQL/PostGIS is provisioned
-through Compose and Alembic. Local data directories contain no scientific data.
-The frontend displays live service readiness and an explicit no-data state.
+TerraTwin is an independently deployable geospatial modular monolith: a
+Next.js App Router client, FastAPI application, PostgreSQL/PostGIS metadata and
+job store, and independently callable Python scientific engines. It has no
+runtime, source, model-checkpoint or output dependency on another project.
 
-## Target architecture (future phases)
-Client -> versioned API -> application services -> independent scientific engines.
-Services use repositories for PostgreSQL metadata, job state and Earth boundaries.
-Artifacts reside under configured data storage; clients receive opaque IDs, never
-arbitrary filesystem paths. Domain schemas define validated contracts. Engines
-must not import FastAPI or database code.
+## Integrated path
 
-The first scientific workflow is Jezero-to-Earth comparison for rover mobility
-and navigation. Planetary reference coordinates must retain their planetary body,
-CRS and longitude conventions; Earth footprints may use EPSG:4326. Mars
-coordinates must never be stored as terrestrial WGS84 geometry.
+The initial mission is rover mobility and terrain navigation with Jezero Crater
+as a Mars reference. A user selects checksummed dataset manifests and explicit
+body-specific geographic centers and physical support dimensions. A persisted
+job runs ingestion checks, ScaleBridge, terrain analytics and candidate scoring
+in sequence. Candidate reports and derived rasters are published only after
+the complete processing chain succeeds. The client reads job status, candidate
+records, comparison rasters, Terrain Twin artifacts and Evidence Passports from
+versioned APIs.
 
-No job runner, ingestion pipeline, feature extraction, ranking, mesh reconstruction,
-validation or passport export is implemented. These are gated roadmap phases.
-TerraTwin has no source, model, runtime or output dependency on another project.
+The current local sources are the MOLA `MEGT44N000HB` regional tile and one
+Copernicus DEM GLO-30 public DSM tile. This supports a bounded search within the
+Earth raster's actual footprint. It is not global Earth discovery. Direct MOLA
+observation support is sparse; candidates without required evidence remain
+unranked. Lunar selection is exposed only when a validated lunar raster is
+available; no LOLA acquisition is configured in this installation.
 
-## Data and scientific boundaries
-Every future output must link source checksums, product versions, CRS, vertical
-reference, units, effective resolution, parameters and processing history.
-Absence of evidence is represented explicitly, never as zero measurements.
-Terrain similarity cannot establish that a site is under-explored or suitable
-for every planetary experiment. No source products are selected in Phase 1.
+## Component responsibilities
 
+- `backend/app/api`: request validation, structured errors, pagination and
+  artifact delivery. Routes do not calculate terrain features.
+- `backend/app/services`: manifest resolution, persistence and orchestration.
+- `backend/app/engines`: independent ingestion, ScaleBridge, terrain analytics,
+  analogue discovery, mesh generation, validation and assessment.
+- PostgreSQL: durable discovery job state; raw and derived raster products stay
+  in the configured data volume and are addressed through opaque IDs.
+- `frontend/features`: mission/dataset selection, status polling, actual
+  candidate map, raster comparison, mesh viewer and report UI. Browser code does
+  not calculate scientific measurements.
+
+## Scientific boundaries
+
+Each dataset retains checksum, product, CRS, bounds, source/effective
+resolution, vertical units/reference and processing history. Mars and Earth
+are compared on separate local metric grids with relative elevation; shared
+indices describe paired support and are not spatial intersections. Similarity
+does not imply universal suitability. A mesh without a genuinely independent
+reference is labeled `UNVALIDATED`.
+
+See [backend architecture](backend-architecture.md),
+[frontend architecture](frontend-architecture.md),
+[data flow](data-flow.md), the [scientific methodology](../scientific-methodology/README.md),
+and the [Phase 8 plan](phase-8-plan.md).

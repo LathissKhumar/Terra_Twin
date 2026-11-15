@@ -1,18 +1,18 @@
 import { HealthPanel } from "@/components/health-panel";
-export default function Home() {
-  return <>
-    <p className="font-mono text-sm uppercase tracking-widest text-cyan-400">Phase 1</p>
-    <h1 className="mt-3 text-3xl font-semibold">Terrain intelligence starts with evidence.</h1>
-    <p className="mt-4 max-w-2xl leading-relaxed text-slate-300">
-      TerraTwin will compare planetary and terrestrial elevation data for field experiments.
-      This foundation checks application connectivity. Dataset processing and terrain analysis
-      are not available yet.
-    </p>
-    <HealthPanel />
-    <section className="mt-8 rounded border border-border p-6" aria-labelledby="evidence-heading">
-      <h2 id="evidence-heading" className="text-lg font-medium">Scientific evidence</h2>
-      <p className="mt-2 text-slate-400">No datasets loaded. No candidates, measurements, or validation results exist.</p>
-    </section>
-  </>;
-}
+import Link from "next/link";
 
+export default function Home() {
+  return (
+    <div className="space-y-8">
+      <header className="max-w-3xl space-y-3"><p className="font-mono text-xs uppercase tracking-[.2em] text-cyan-300">Planetary analogue discovery & terrain intelligence</p><h1 className="text-4xl font-semibold tracking-tight">TerraTwin scientific workspace</h1><p className="text-sm leading-6 text-slate-400">Run a provenance-preserving comparison from genuine elevation products, inspect the actual candidate evidence, reconstruct a selected Earth window, and export its deterministic field-test assessment.</p></header>
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[
+        ["Mission Explorer", "Inspect available planetary and Earth sources and configure the study support.", "/missions"],
+        ["Analogue Discovery", "Run and resume persisted ScaleBridge and terrain comparison jobs.", "/discovery"],
+        ["Terrain Comparison", "Inspect actual feature rasters, distributions, coverage and limitations.", "/terrain-comparison"],
+        ["Terrain Twin", "Generate a DEM-derived mesh and inspect its validation status.", "/terrain-twin"],
+      ].map(([title, description, href]) => <Link href={href} key={href} className="rounded-lg border border-slate-700 bg-slate-900/70 p-5 transition hover:border-cyan-800"><h2 className="font-medium text-slate-100">{title}</h2><p className="mt-2 text-sm leading-5 text-slate-400">{description}</p><span className="mt-4 inline-block text-xs text-cyan-300">Open workspace →</span></Link>)}</section>
+      <section className="rounded-lg border border-slate-700 bg-slate-900/60 p-5"><h2 className="font-medium">Scientific result integrity</h2><p className="mt-2 max-w-4xl text-sm leading-6 text-slate-400">The Earth search footprint is limited to local, checksum-verified source coverage. Candidates that do not meet the configured evidence gates remain unranked. A terrain mesh without an independent reference is marked UNVALIDATED. The UI never creates sample values or candidate markers.</p></section>
+      <section aria-label="Backend connectivity" className="border-t border-slate-800 pt-5"><HealthPanel /></section>
+    </div>
+  );
+}

@@ -14,8 +14,8 @@ from pathlib import Path
 from typing import Literal, TypedDict
 
 import numpy as np
-import rasterio  # type: ignore[import-untyped]
-from rasterio.errors import RasterioError  # type: ignore[import-untyped]
+import rasterio
+from rasterio.errors import RasterioError
 
 from app.core.exceptions import DatasetAcquisitionError, InvalidRasterError
 from app.domain.schemas.datasets import DatasetManifest

@@ -1,9 +1,13 @@
 FROM python:3.12.16-slim-bookworm
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libexpat1 \
+    && rm -rf /var/lib/apt/lists/*
 COPY --from=ghcr.io/astral-sh/uv:0.13.6 /uv /bin/uv
 ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 UV_PROJECT_ENVIRONMENT=/opt/venv
 WORKDIR /app
 COPY pyproject.toml uv.lock README.md ./
 COPY app ./app
+COPY config ./config
 RUN uv sync --locked --no-dev --no-editable
 COPY migrations ./migrations
 COPY alembic.ini ./

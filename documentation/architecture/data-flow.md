@@ -1,33 +1,52 @@
-# Data flow
+# TerraTwin data flow
 
-## Implemented
-1. Browser loads the Next.js foundation page independently of the backend.
-2. HealthPanel fetches GET /api/v1/health with a five-second request limit.
-3. FastAPI performs bounded PostgreSQL connectivity and PostGIS extension checks.
-4. Backend validates HealthResponse and returns 200 or 503.
-5. Browser validates the contract and displays readiness or an unavailable state.
+## Mission and source selection
 
-Compose starts PostgreSQL, waits for its health check, runs the Alembic migration,
-then starts the API. Frontend startup is independent of API readiness.
-There is no scientific data movement or background processing in Phase 1.
+1. Frontend reads `/api/v1/missions` and `/api/v1/datasets`.
+2. Backend returns installed profiles and manifests with file availability and
+   source checksum verification. It does not expose storage paths.
+3. User selects a planetary source/reference, Earth source/search center, and
+   physical support/window settings. A local GeoTIFF is streamed to a private
+   staging file; ingestion validates and content-addresses it before creating
+   a manifest.
 
-## Planned scientific flow
-Source raster + authoritative product metadata -> ingestion manifest ->
-ScaleBridge -> terrain features -> bounded Earth-window comparison ->
-candidate evidence -> DEM mesh + independent reference validation ->
-experiment assessment -> JSON/PDF evidence passport.
+## Processing job
 
-Cross-body comparison means harmonizing physical sampling support, not spatially
-intersecting Earth and Mars coordinates. Alignment/intersection applies within
-each body's datasets or between independent references for the same Earth site.
-Vertical datums must be explicit; absolute elevations across planets must not be
-silently combined.
+1. `POST /api/v1/discovery/jobs` validates manifest IDs, geographic centers,
+   dimensions and coverage/resource bounds; a fingerprinted job is persisted.
+2. Worker resolves files under configured data directories and verifies raw
+   raster checksums and any detached PDS label checksum.
+3. ScaleBridge projects each body separately to local metric grids, selects a
+   compatible cell scale, aggregates without claiming added information,
+   propagates missing data, computes support coverage and writes relative
+   elevation artifacts and a provenance report.
+4. Terrain Analytics calculates supported feature rasters and numerical
+   distributions for both paired support grids.
+5. Analogue Discovery generates physically sized Earth windows, compares
+   feature distributions under the versioned mission profile, and applies
+   evidence/coverage gates before ranking. Candidates with incomplete required
+   evidence remain unranked.
+6. Artifacts are staged per job. On full success, completed processing
+   directories are atomically moved to canonical stores and the candidate
+   report is published last. Failure state is persisted; temporary staging is
+   removed.
 
-Distance uses weighted valid feature distances divided by valid contributing
-weights. Feature normalization, minimum evidence, neighborhood scales and
-uncertainty interpretation remain scientific design decisions for later phases.
-No fixed 5% missing-data threshold is accepted yet.
+## Product read path
 
-No example manifest containing invented dataset IDs, checksums or acquisition
-dates is provided as evidence. Real manifests will be generated from actual files.
+The browser polls durable job state and loads actual candidate/report JSON.
+Comparison views request backend-generated previews cropped to the selected
+planetary reference window and Earth candidate window. Image display stretch is
+metadata for visualization, not a new measurement. Terrain Twin builds a mesh
+from the verified candidate's source DEM. Independent validation is reported
+only when a different suitable elevation dataset exists. Assessment and
+Evidence Passport values resolve to the stored discovery, source and optional
+mesh records; PDF/JSON exports preserve reproducibility and limitations.
 
+## Scientific boundaries
+
+The Mars and Earth arrays do not share geographic coordinates. Their aligned
+array indices represent comparable physical support only. Absolute elevations
+are not compared across planetary bodies. Relative terrain features, source
+resolution, vertical metadata, NoData and uncertainty remain explicit. The
+current local Earth source covers one Copernicus GLO-30 tile, so any current
+candidate search is bounded to that raster and configured center.

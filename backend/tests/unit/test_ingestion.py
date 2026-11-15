@@ -8,7 +8,52 @@ import rasterio
 from rasterio.transform import from_origin
 
 from app.core.exceptions import DatasetAcquisitionError, InvalidRasterError
+from app.engines.data_ingestion.adapters import (
+    parse_jezero_mola_counts_label,
+    validate_hirise_jezero,
+)
 from app.engines.data_ingestion.ingestion import download_to_path, ingest_file, sha256_file
+from app.services import dataset_service
+
+
+def test_official_mola_counts_label_contract() -> None:
+    label = """
+PRODUCT_ID = "MEGC44N000HB.IMG"
+FILE_RECORDS = 5632
+RECORD_BYTES = 11520
+LINES = 5632
+LINE_SAMPLES = 11520
+SAMPLE_TYPE = UNSIGNED_INTEGER
+SAMPLE_BITS = 8
+MAP_RESOLUTION = 128.0 <PIXEL/DEGREE>
+MAXIMUM_LATITUDE = 44.0 <DEGREE>
+MINIMUM_LATITUDE = 0.0 <DEGREE>
+WESTERNMOST_LONGITUDE = 0.0 <DEGREE>
+EASTERNMOST_LONGITUDE = 90.0 <DEGREE>
+"""
+    assert parse_jezero_mola_counts_label(label) == 64_880_640
+    with pytest.raises(InvalidRasterError):
+        parse_jezero_mola_counts_label(label.replace("SAMPLE_BITS = 8", "SAMPLE_BITS = 16"))
+
+
+def test_hirise_jezero_adapter_records_product_provenance(tmp_path, monkeypatch):
+    source = tmp_path / "hirise.img"
+    raster(source)
+    monkeypatch.setattr(dataset_service, "acquire_hirise_jezero", lambda _: source)
+    monkeypatch.setattr(dataset_service, "validate_hirise_jezero", lambda _: None)
+    manifest = dataset_service.ingest_hirise_jezero(tmp_path / "data")
+    assert manifest.product_metadata["product_id"] == "DTEEC_048842_1985_048908_1985_U01"
+    assert manifest.product_metadata["effective_resolution_m"] is None
+    assert manifest.pixel_resolution_x == pytest.approx(0.01)
+    assert manifest.source_url.endswith("DTEEC_048842_1985_048908_1985_U01.IMG")
+    assert dataset_service.ingest_hirise_jezero(tmp_path / "data").id == manifest.id
+
+
+def test_hirise_product_adapter_rejects_an_unrelated_raster(tmp_path):
+    source = tmp_path / "wrong.img"
+    raster(source)
+    with pytest.raises(InvalidRasterError, match="file size"):
+        validate_hirise_jezero(source)
 
 
 def raster(path, *, crs="EPSG:4326", nodata=-9999):

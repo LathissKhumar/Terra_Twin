@@ -1,0 +1,72 @@
+{
+  "profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+  "version": "1.1.0",
+  "experiment_name": "Rover mobility and terrain navigation",
+  "profile_status": "provisional",
+  "weights": {
+    "slope": 0.20,
+    "local_relief": 0.18,
+    "terrain_roughness": 0.18,
+    "profile_curvature": 0.12,
+    "plan_curvature": 0.12,
+    "topographic_position_index": 0.12,
+    "landform_morphology": 0.08
+  },
+  "weight_justifications": {
+    "slope": "Provisional researcher-set priority for terrain inclination; not a rover safety threshold.",
+    "local_relief": "Provisional researcher-set priority for neighborhood elevation range.",
+    "terrain_roughness": "Provisional researcher-set priority for the configured elevation-dispersion measure; not traction.",
+    "profile_curvature": "Provisional researcher-set priority for along-slope terrain shape.",
+    "plan_curvature": "Provisional researcher-set priority for cross-slope terrain shape.",
+    "topographic_position_index": "Provisional researcher-set priority for relative local topographic position.",
+    "landform_morphology": "Provisional researcher-set priority for elevation-derived relative-position classes only."
+  },
+  "required_features": [
+    "slope",
+    "local_relief",
+    "terrain_roughness",
+    "profile_curvature",
+    "plan_curvature",
+    "topographic_position_index",
+    "landform_morphology"
+  ],
+  "optional_evidence": [
+    "Independent elevation reference with compatible vertical datum",
+    "Obstacle geometry at rover-relevant scales",
+    "In-situ soil mechanics and bearing-strength observations",
+    "Subsurface composition and material observations",
+    "Wheel-soil traction and rover interaction observations",
+    "Dust and atmospheric observations"
+  ],
+  "additional_evidence_required": [
+    "soil_mechanics",
+    "subsurface_composition",
+    "wheel_traction",
+    "dust_behavior",
+    "material_properties"
+  ],
+  "not_reproducible_by_earth_site_alone": [
+    "planetary_gravity",
+    "vacuum",
+    "radiation",
+    "complete_planetary_atmosphere"
+  ],
+  "assessment_rules": {
+    "required_features_must_pass_discovery_coverage_and_sample_gates": true,
+    "minimum_coverage": 0.8,
+    "minimum_samples_per_surface": 20,
+    "insufficient_candidate_never_supports_similarity_conclusion": true,
+    "weighted_distance_is_copied_without_recalculation": true,
+    "terrain_twin_validation_required_for_geometry_validation_claim": true,
+    "missing_material_observations_are_unavailable": true,
+    "no_overall_suitability_or_safety_score": true
+  },
+  "known_limitations": [
+    "Feature weights are provisional researcher choices, not validated rover engineering priorities.",
+    "DEM morphology cannot establish soil mechanics, traction, dust behavior, subsurface composition, or material properties.",
+    "A digital elevation model does not reproduce planetary gravity, vacuum, radiation, or a complete planetary atmosphere.",
+    "Discovery confidence describes finite-sample distribution-distance variability only; it is not DEM measurement uncertainty.",
+    "A Copernicus GLO-30 DSM may include vegetation and built surfaces and is not necessarily bare-earth terrain.",
+    "Terrain similarity does not guarantee rover safety, mobility, or mission performance."
+  ]
+}

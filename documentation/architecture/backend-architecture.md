@@ -1,38 +1,61 @@
 # Backend architecture
 
-## Implemented responsibilities
-- app/main.py: lifecycle, CORS, safe exception envelopes, root metadata and API mount.
-- core/config.py: validated environment settings and database URL construction.
-- core/logging.py: structured logging (JSON in production, readable locally).
-- core/security.py: internal artifact path containment including symlink resolution.
-- api/routes/health.py: HTTP readiness and validated response.
-- domain/schemas/health.py: health contract.
-- database/session.py: bounded PostgreSQL/PostGIS checks and async session factory.
-- database/base.py: ORM base and timestamp mixin.
-- migrations/: Alembic migration enabling PostGIS. Downgrade preserves the extension.
+The backend is a FastAPI modular monolith. Public routes live under
+`/api/v1`; Pydantic schemas define API and scientific-engine boundaries.
+Routes validate and serialize requests, services resolve provenance and
+orchestrate work, and engines remain independently callable without FastAPI or
+database dependencies.
 
-Only root and health routes are mounted. Other route files remain unmounted
-scaffolding. Services, repositories, domain models and scientific engines are
-reserved packages with no operational implementation.
+## Runtime modules
 
-## Interfaces
-check_database_health() -> DatabaseHealth is async and dependency-injected into
-the health route, allowing deterministic API tests. It has a total timeout and
-sanitized failure codes. Database sessions roll back on failure and close after
-use; the application disposes the engine on shutdown.
+- `api/routes/missions.py`: installed mission profiles and data-backed
+  planetary reference regions.
+- `api/routes/datasets.py`: manifest catalog, validated source inspection,
+  bounded streaming GeoTIFF ingestion, and configured MOLA/Copernicus
+  acquisition.
+- `api/routes/discovery.py`: durable job submission, status, report and
+  paginated candidate retrieval.
+- `api/routes/terrain.py`: candidate records, comparison metadata and cropped
+  visualization-only feature map previews derived from stored rasters.
+- `api/routes/terrain_twin.py`, `assessments.py`, `evidence.py`: DEM mesh,
+  deterministic mission assessment and JSON/PDF evidence exports.
+- `services/discovery_jobs.py`: validates manifest IDs/checksums, restores
+  detached PDS label metadata, runs ScaleBridge → Terrain Analytics → analogue
+  discovery in a single bounded worker, atomically publishes completed result
+  directories, and records failures.
+- `engines/`: independently callable scientific implementations and typed
+  result reports.
+- `domain/models/discovery_job.py`: durable lifecycle state and a partial
+  unique index preventing duplicate active jobs for one request fingerprint.
+- `migrations/versions/0002_discovery_jobs.py`: PostgreSQL job table and
+  indexes.
 
-GET /api/v1/health returns HealthResponse with HTTP 200 when PostgreSQL and PostGIS
-are available, otherwise HTTP 503. GET / is dependency-independent liveness.
-HTTP and validation failures use error.type/message/details/path; validation
-responses omit raw submitted values. Unexpected exceptions never expose text.
+## Job lifecycle
 
-## Planned orchestration
-Services will coordinate engines and persisted jobs. Engines take explicit
-configuration and validated geospatial inputs, returning results plus provenance.
-A PostgreSQL job table and bounded worker will handle durable execution and
-restart recovery. An asyncio task alone is not a durable job mechanism.
-No distributed broker or job execution is introduced in Phase 1.
+`POST /api/v1/discovery/jobs` accepts dataset manifest IDs, explicit planetary
+and Earth centers, physical comparison support, candidate window/stride,
+coverage gates and resource caps. The API stores a `queued` record and returns
+without running raster work in the request. A one-thread executor processes
+one job at a time; at most two jobs may be queued or running. Exact active or
+successful configurations are reused. Failed requests can be resubmitted.
+After a process restart, stale `running` jobs become `interrupted`, while
+queued jobs resume. Results are made visible only when the final discovery
+report has been published.
 
-The current path helper is defense in depth, not an atomic file-opening API.
-Future ingestion must address races, upload limits, raster limits and authorization.
+This runner is single-instance. A multi-replica deployment needs a database
+lease/claim protocol before scaling API replicas. This release does not add a
+distributed queue. Job failure messages are bounded and redact the configured
+data root. Raw files are resolved by validated content-addressed manifest IDs;
+the API accepts no arbitrary file path.
 
+## API contract and errors
+
+HTTP, validation and domain failures use structured `error` envelopes. The
+health endpoint checks PostgreSQL and PostGIS. Long-running work is read through
+`GET /api/v1/discovery/jobs/{job_id}`; source and job IDs are opaque identifiers.
+Feature image responses are generated from actual analytics rasters and crop
+the selected planetary/reference and Earth/candidate windows. Their display
+stretch is for visualization only and is not a numerical product.
+
+See [Phase 8 API routes](../api/phase-8.md) and OpenAPI at
+`/api/v1/docs` when the service is running.

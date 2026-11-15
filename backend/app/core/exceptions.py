@@ -45,6 +45,12 @@ class IncompatibleResolutionError(TerraTwinError):
     pass
 
 
+class IncompatibleVerticalUnitsError(TerraTwinError):
+    """Raised when a vertical unit is unknown or cannot be converted to metres."""
+
+    pass
+
+
 class InsufficientCoverageError(TerraTwinError):
     """Raised when valid observation coverage does not meet scientific thresholds."""
 

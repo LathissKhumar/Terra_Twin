@@ -1,105 +1,155 @@
 # TerraTwin
-Planetary Analogue Discovery and Terrain Intelligence Platform.
 
-Phase 2 provides verified MOLA and Copernicus GLO-30 dataset acquisition and
-ingestion, provenance manifests, and compact source-derived test samples.
-Analogue discovery, terrain analysis, terrain meshes and evidence passports are
-not implemented.
+TerraTwin is a planetary analogue discovery and terrain intelligence platform.
+Its initial workflow compares a selected Jezero Crater MOLA reference support
+with a user-selected Earth DEM support, computes terrain feature profiles,
+searches Earth windows under explicit evidence gates, constructs a DEM-derived
+Terrain Twin and produces a reproducible evidence assessment.
+
+The app uses genuine dataset manifests and stored engine reports. The current
+local Earth collection is one Copernicus DEM GLO-30 tile, so results are bounded
+to its valid geographic coverage. A zero eligible-candidate result is a valid
+scientific outcome when evidence gates are not met. Moon selection is available
+when a validated lunar raster is present; no automatic LOLA downloader is
+configured yet. A mesh is labeled `UNVALIDATED` without an independent elevation
+reference.
 
 ## Requirements
-Python 3.12, uv 0.13.6, Node.js 22.12+ (22 or 24 LTS recommended), npm and Docker
-with Compose. Use the project's own environments. No other repository is needed.
 
-## Container setup
+Docker Engine with Compose, Node.js 22.12+ and npm for native frontend work,
+Python 3.12 and uv 0.13.6 for native backend work.
+
+## Run the full stack
+
 From the repository root:
+
 ```sh
+cp .env.example .env
 docker compose up --build -d --wait
 docker compose ps
 docker compose logs --tail=100
-curl --fail http://localhost:8000/api/v1/health
 ```
-Open http://localhost:3000. API documentation: http://localhost:8000/api/v1/docs.
-Compose enables PostGIS through an Alembic migration before starting the API.
-Services bind to loopback. The backend writes ingested datasets under `data/`;
-Compose uses `TERRATWIN_UID`/`TERRATWIN_GID` (default 1000) for bind-mount access.
-Set them to your host account IDs when they differ from 1000. Development database defaults are postgres/postgres,
-database terratwin; these are not production credentials. Override through a
-root .env based on .env.example. Changing credentials does not reinitialize an
-existing database volume. Preserve that volume unless intentionally resetting data.
-The frontend can start independently: docker compose up --build -d frontend.
+
+Open <http://localhost:3000>. API documentation is at
+<http://localhost:8000/api/v1/docs>; health is
+<http://localhost:8000/api/v1/health>. Compose waits for PostGIS, applies
+Alembic migrations, then starts the backend. Service ports are bound to
+loopback. Change `TERRATWIN_UID` and `TERRATWIN_GID` in `.env` to your host user
+IDs when needed for the data bind mount.
+
+The compose `.env` values are local-development defaults, not production
+credentials. Existing database volumes retain their initialized credentials
+after environment changes. Do not delete a volume as a troubleshooting step if
+it contains data.
+
+## Workflow
+
+1. Open Mission Explorer. Select the Mars/Moon reference region when available,
+   inspect source manifests, and set the geographic center. The installed
+   default Mars source is MOLA `MEGT44N000HB`.
+2. Select a checksum-verified Earth source. Acquire a Copernicus GLO-30 tile at
+   the selected center or stream a source GeoTIFF with its CRS and vertical
+   metadata preserved.
+3. Configure the metric comparison support, candidate window and stride, and
+   evidence coverage threshold. Start processing.
+4. The job continues in the backend and its state is stored in PostgreSQL.
+   Refreshing the browser resumes status polling.
+5. Inspect candidate boundaries, actual feature comparisons and evidence
+   coverage. Unranked candidates remain visibly unranked.
+6. Open Terrain Comparison, Terrain Twin or the candidate Evidence Passport.
+   Export JSON or PDF from the Passport.
+
+The configured Earth search boundary and candidate count are returned by the
+actual discovery report. The workflow does not search or claim global Earth
+coverage unless those data are explicitly ingested and included.
 
 ## Native development
-Start only the database with docker compose up -d db. In backend:
+
+Start PostgreSQL/PostGIS and apply migrations:
+
 ```sh
+docker compose up -d db
+cd backend
 uv sync --locked
 uv run --locked alembic upgrade head
 uv run --locked uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
-If you customize Compose credentials in root .env, set the same POSTGRES_USER,
-POSTGRES_PASSWORD and POSTGRES_DB in backend/.env before running native migrations.
-Keep POSTGRES_SERVER=localhost and POSTGRES_PORT=5433 for the native backend.
-Root .env configures Compose; it is not automatically loaded by native settings.
 
-Optional backend/.env uses backend/.env.example; settings load this file regardless
-of working directory. Relative DATA_DIR is resolved against backend/. Use ../data
-for repository data. Docker explicitly sets /app/data and mounts `data/` read-write
-for dataset acquisition. Existing private .env files must not be committed.
+In another terminal:
 
-In a separate terminal, in frontend:
 ```sh
+cd frontend
 npm ci --ignore-scripts
 npm run dev
 ```
-The frontend works when the API is unavailable and reports that state.
-NEXT_PUBLIC_API_URL defaults to http://localhost:8000/api/v1. It is public and
-embedded at build time; rebuild when changing it. No external fonts are fetched.
 
-## Quality gates
-In backend:
+Set `NEXT_PUBLIC_API_URL` to the public API origin plus `/api/v1` before the
+frontend build. It is public build-time configuration and must never contain
+secrets. For native backend settings, use `backend/.env.example`; the native
+database host/port defaults are `localhost:5433`. Root `.env` configures
+Compose and is not loaded by native backend settings.
+
+The Discovery map uses the OpenFreeMap Liberty basemap by default, with
+candidate polygons coming only from TerraTwin discovery results. MapLibre
+shows the source attribution. Set `NEXT_PUBLIC_MAP_STYLE_URL` at frontend
+build time to use a different MapLibre-compatible style.
+
+## Quality checks
+
+Backend:
+
 ```sh
+cd backend
 uv run --locked ruff check app tests migrations
 uv run --locked ruff format --check app tests migrations
 uv run --locked mypy app
 uv run --locked pytest -q
 RUN_DB_TESTS=1 uv run --locked pytest -q
 ```
-The default suite skips the live database test. The second command set requires
-the running PostGIS database and includes it. Tests disable dotenv loading and
-normalize application settings. With custom database credentials, export matching
-POSTGRES_* variables in the integration-test shell; these are retained only when
-RUN_DB_TESTS=1. TERRATWIN_ENV_FILE can select an alternative settings file;
-an empty value disables dotenv loading.
 
-In frontend:
+Frontend:
+
 ```sh
+cd frontend
 npm run lint
 npm run typecheck
 npm test
 npm run build
-npx playwright install chromium
-npm run test:e2e
-LIVE_STACK=1 npm run test:e2e
 npm audit
 ```
-CI repeats these gates and Compose startup. Browser installation may require
-system dependencies; CI uses playwright install --with-deps chromium.
-On an unsupported host OS, an installed Chromium can be selected explicitly:
-`PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:e2e`.
-Use LIVE_STACK=1 only after Compose is healthy; that mode runs both real-API and
-offline browser checks against the existing stack.
-Only test fixtures simulate service responses, never scientific results.
 
-## Documentation
-- [Architecture](documentation/architecture/system-overview.md)
-- [Implementation plan](documentation/phase-1-plan.md)
-- [Roadmap](documentation/development-roadmap.md)
-- [API](documentation/api/phase-1.md)
-- [Dataset API](documentation/api/phase-2.md)
-- [Validation report](documentation/validation/phase-1-report.md)
-- [Dataset ingestion specification](documentation/datasets/phase-2-ingestion.md)
-- [Phase 2 report](documentation/validation/phase-2-report.md)
+Playwright browser checks are configured with `npm run test:e2e`; use
+`LIVE_STACK=1` only after Compose health checks pass. Test fixtures may model
+API responses but never scientific candidate or measurement results.
 
-Each phase requires executed checks, independent review, documentation and explicit
-approval before the next phase. Production authentication, processing limits,
-job orchestration and scientific validation are future work.
+## Persistence and backup
 
+Compose stores PostgreSQL in the `terratwin_pgdata` named volume and source,
+processed, derived and result artifacts under `./data`. Keep them backed up as
+a provenance-linked set: database records reference artifact IDs and processing
+reports. A minimal maintenance-window backup from the host is:
+
+```sh
+docker compose exec -T db pg_dump -U postgres -d terratwin -Fc > terratwin-db.dump
+tar --exclude='data/.staging' -czf terratwin-data.tar.gz data
+```
+
+Use matching configured database credentials if they differ from the local
+default. Verify restore procedures in a separate environment before relying on
+the backup. Protect raster archives as scientific source records.
+
+## Deployment and limits
+
+`compose.yaml` is the local development stack and must not be exposed directly.
+A separate single-host production Compose setup with Caddy HTTPS and a shared
+Basic Authentication gate is documented in
+[production deployment](documentation/deployment/production-compose.md). It
+does not provide per-user authentication or authorization. The job worker is
+single-instance, one processing thread; horizontal worker scaling requires
+database leasing. Production sizing still requires workload-specific profiling.
+
+See [architecture](documentation/architecture/system-overview.md),
+[scientific methods](documentation/scientific-methodology/README.md),
+[datasets](documentation/datasets/phase-2-ingestion.md),
+[API integration](documentation/api/phase-8.md), and the
+[Phase 8 engineering report](documentation/validation/phase-8-report.md).

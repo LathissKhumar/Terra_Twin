@@ -3,16 +3,29 @@
 import pytest
 from httpx import ASGITransport, AsyncClient
 
+from app.database.session import check_database_health
+from app.domain.schemas.health import DatabaseHealth
 from app.main import app
 
 
 @pytest.mark.asyncio
 async def test_health_endpoint_structure():
     """Verify health endpoint returns a valid schema and required fields."""
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
-        response = await client.get("/api/v1/health")
+
+    async def healthy_database():
+        return DatabaseHealth(
+            connected=True, database_version="test", postgis_available=True, postgis_version="test"
+        )
+
+    app.dependency_overrides[check_database_health] = healthy_database
+    try:
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            response = await client.get("/api/v1/health")
+    finally:
+        app.dependency_overrides.clear()
 
     assert response.status_code == 200
+    assert response.headers["cache-control"] == "no-store"
     data = response.json()
 
     # Verify top-level structure

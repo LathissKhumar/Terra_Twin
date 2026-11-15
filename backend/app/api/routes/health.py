@@ -1,4 +1,4 @@
-"""Validated readiness response."""
+"""Health check endpoint implementation."""
 
 import platform
 
@@ -16,6 +16,7 @@ async def get_health(
     response: Response,
     database: DatabaseHealth = Depends(check_database_health),
 ) -> HealthResponse:
+    """Report API and dependency readiness without exposing connection details."""
     healthy = database.connected and database.postgis_available
     response.status_code = 200 if healthy else 503
     response.headers["Cache-Control"] = "no-store"

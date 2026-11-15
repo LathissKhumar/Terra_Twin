@@ -38,7 +38,7 @@ def sanitize_and_resolve_data_path(relative_or_name: str, subfolder: str = "raw"
     candidate = (base_target / relative_or_name).resolve()
 
     # Verify containment within base_target
-    if not str(candidate).startswith(str(base_target)):
+    if not candidate.is_relative_to(base_target):
         msg = f"Access denied: path '{relative_or_name}' attempts traversal outside data boundary."
         raise PathSecurityError(msg)
 

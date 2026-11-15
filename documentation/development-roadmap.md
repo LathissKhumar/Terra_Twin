@@ -1,28 +1,18 @@
 # Development roadmap and acceptance gates
 
-Phase 1: application foundation, real service health, configuration, database,
-migrations, reproducible installs, tests and documentation. No scientific claims.
+| Phase | Scope | State |
+|---|---|---|
+| 1 | Independent frontend/backend foundation, health, database and quality checks | Implemented |
+| 2 | Planetary and Earth source ingestion, product manifests and checksums | Implemented for MOLA regional source and Copernicus GLO-30 tile; LOLA/HiRISE/NASADEM product downloaders remain limited/deferred as documented |
+| 3 | ScaleBridge spatial support, CRS, resolution, vertical metadata and NoData handling | Implemented and tested |
+| 4 | Independent terrain feature calculations and feature reports | Implemented and tested; low MOLA valid support limits regional conclusions |
+| 5 | Bounded candidate window discovery, distances, evidence gates, ranks and provenance | Implemented; actual run returned no rankable candidates at current coverage |
+| 6 | DEM-derived mesh, export and independent validation status | Implemented; current candidate mesh is visualization-only and unvalidated |
+| 7 | Deterministic experiment assessment and JSON/PDF Evidence Passport | Implemented |
+| 8 | Product/API integration, durable jobs, comparison maps, frontend journey, reliability/security/performance checks | In progress; see Phase 8 report and open gates |
 
-Phase 2 (not authorized): select official challenge resources and product versions;
-define provenance manifests and implement safe raster inspection/acquisition.
-Confirm the exact Space Apps challenge/year before claiming resource eligibility.
-
-Phase 3: ScaleBridge with explicit planetary/Earth CRS, vertical references,
-common physical support and NoData rules; known numerical tests.
-
-Phase 4: independently tested terrain feature methods and uncertainty statements.
-Define feature neighborhood scales and resolution limits before implementation.
-
-Phase 5: bounded Earth candidate search, documented normalization and mission
-weights, valid-feature denominator, evidence thresholds and sensitivity analysis.
-Under-explored status requires external evidence; terrain distance cannot prove it.
-
-Phase 6: independent DEM mesh generation, masks, chunks, geographic metadata,
-and independent elevation validation or explicit visualization-only status.
-
-Phase 7: evidence-derived transferability assessment, JSON/PDF passports and
-connected scientific views; end-to-end reproduction from real data.
-
-Each phase requires an implementation plan, executed quality gates, independent
-review, documentation, phase report and explicit user approval before proceeding.
-
+Phase completion is based on executed acceptance evidence, not implementation
+presence. No production-ready claim is valid until the clean-install workflow,
+reliability and deployment gates in the Phase 8 specification are all
+demonstrated. Broader planetary/Earth coverage and Moon acquisition are
+subsequent scientific data work, not implied by the initial local workflow.

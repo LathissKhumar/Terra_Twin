@@ -1,0 +1,31 @@
+{
+  "profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+  "version": "1.1.0",
+  "feature_weights": {
+    "slope": 0.20,
+    "local_relief": 0.18,
+    "terrain_roughness": 0.18,
+    "profile_curvature": 0.12,
+    "plan_curvature": 0.12,
+    "topographic_position_index": 0.12,
+    "landform_morphology": 0.08
+  },
+  "required_features": [
+    "slope",
+    "local_relief",
+    "terrain_roughness",
+    "profile_curvature",
+    "plan_curvature",
+    "topographic_position_index",
+    "landform_morphology"
+  ],
+  "justifications": {
+    "slope": "A provisional mobility geometry descriptor; weight is a researcher-set prior.",
+    "local_relief": "A provisional local elevation-range descriptor at the declared support.",
+    "terrain_roughness": "A provisional elevation-dispersion descriptor, not traction.",
+    "profile_curvature": "A provisional along-slope shape descriptor.",
+    "plan_curvature": "A provisional cross-slope shape descriptor.",
+    "topographic_position_index": "A provisional local-high/low context descriptor.",
+    "landform_morphology": "A low-weight relative-position class summary only."
+  }
+}

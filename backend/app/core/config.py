@@ -3,6 +3,7 @@
 import os
 from pathlib import Path
 from typing import Annotated, Literal
+from urllib.parse import urlsplit
 
 from pydantic import Field, SecretStr, field_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
@@ -17,6 +18,7 @@ class Settings(BaseSettings):
         case_sensitive=True,
         extra="ignore",
     )
+
     PROJECT_NAME: str = "TerraTwin"
     VERSION: str = "0.1.0"
     DESCRIPTION: str = "Planetary Analogue Discovery and Terrain Intelligence Platform"
@@ -52,8 +54,6 @@ class Settings(BaseSettings):
     @field_validator("CORS_ORIGINS")
     @classmethod
     def validate_origins(cls, value: list[str]) -> list[str]:
-        from urllib.parse import urlsplit
-
         for origin in value:
             parsed = urlsplit(origin)
             if (
@@ -63,6 +63,7 @@ class Settings(BaseSettings):
                 or parsed.query
                 or parsed.fragment
                 or parsed.username
+                or origin == "*"
             ):
                 raise ValueError("CORS origins must be explicit HTTP(S) origins")
         return value

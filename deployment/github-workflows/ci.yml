@@ -1,0 +1,39 @@
+name: TerraTwin CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.13.6"
+      - name: Set up Python
+        run: uv python install 3.12
+      - name: Install dependencies
+        run: cd backend && uv sync --locked
+      - name: Run Backend Tests
+        run: cd backend && uv run pytest tests/unit -v
+        env:
+          ENVIRONMENT: test
+
+  frontend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: cd frontend && npm ci
+      - name: Run Typecheck
+        run: cd frontend && npm run typecheck
+      - name: Run Tests
+        run: cd frontend && npm run test

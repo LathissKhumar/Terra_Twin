@@ -56,6 +56,15 @@ data/results/*
 data/manifests/*.json
 data/manifests/ancillary/*.json
 
+# Backend large raw rasters (>100MB; downloaded during Docker build)
+backend/data/raw/mars/9e723a99*.img
+backend/data/raw/mars/14022166*.img
+backend/data/raw/earth/e3453aef*.tif
+backend/data/raw/earth/fba51a0e*.tif
+backend/data/raw/mars/DTEEC*.IMG
+backend/data/raw/mars/MEGT*.IMG
+backend/data/raw/mars/MEGC*.IMG
+
 # Environment variables & secrets
 .env
 .env.local

@@ -1,0 +1,140 @@
+{
+  "run_id": "505ecf65cd039bb98445",
+  "planetary": {
+    "dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+    "target_body": "mars",
+    "product": "MGS MOLA MEGDR median topography",
+    "source_crs": "PROJCS[\"SIMPLE_CYLINDRICAL MARS\",GEOGCS[\"GCS_MARS\",DATUM[\"D_MARS\",SPHEROID[\"MARS\",3396000,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",180],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+    "source_horizontal_units": "metre",
+    "local_metric_crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3396000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Azimuthal Equidistant\",ID[\"EPSG\",1125]],PARAMETER[\"Latitude of natural origin\",18.46,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",77.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+    "nominal_ground_spacing_x_m": 439.1697989758624,
+    "nominal_ground_spacing_y_m": 463.0000002344706,
+    "effective_resolution_m": null,
+    "vertical_units": "m",
+    "vertical_reference": "GMM3 Mars areoid, degree/order 50; radial topography",
+    "center_longitude_latitude": [
+      77.52,
+      18.46
+    ],
+    "source_bounds": [
+      -10667983.0,
+      463.0,
+      -5334223.0,
+      2608079.0
+    ],
+    "source_geographic_bounds_lon_lat": [
+      0.014604883006313277,
+      0.007811527065535075,
+      90.00339667797039,
+      44.00233196015908
+    ],
+    "relative_elevation_reference_m": -2403.150146484375
+  },
+  "earth": {
+    "dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+    "target_body": "earth",
+    "product": "Copernicus DEM GLO-30 Public DSM",
+    "source_crs": "EPSG:4326",
+    "source_horizontal_units": "degree",
+    "local_metric_crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Azimuthal Equidistant\",ID[\"EPSG\",1125]],PARAMETER[\"Latitude of natural origin\",18.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",77.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+    "nominal_ground_spacing_x_m": 29.334027978228736,
+    "nominal_ground_spacing_y_m": 30.74615553231859,
+    "effective_resolution_m": null,
+    "vertical_units": "m",
+    "vertical_reference": "EGM2008 orthometric height",
+    "center_longitude_latitude": [
+      77.5,
+      18.5
+    ],
+    "source_bounds": [
+      76.99986111111112,
+      18.000138888888888,
+      77.99986111111112,
+      19.000138888888888
+    ],
+    "source_geographic_bounds_lon_lat": [
+      76.99986111111112,
+      18.000138888888888,
+      77.99986111111112,
+      19.000138888888888
+    ],
+    "relative_elevation_reference_m": 419.346923828125
+  },
+  "target_resolution_m": 463.0000002344706,
+  "target_resolution_basis": "maximum of measured local ground pixel spacing and documented effective resolution; optional requested resolution may coarsen further",
+  "resampling": "area-weighted average; no upsampling below source sampling support",
+  "information_loss": {
+    "planetary": "No finer spatial detail is created. Source cells are averaged onto the comparison grid. The MOLA counts mask excluded zero-count bins; retained cells remain product-level MEGDR values and do not resolve sub-grid terrain.",
+    "earth": "Fine-scale terrain is aggregated to the coarsest comparison support and is not retained as resolvable detail in the output."
+  },
+  "requested_support_width_m": 50000.0,
+  "requested_support_height_m": 50000.0,
+  "actual_support_width_m": 50004.00002532282,
+  "actual_support_height_m": 50004.00002532282,
+  "planetary_requested_support_width_m": 50000.0,
+  "planetary_requested_support_height_m": 50000.0,
+  "planetary_actual_support_width_m": 50004.00002532282,
+  "planetary_actual_support_height_m": 50004.00002532282,
+  "alignment_description": "Each body is centered independently on its supplied coordinate and projected to a local azimuthal-equidistant metric grid at the same cell size; support extents and raster dimensions may differ, and matching array indices have no geographic meaning.",
+  "grid_width": 108,
+  "grid_height": 108,
+  "planetary_grid_width": 108,
+  "planetary_grid_height": 108,
+  "minimum_valid_fraction_per_cell": 0.999,
+  "coverage": {
+    "planetary_valid_cells": 1078,
+    "earth_valid_cells": 11664,
+    "planetary_output_cells": 11664,
+    "output_cells": 11664,
+    "planetary_valid_area_m2": 231089782.2340551,
+    "earth_valid_area_m2": 2500400018.532485,
+    "planetary_fraction": 0.09242112482853224,
+    "earth_fraction": 1.0,
+    "common_valid_cells": 1078,
+    "common_fraction": 0.09242112482853224,
+    "common_valid_area_m2": 231089782.2340551
+  },
+  "planetary_observation_counts": {
+    "product_id": "MEGC44N000HB",
+    "checksum_sha256": "cfb4d7e3626106ef4ed2a466eb03a538feed9c163be99e860b7ae8700a8ecab5",
+    "source_topography_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+    "count_units": "MOLA observations per 0.0078125-degree MEGDR bin",
+    "zero_count_policy": "zero-count cells excluded as unobserved; positive count is a validity mask only and count magnitude is not used to weight elevation",
+    "observed_source_cells": 20551186,
+    "total_source_cells": 64880640,
+    "maximum_count": 14
+  },
+  "vertical_comparison": "relative terrain only; absolute elevations not compared",
+  "output_vertical_units": "m",
+  "vertical_normalization": "Convert recognized linear units to metres, area-average, then subtract each source's own median over valid output cells; no vertical datum conversion.",
+  "area_calculation": "Valid area is projected local-grid cell count multiplied by target cell-size squared; it is not an ellipsoidal geodesic area measurement.",
+  "common_mask_semantics": "Boolean NumPy array aligned by row and column to both outputs; true only where both source valid fractions meet the configured threshold; no single CRS applies.",
+  "processing_software": {
+    "terratwin_scale_bridge": "0.2.0",
+    "numpy": "2.5.4",
+    "rasterio": "1.5.2",
+    "gdal": "3.12.2",
+    "pyproj": "3.7.2",
+    "proj": "9.5.1"
+  },
+  "reproducibility_sha256": "505ecf65cd039bb98445fad42634711587517be0605003bc8430c3faac639c27",
+  "warnings": [
+    "Earth and planetary grids use independent local CRSs and origins; array indices represent paired support only.",
+    "Vertical datums and reference surfaces are not reconciled; each output is centered on its own valid-cell median.",
+    "At least one product has no documented effective spatial resolution; nominal sampling is only a conservative grid floor.",
+    "Input vertical references differ and absolute elevations must not be compared.",
+    "Some paired support cells did not meet the per-cell valid-data threshold; interpret comparisons with the reported coverage.",
+    "MGS MOLA MEGDR median topography documents interpolation for bins without observations; the companion counts mask excluded zero-count bins, but does not quantify uncertainty or other interpolation effects in retained cells."
+  ],
+  "artifacts": {
+    "planetary": "planetary_relative_elevation.tif",
+    "earth": "earth_relative_elevation.tif",
+    "report": "report.json",
+    "common_mask": "common_support_mask.npy"
+  },
+  "artifact_sha256": {
+    "planetary": "6b19a8dcf2a76c7b174a598f95bf6d2a18d81f34ca7153a4b04bab46874da0ab",
+    "earth": "32d8f268cebf99a29a6e75e3c7db45674aaaa69e07b0eb62b430b19d81675b95",
+    "common_mask": "03830795086c11c1ac35eb2cdb5a82e902be94791d8a4b631caa0b32f6d0a07a"
+  }
+}

@@ -1,0 +1,480 @@
+{
+  "run_id": "8b35ecf4e9295301faba",
+  "reproducibility_sha256": "8b35ecf4e9295301faba76e9ae3895aaa953ce5e8dc7a9d42e7d6c8b19cc66f4",
+  "source_dataset_id": "9e723a990ef2694474bbc2486039098c885d09b938e70b903d60c15cbf704008",
+  "source_raster_sha256": "17a2aacfa278f018ec468a96216c6cae3ce3559390c4c4402b426bd24ee8f6bc",
+  "target_body": "mars",
+  "source_product": "HiRISE stereo-derived Jezero DTM",
+  "source_surface_type": "planetary_dtm",
+  "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3394839.8133163,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unnamed\",METHOD[\"Azimuthal Equidistant\",ID[\"EPSG\",1125]],PARAMETER[\"Latitude of natural origin\",18.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",77.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"easting\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"northing\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+  "horizontal_units": "m",
+  "vertical_units": "m",
+  "width": 80,
+  "height": 80,
+  "pixel_width_m": 25.050024999999994,
+  "pixel_height_m": 25.050024999999994,
+  "source_effective_resolution_m": null,
+  "raster_cell_count": 6400,
+  "input_valid_cell_count": 6400,
+  "input_valid_fraction": 1.0,
+  "config": {
+    "neighborhood_radius_m": 25.050024999999994,
+    "minimum_neighborhood_valid_fraction": 0.8,
+    "landform_standardization_scale_m": null,
+    "histogram_bins": 12
+  },
+  "features": {
+    "slope": {
+      "name": "slope",
+      "algorithm": "Horn 3x3 weighted finite-difference gradient; arctangent of gradient magnitude",
+      "units": "degree",
+      "raster_file": "slope.tif",
+      "raster_sha256": "0473b5f8ef6a5dc81019d3e8207b687dc604e02ea0aa4a6cf048d1dca5b45e3e",
+      "valid_sample_count": 6084,
+      "input_valid_sample_count": 6400,
+      "coverage_of_input_valid": 0.950625,
+      "coverage_of_raster": 0.950625,
+      "window_cells": [
+        3,
+        3
+      ],
+      "window_support_m": [
+        75.15007499999999,
+        75.15007499999999
+      ],
+      "edge_policy": "Outermost row/column is NoData because the full 3x3 stencil is unavailable.",
+      "nodata_policy": "Output is NoData unless the center and all nine cells in the 3x3 stencil are valid.",
+      "aggregation": "Pointwise gradient; degrees from the metric rise/run magnitude.",
+      "normalization_scale_m": null,
+      "summary": {
+        "valid_sample_count": 6084,
+        "mean": 1.3325964484460733,
+        "median": 1.089097040274438,
+        "standard_deviation": 1.172323419697976,
+        "minimum": 0.01576091676905937,
+        "maximum": 17.257699430795917,
+        "percentile_05": 0.29531000487559605,
+        "percentile_25": 0.7018955768385574,
+        "percentile_75": 1.6243835187760516,
+        "percentile_95": 2.907194106076291,
+        "histogram": {
+          "bin_edges": [
+            0.01576091676905937,
+            1.4525891262712973,
+            2.8894173357735355,
+            4.326245545275773,
+            5.763073754778011,
+            7.199901964280249,
+            8.636730173782487,
+            10.073558383284725,
+            11.510386592786963,
+            12.947214802289201,
+            14.384043011791439,
+            15.820871221293677,
+            17.257699430795917
+          ],
+          "counts": [
+            4174,
+            1602,
+            200,
+            40,
+            29,
+            11,
+            7,
+            5,
+            6,
+            6,
+            2,
+            2
+          ]
+        }
+      },
+      "categories": null
+    },
+    "local_relief": {
+      "name": "local_relief",
+      "algorithm": "Local relief = maximum elevation - minimum elevation",
+      "units": "m",
+      "raster_file": "local_relief.tif",
+      "raster_sha256": "e2b6a1b87e47075ab13aea0c520882c51b862e66abe26610822f7e65ddaeda78",
+      "valid_sample_count": 6084,
+      "input_valid_sample_count": 6400,
+      "coverage_of_input_valid": 0.950625,
+      "coverage_of_raster": 0.950625,
+      "window_cells": [
+        3,
+        3
+      ],
+      "window_support_m": [
+        75.15007499999999,
+        75.15007499999999
+      ],
+      "edge_policy": "Window is centered; beyond-raster cells count as missing; insufficient windows are NoData.",
+      "nodata_policy": "Output requires a valid center and at least the configured fraction of cells in the full rectangular neighborhood; NoData and beyond-raster cells count as missing.",
+      "aggregation": "Maximum minus minimum of available neighborhood elevations.",
+      "normalization_scale_m": null,
+      "summary": {
+        "valid_sample_count": 6084,
+        "mean": 1.6649006198378944,
+        "median": 1.39013671875,
+        "standard_deviation": 1.3149620298541713,
+        "minimum": 0.1572265625,
+        "maximum": 21.173583984375,
+        "percentile_05": 0.5456298828125,
+        "percentile_25": 0.9632568359375,
+        "percentile_75": 1.982421875,
+        "percentile_95": 3.458740234375,
+        "histogram": {
+          "bin_edges": [
+            0.1572265625,
+            1.9085896809895833,
+            3.6599527994791665,
+            5.41131591796875,
+            7.162679036458333,
+            8.914042154947916,
+            10.6654052734375,
+            12.416768391927082,
+            14.168131510416666,
+            15.91949462890625,
+            17.670857747395832,
+            19.422220865885414,
+            21.173583984375
+          ],
+          "counts": [
+            4421,
+            1411,
+            151,
+            47,
+            21,
+            8,
+            7,
+            8,
+            4,
+            5,
+            0,
+            1
+          ]
+        }
+      },
+      "categories": null
+    },
+    "terrain_roughness": {
+      "name": "terrain_roughness",
+      "algorithm": "Elevation standard deviation (population, ddof=0); not vector ruggedness",
+      "units": "m",
+      "raster_file": "terrain_roughness.tif",
+      "raster_sha256": "3c64eac642ad99800efd589739577be0b0a8b0b31b55a0931ffe81e80f6ec68f",
+      "valid_sample_count": 6084,
+      "input_valid_sample_count": 6400,
+      "coverage_of_input_valid": 0.950625,
+      "coverage_of_raster": 0.950625,
+      "window_cells": [
+        3,
+        3
+      ],
+      "window_support_m": [
+        75.15007499999999,
+        75.15007499999999
+      ],
+      "edge_policy": "Window is centered; beyond-raster cells count as missing; insufficient windows are NoData.",
+      "nodata_policy": "Output requires a valid center and at least the configured fraction of cells in the full rectangular neighborhood; NoData and beyond-raster cells count as missing.",
+      "aggregation": "Population standard deviation of available neighborhood elevations.",
+      "normalization_scale_m": null,
+      "summary": {
+        "valid_sample_count": 6084,
+        "mean": 0.5354007262659659,
+        "median": 0.4409198118376898,
+        "standard_deviation": 0.4311084652770467,
+        "minimum": 0.04758662016630441,
+        "maximum": 6.318147230625767,
+        "percentile_05": 0.17435080695585273,
+        "percentile_25": 0.30548608970565544,
+        "percentile_75": 0.6394425244325128,
+        "percentile_95": 1.1238668066051642,
+        "histogram": {
+          "bin_edges": [
+            0.04758662016630441,
+            0.5701333377045931,
+            1.0926800552428817,
+            1.6152267727811704,
+            2.137773490319459,
+            2.6603202078577475,
+            3.1828669253960364,
+            3.705413642934325,
+            4.227960360472613,
+            4.7505070780109016,
+            5.27305379554919,
+            5.795600513087479,
+            6.318147230625767
+          ],
+          "counts": [
+            4175,
+            1573,
+            218,
+            45,
+            31,
+            10,
+            10,
+            6,
+            6,
+            7,
+            1,
+            2
+          ]
+        }
+      },
+      "categories": null
+    },
+    "profile_curvature": {
+      "name": "profile_curvature",
+      "algorithm": "Directional second derivative along the steepest-slope direction; convex negative",
+      "units": "m^-1",
+      "raster_file": "profile_curvature.tif",
+      "raster_sha256": "99965018fc305d80604ac7c816310206e7e6984c64980f607729c07de66fdac5",
+      "valid_sample_count": 6084,
+      "input_valid_sample_count": 6400,
+      "coverage_of_input_valid": 0.950625,
+      "coverage_of_raster": 0.950625,
+      "window_cells": [
+        3,
+        3
+      ],
+      "window_support_m": [
+        75.15007499999999,
+        75.15007499999999
+      ],
+      "edge_policy": "Outermost row/column is NoData; zero-gradient non-flat critical points are undefined.",
+      "nodata_policy": "Output is NoData unless the center and all nine cells in the 3x3 stencil are valid. Non-flat zero-gradient points are NoData.",
+      "aggregation": "Derivative curvature in the steepest-slope direction.",
+      "normalization_scale_m": null,
+      "summary": {
+        "valid_sample_count": 6084,
+        "mean": -0.00004873369061417745,
+        "median": 0.000012676019726615129,
+        "standard_deviation": 0.0011320780276682584,
+        "minimum": -0.014095089496625541,
+        "maximum": 0.0052756975293624065,
+        "percentile_05": -0.0016710327136277234,
+        "percentile_25": -0.00045338559745781103,
+        "percentile_75": 0.0004550939756582826,
+        "percentile_95": 0.0015064757665632644,
+        "histogram": {
+          "bin_edges": [
+            -0.014095089496625541,
+            -0.01248085724445988,
+            -0.010866624992294216,
+            -0.009252392740128554,
+            -0.007638160487962891,
+            -0.0060239282357972285,
+            -0.004409695983631567,
+            -0.0027954637314659032,
+            -0.0011812314793002415,
+            0.0004330007728654203,
+            0.002047233025031084,
+            0.0036614652771967474,
+            0.0052756975293624065
+          ],
+          "counts": [
+            1,
+            2,
+            4,
+            4,
+            11,
+            22,
+            82,
+            417,
+            3966,
+            1435,
+            126,
+            14
+          ]
+        }
+      },
+      "categories": null
+    },
+    "plan_curvature": {
+      "name": "plan_curvature",
+      "algorithm": "Directional second derivative across the steepest-slope direction; convex positive",
+      "units": "m^-1",
+      "raster_file": "plan_curvature.tif",
+      "raster_sha256": "e111e58e13e51d8468d695f5d78b3dfa43fc7c76db84212a01038adf6498d072",
+      "valid_sample_count": 6084,
+      "input_valid_sample_count": 6400,
+      "coverage_of_input_valid": 0.950625,
+      "coverage_of_raster": 0.950625,
+      "window_cells": [
+        3,
+        3
+      ],
+      "window_support_m": [
+        75.15007499999999,
+        75.15007499999999
+      ],
+      "edge_policy": "Outermost row/column is NoData; zero-gradient non-flat critical points are undefined.",
+      "nodata_policy": "Output is NoData unless the center and all nine cells in the 3x3 stencil are valid. Non-flat zero-gradient points are NoData.",
+      "aggregation": "Derivative curvature perpendicular to steepest slope; convex is positive.",
+      "normalization_scale_m": null,
+      "summary": {
+        "valid_sample_count": 6084,
+        "mean": 0.00040572291487719545,
+        "median": -0.0018725378405606593,
+        "standard_deviation": 0.08205186159147511,
+        "minimum": -2.0800568592505284,
+        "maximum": 1.6432332660926134,
+        "percentile_05": -0.07383607053458366,
+        "percentile_25": -0.02261512031351283,
+        "percentile_75": 0.01900529942542222,
+        "percentile_95": 0.0857892419204531,
+        "histogram": {
+          "bin_edges": [
+            -2.0800568592505284,
+            -1.7697826821386,
+            -1.4595085050266716,
+            -1.149234327914743,
+            -0.8389601508028146,
+            -0.5286859736908862,
+            -0.2184117965789576,
+            0.0918623805329708,
+            0.4021365576448992,
+            0.7124107347568276,
+            1.022684911868756,
+            1.3329590889806844,
+            1.6432332660926134
+          ],
+          "counts": [
+            2,
+            0,
+            0,
+            1,
+            6,
+            34,
+            5766,
+            257,
+            10,
+            7,
+            0,
+            1
+          ]
+        }
+      },
+      "categories": null
+    },
+    "topographic_position_index": {
+      "name": "topographic_position_index",
+      "algorithm": "Center elevation minus arithmetic mean of the focal neighborhood, including center",
+      "units": "m",
+      "raster_file": "topographic_position_index.tif",
+      "raster_sha256": "17f02edd814c5ab868a77c1b29abd7b16ae5fa6a8c92c06d14d182712380bc8a",
+      "valid_sample_count": 6084,
+      "input_valid_sample_count": 6400,
+      "coverage_of_input_valid": 0.950625,
+      "coverage_of_raster": 0.950625,
+      "window_cells": [
+        3,
+        3
+      ],
+      "window_support_m": [
+        75.15007499999999,
+        75.15007499999999
+      ],
+      "edge_policy": "Window is centered; beyond-raster cells count as missing; insufficient windows are NoData.",
+      "nodata_policy": "Output requires a valid center and at least the configured fraction of cells in the full rectangular neighborhood; NoData and beyond-raster cells count as missing.",
+      "aggregation": "Positive is locally high, negative locally low, relative to the selected neighborhood.",
+      "normalization_scale_m": null,
+      "summary": {
+        "valid_sample_count": 6084,
+        "mean": 0.0030483424476314062,
+        "median": -0.0037977430555560243,
+        "standard_deviation": 0.31801043252598654,
+        "minimum": -2.048339843749995,
+        "maximum": 3.680881076388893,
+        "percentile_05": -0.4531209309895803,
+        "percentile_25": -0.13975694444444353,
+        "percentile_75": 0.13598632812499867,
+        "percentile_95": 0.4674763997395859,
+        "histogram": {
+          "bin_edges": [
+            -2.048339843749995,
+            -1.5709047670717544,
+            -1.0934696903935137,
+            -0.6160346137152732,
+            -0.13859953703703254,
+            0.33883553964120816,
+            0.8162706163194486,
+            1.2937056929976896,
+            1.77114076967593,
+            2.248575846354171,
+            2.7260109230324114,
+            3.203445999710652,
+            3.680881076388893
+          ],
+          "counts": [
+            1,
+            21,
+            139,
+            1366,
+            4045,
+            407,
+            77,
+            15,
+            8,
+            2,
+            1,
+            2
+          ]
+        }
+      },
+      "categories": null
+    },
+    "landform_morphology": {
+      "name": "landform_morphology",
+      "algorithm": "Single-scale relative-position classes from TPI divided by the shared reference TPI population standard deviation",
+      "units": "class code",
+      "raster_file": "landform_morphology.tif",
+      "raster_sha256": "1bd962daf582d25bd0bce23222acbc54690d4bb1b3cf0675912b8be80aed2efd",
+      "valid_sample_count": 6084,
+      "input_valid_sample_count": 6400,
+      "coverage_of_input_valid": 0.950625,
+      "coverage_of_raster": 0.950625,
+      "window_cells": [
+        3,
+        3
+      ],
+      "window_support_m": [
+        75.15007499999999,
+        75.15007499999999
+      ],
+      "edge_policy": "Inherits TPI edges and NoData; classes describe relative position only.",
+      "nodata_policy": "Output requires a valid center and at least the configured fraction of cells in the full rectangular neighborhood; NoData and beyond-raster cells count as missing.",
+      "aggregation": "-1=relative low; 0=near local mean; 1=relative high; not geology or material.",
+      "normalization_scale_m": 0.31801043252598654,
+      "summary": {
+        "valid_sample_count": 6084,
+        "category_counts": {
+          "relative_low": 582,
+          "near_local_mean": 4937,
+          "relative_high": 565
+        }
+      },
+      "categories": {
+        "relative_low": -1,
+        "near_local_mean": 0,
+        "relative_high": 1
+      }
+    }
+  },
+  "processing_software": {
+    "terratwin_terrain_analytics": "0.1.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.0",
+    "rasterio": "1.5.2",
+    "gdal": "3.12.2",
+    "pyproj": "3.7.2"
+  },
+  "warnings": [
+    "Morphometric outputs describe the harmonized raster scale; they do not restore terrain detail removed by ScaleBridge aggregation.",
+    "Single-scale TPI classes describe relative topographic position, not geology, material, soil, or formal landform taxonomy.",
+    "Terrain at or below source effective resolution is not independently resolved by these derivatives.",
+    "Source effective spatial resolution is unavailable; output derivatives describe the harmonized grid posting and do not establish finer terrain detail."
+  ]
+}

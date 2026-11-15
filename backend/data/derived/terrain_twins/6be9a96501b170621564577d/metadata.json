@@ -1,0 +1,213 @@
+{
+  "terrain_twin_id": "6be9a96501b170621564577d",
+  "candidate_id": "eae3156598054eeb89b16f48",
+  "discovery_run_id": "7198b690a42a8ee4831b",
+  "discovery_status": "eligible",
+  "ranking": 1,
+  "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+  "source_product": "Copernicus DEM GLO-30 Public DSM",
+  "source_sha256": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+  "geographic_bounds_wgs84": [
+    77.43346866089422,
+    18.490960527912737,
+    77.4526906241485,
+    18.509299636078023
+  ],
+  "candidate_boundary_wgs84": [
+    [
+      77.43346866089422,
+      18.509293855758695
+    ],
+    [
+      77.4358707768705,
+      18.50929468501641
+    ],
+    [
+      77.4382728928695,
+      18.509295483783337
+    ],
+    [
+      77.44067500889035,
+      18.50929625205946
+    ],
+    [
+      77.44307712493222,
+      18.509296989844785
+    ],
+    [
+      77.44547924099423,
+      18.5092976971393
+    ],
+    [
+      77.44788135707556,
+      18.509298373943015
+    ],
+    [
+      77.45028347317532,
+      18.509299020255924
+    ],
+    [
+      77.45268558929273,
+      18.509299636078023
+    ],
+    [
+      77.45268621888385,
+      18.50700797173181
+    ],
+    [
+      77.45268684840808,
+      18.50471630683112
+    ],
+    [
+      77.4526874778654,
+      18.502424641375995
+    ],
+    [
+      77.45268810725581,
+      18.50013297536651
+    ],
+    [
+      77.45268873657932,
+      18.497841308802705
+    ],
+    [
+      77.45268936583592,
+      18.495549641684665
+    ],
+    [
+      77.45268999502565,
+      18.493257974012423
+    ],
+    [
+      77.4526906241485,
+      18.490966305786053
+    ],
+    [
+      77.45028876364672,
+      18.490965690224545
+    ],
+    [
+      77.44788690316253,
+      18.490965044185135
+    ],
+    [
+      77.44548504269676,
+      18.490964367667818
+    ],
+    [
+      77.44308318225026,
+      18.4909636606726
+    ],
+    [
+      77.44068132182393,
+      18.490962923199483
+    ],
+    [
+      77.43827946141855,
+      18.490962155248464
+    ],
+    [
+      77.435877601035,
+      18.490961356819554
+    ],
+    [
+      77.43347574067413,
+      18.490960527912737
+    ],
+    [
+      77.43347485603087,
+      18.493252195833414
+    ],
+    [
+      77.43347397129355,
+      18.49554386319993
+    ],
+    [
+      77.43347308646217,
+      18.497835530012242
+    ],
+    [
+      77.43347220153673,
+      18.5001271962703
+    ],
+    [
+      77.43347131651723,
+      18.502418861974032
+    ],
+    [
+      77.43347043140365,
+      18.504710527123375
+    ],
+    [
+      77.43346954619598,
+      18.50700219171828
+    ],
+    [
+      77.43346866089422,
+      18.509293855758695
+    ]
+  ],
+  "source_crs": "EPSG:4326",
+  "mesh_crs": "EPSG:32643",
+  "horizontal_transformation": "EPSG:4326 to EPSG:32643 using GDAL bilinear resampling",
+  "source_vertical_units": "m",
+  "source_vertical_reference": "EGM2008 orthometric height",
+  "vertical_transformation": "no datum conversion; vertical exaggeration is applied around the median elevation",
+  "vertical_exaggeration": 1.0,
+  "source_raster_resolution": [
+    0.0002777777777777778,
+    0.0002777777777777778
+  ],
+  "source_resolution_unit": "degrees",
+  "mesh_resolution_m": [
+    30.746156883855424,
+    30.746156883855424
+  ],
+  "source_dimensions": [
+    3600,
+    3600
+  ],
+  "candidate_crop_dimensions": [
+    67,
+    71
+  ],
+  "mesh_dimensions": [
+    69,
+    69
+  ],
+  "simplification_stride": 1,
+  "max_vertices": 150000,
+  "actual_vertex_count": 4761,
+  "chunk_count": 1,
+  "source_valid_cell_count": 4554,
+  "source_nodata_cell_count": 0,
+  "source_candidate_exterior_cell_count": 203,
+  "mesh_valid_cell_count": 4347,
+  "mesh_nodata_cell_count": 414,
+  "elevation_range_m": [
+    378.703125,
+    451.5390625
+  ],
+  "validation_status": "unvalidated",
+  "validation_reason": "No independent reference DEM was selected.",
+  "reference_dataset_id": null,
+  "reference_sha256": null,
+  "validation_metrics": null,
+  "artifacts": {
+    "mesh": "/api/v1/terrain-twins/6be9a96501b170621564577d/artifacts/mesh",
+    "elevation_map": "/api/v1/terrain-twins/6be9a96501b170621564577d/artifacts/elevation-map",
+    "slope_map": "/api/v1/terrain-twins/6be9a96501b170621564577d/artifacts/slope-map",
+    "error_map": "/api/v1/terrain-twins/6be9a96501b170621564577d/artifacts/error-map",
+    "valid_comparison_mask": "/api/v1/terrain-twins/6be9a96501b170621564577d/artifacts/valid-mask"
+  },
+  "warnings": [
+    "No independent reference DEM is selected; mesh is visualization-only."
+  ],
+  "software": {
+    "engine": "0.1.2",
+    "rasterio": "1.5.2",
+    "gdal": "3.12.2",
+    "pyproj": "3.7.2",
+    "numpy": "2.5.4"
+  }
+}

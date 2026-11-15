@@ -1,0 +1,31 @@
+{
+  "id": "cfb4d7e3626106ef4ed2a466eb03a538feed9c163be99e860b7ae8700a8ecab5",
+  "checksum_sha256": "cfb4d7e3626106ef4ed2a466eb03a538feed9c163be99e860b7ae8700a8ecab5",
+  "source_topography_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+  "provider": "NASA PDS Geosciences Node",
+  "product": "MGS MOLA MEGDR observations per bin",
+  "product_id": "MEGC44N000HB",
+  "source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc44n000hb.img",
+  "label_source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc44n000hb.lbl",
+  "downloaded_at": "2026-11-14T17:26:10.177098Z",
+  "file_size_bytes": 64880640,
+  "crs": "PROJCS[\"SIMPLE_CYLINDRICAL MARS\",GEOGCS[\"GCS_MARS\",DATUM[\"D_MARS\",SPHEROID[\"MARS\",3396000,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",180],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+  "bounds": [
+    -10667983.0,
+    463.0,
+    -5334223.0,
+    2608079.0
+  ],
+  "width": 11520,
+  "height": 5632,
+  "pixel_resolution_x": 463.0,
+  "pixel_resolution_y": 463.0,
+  "dtype": "uint8",
+  "count_units": "MOLA observations per 0.0078125-degree MEGDR bin",
+  "zero_count_means_unobserved": true,
+  "total_cells": 64880640,
+  "observed_cells": 20551186,
+  "maximum_count": 14,
+  "label_checksum_sha256": "e7bde6960c05e9fc48ff6417ee3e2b12ed271af16ea85294a775a6948d890a1e",
+  "attribution": "NASA/JPL/MOLA; PDS Geosciences Node"
+}

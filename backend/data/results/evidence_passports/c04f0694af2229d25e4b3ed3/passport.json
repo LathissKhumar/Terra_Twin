@@ -1,0 +1,1803 @@
+{
+  "passport_schema_version": "1.0.0",
+  "passport_id": "c04f0694af2229d25e4b3ed3",
+  "created_at_utc": "2026-11-15T06:00:58.319100Z",
+  "reproducibility_sha256": "c04f0694af2229d25e4b3ed31ae8584fab75a77a72c108ac25b7ba84e818f3c2",
+  "candidate": {
+    "candidate_id": "63af46cd196d205c2d9071d9",
+    "discovery_run_id": "adc68c9d64de024497c0",
+    "discovery_status": "insufficient_evidence",
+    "ranking": null,
+    "centroid_wgs84": [
+      77.35959097151041,
+      18.63380282807002
+    ],
+    "geographic_boundary_wgs84": [
+      [
+        77.2629323271279,
+        18.725730336909315
+      ],
+      [
+        77.28707808469389,
+        18.72575911536313
+      ],
+      [
+        77.31122384996422,
+        18.72578480541363
+      ],
+      [
+        77.33536962206523,
+        18.72580740705533
+      ],
+      [
+        77.35951540012323,
+        18.725826920283414
+      ],
+      [
+        77.38366118326454,
+        18.72584334509371
+      ],
+      [
+        77.40780697061545,
+        18.725856681482718
+      ],
+      [
+        77.43195276130231,
+        18.72586692944757
+      ],
+      [
+        77.4560985544514,
+        18.7258740889861
+      ],
+      [
+        77.45610446790485,
+        18.702868125442514
+      ],
+      [
+        77.45611037507139,
+        18.679862105511262
+      ],
+      [
+        77.45611627595544,
+        18.65685602925139
+      ],
+      [
+        77.45612217056139,
+        18.63384989672199
+      ],
+      [
+        77.4561280588937,
+        18.610843707982177
+      ],
+      [
+        77.45613394095673,
+        18.587837463091116
+      ],
+      [
+        77.45613981675493,
+        18.564831162108003
+      ],
+      [
+        77.45614568629264,
+        18.541824805092084
+      ],
+      [
+        77.43202581563207,
+        18.54181767589817
+      ],
+      [
+        77.40790594740247,
+        18.54180747136775
+      ],
+      [
+        77.38378608246641,
+        18.541794191502994
+      ],
+      [
+        77.35966622168651,
+        18.54177783630672
+      ],
+      [
+        77.33554636592535,
+        18.54175840578243
+      ],
+      [
+        77.31142651604551,
+        18.541735899934245
+      ],
+      [
+        77.28730667290961,
+        18.541710318766963
+      ],
+      [
+        77.26318683738016,
+        18.541681662286035
+      ],
+      [
+        77.26315514208683,
+        18.564687943265707
+      ],
+      [
+        77.26312341298723,
+        18.58769416817763
+      ],
+      [
+        77.26309165005767,
+        18.61070033696252
+      ],
+      [
+        77.26305985327441,
+        18.63370644956112
+      ],
+      [
+        77.26302802261365,
+        18.656712505914253
+      ],
+      [
+        77.26299615805155,
+        18.679718505962743
+      ],
+      [
+        77.26296425956427,
+        18.702724449647466
+      ],
+      [
+        77.2629323271279,
+        18.725730336909315
+      ]
+    ],
+    "evidence_coverage": 0.002066115702479339
+  },
+  "planetary_reference": {
+    "body": "mars",
+    "product": "MGS MOLA MEGDR median topography",
+    "dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+    "reference_boundary_body_lon_lat": [
+      77.31870582262572,
+      18.228061011970773,
+      77.68129417737428,
+      18.571853595450428
+    ],
+    "coordinate_body": "mars",
+    "width_m": 20372.00000102613,
+    "height_m": 20372.00000102613,
+    "effective_resolution_m": null,
+    "effective_resolution_status": "unavailable"
+  },
+  "mission_profile": {
+    "profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+    "version": "1.0.0",
+    "experiment_name": "Rover mobility and terrain navigation",
+    "profile_status": "provisional",
+    "weights": {
+      "slope": 0.2,
+      "local_relief": 0.18,
+      "terrain_roughness": 0.18,
+      "profile_curvature": 0.12,
+      "plan_curvature": 0.12,
+      "topographic_position_index": 0.12,
+      "landform_morphology": 0.08
+    },
+    "weight_justifications": {
+      "slope": "Provisional researcher-set priority for terrain inclination; not a rover safety threshold.",
+      "local_relief": "Provisional researcher-set priority for neighborhood elevation range.",
+      "terrain_roughness": "Provisional researcher-set priority for the configured elevation-dispersion measure; not traction.",
+      "profile_curvature": "Provisional researcher-set priority for along-slope terrain shape.",
+      "plan_curvature": "Provisional researcher-set priority for cross-slope terrain shape.",
+      "topographic_position_index": "Provisional researcher-set priority for relative local topographic position.",
+      "landform_morphology": "Provisional researcher-set priority for elevation-derived relative-position classes only."
+    },
+    "required_features": [
+      "slope",
+      "local_relief",
+      "terrain_roughness",
+      "profile_curvature",
+      "plan_curvature",
+      "topographic_position_index",
+      "landform_morphology"
+    ],
+    "optional_evidence": [
+      "Independent elevation reference with compatible vertical datum",
+      "Obstacle geometry at rover-relevant scales",
+      "In-situ soil mechanics and bearing-strength observations",
+      "Subsurface composition and material observations",
+      "Wheel-soil traction and rover interaction observations",
+      "Dust and atmospheric observations"
+    ],
+    "additional_evidence_required": [
+      "soil_mechanics",
+      "subsurface_composition",
+      "wheel_traction",
+      "dust_behavior",
+      "material_properties"
+    ],
+    "not_reproducible_by_earth_site_alone": [
+      "planetary_gravity",
+      "vacuum",
+      "radiation",
+      "complete_planetary_atmosphere"
+    ],
+    "assessment_rules": {
+      "required_features_must_pass_discovery_coverage_and_sample_gates": true,
+      "minimum_coverage": 0.8,
+      "minimum_samples_per_surface": 20,
+      "insufficient_candidate_never_supports_similarity_conclusion": true,
+      "weighted_distance_is_copied_without_recalculation": true,
+      "terrain_twin_validation_required_for_geometry_validation_claim": true,
+      "missing_material_observations_are_unavailable": true,
+      "no_overall_suitability_or_safety_score": true
+    },
+    "known_limitations": [
+      "Feature weights are provisional researcher choices, not validated rover engineering priorities.",
+      "DEM morphology cannot establish soil mechanics, traction, dust behavior, subsurface composition, or material properties.",
+      "A digital elevation model does not reproduce planetary gravity, vacuum, radiation, or a complete planetary atmosphere.",
+      "Discovery confidence describes finite-sample distribution-distance variability only; it is not DEM measurement uncertainty.",
+      "A Copernicus GLO-30 DSM may include vegetation and built surfaces and is not necessarily bare-earth terrain.",
+      "Terrain similarity does not guarantee rover safety, mobility, or mission performance."
+    ]
+  },
+  "source_datasets": [
+    {
+      "dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+      "target_body": "mars",
+      "provider": "NASA PDS Geosciences Node",
+      "product": "MGS MOLA MEGDR median topography",
+      "version": "MGS-M-MOLA-5-MEGDR-L3-V1.0 / product 2.0",
+      "source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img",
+      "downloaded_at": "2026-11-14T09:59:04.331253Z",
+      "raw_checksum_sha256": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+      "manifest_checksum_sha256": "484b65c945280c6b246a28c4a692e57b5f60ceb7da376f7947564873aeb8d51f",
+      "discovery_processing_checksum_sha256": "6b934428ef8d168c3260b32aaa538f2af9cb4c57ae40e74d8864d899d551cf3c",
+      "file_size_bytes": 129761280,
+      "crs": "PROJCS[\"SIMPLE_CYLINDRICAL MARS\",GEOGCS[\"GCS_MARS\",DATUM[\"D_MARS\",SPHEROID[\"MARS\",3396000,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",180],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+      "bounds": [
+        -10667983.0,
+        463.0,
+        -5334223.0,
+        2608079.0
+      ],
+      "dimensions": [
+        11520,
+        5632
+      ],
+      "pixel_resolution": [
+        463.0,
+        463.0
+      ],
+      "resolution_unit": "m",
+      "vertical_units": "m",
+      "vertical_reference": "GMM3 Mars areoid, degree/order 50; radial topography",
+      "nodata": -32768.0,
+      "license": null,
+      "attribution": "NASA/JPL/MOLA; PDS Geosciences Node",
+      "processing_status": "validated"
+    },
+    {
+      "dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+      "target_body": "earth",
+      "provider": "Copernicus Programme (public AWS mirror)",
+      "product": "Copernicus DEM GLO-30 Public DSM",
+      "version": "2021 release",
+      "source_url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E077_00_DEM/Copernicus_DSM_COG_10_N18_00_E077_00_DEM.tif",
+      "downloaded_at": "2026-11-14T09:59:04.621163Z",
+      "raw_checksum_sha256": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+      "manifest_checksum_sha256": "cc075773854b889031867db3826582cf5be177404f38254b47378e278a69098d",
+      "discovery_processing_checksum_sha256": "d6f7c3438e50cc902c0ad0ae1238683dcb38eb3296e238c23c20713f3b33034e",
+      "file_size_bytes": 39715598,
+      "crs": "EPSG:4326",
+      "bounds": [
+        76.99986111111112,
+        18.000138888888888,
+        77.99986111111112,
+        19.000138888888888
+      ],
+      "dimensions": [
+        3600,
+        3600
+      ],
+      "pixel_resolution": [
+        0.0002777777777777778,
+        0.0002777777777777778
+      ],
+      "resolution_unit": "degrees",
+      "vertical_units": "m",
+      "vertical_reference": "EGM2008 orthometric height",
+      "nodata": null,
+      "license": "Copernicus DEM user license terms",
+      "attribution": "© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved",
+      "processing_status": "validated"
+    }
+  ],
+  "feature_evidence": {
+    "slope": {
+      "feature": "slope",
+      "evidence_status": "INSUFFICIENT_EVIDENCE",
+      "interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+      "comparison": {
+        "feature": "slope",
+        "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+        "units": "degree",
+        "reference_sample_count": 4,
+        "candidate_sample_count": 1849,
+        "reference_coverage": 0.002066115702479339,
+        "candidate_coverage": 0.9550619834710744,
+        "wasserstein_distance": 0.5187271366277665,
+        "median_difference": -0.46149665117263794,
+        "normalization_scale": 1.0,
+        "normalized_distance": 0.5187271366277665,
+        "distance_standard_error": 0.06791291256732349,
+        "reference_median": 1.6007092595100403,
+        "candidate_median": 1.1392126083374023,
+        "reference_summary": {
+          "mean": 1.6318296194076538,
+          "median": 1.6007092595100403,
+          "standard_deviation": 0.18089826874093984,
+          "minimum": 1.4222421646118164,
+          "maximum": 1.9036577939987183,
+          "percentile_05": 1.4378161966800689,
+          "percentile_25": 1.5001123249530792,
+          "percentile_75": 1.7324265539646149,
+          "percentile_95": 1.8694115459918974
+        },
+        "candidate_summary": {
+          "mean": 1.1668968096601118,
+          "median": 1.1392126083374023,
+          "standard_deviation": 0.5195903052401402,
+          "minimum": 0.06965511292219162,
+          "maximum": 2.9973883628845215,
+          "percentile_05": 0.3703964173793793,
+          "percentile_25": 0.7828637957572937,
+          "percentile_75": 1.4753201007843018,
+          "percentile_95": 2.106858539581298
+        },
+        "reference_class_fractions": {},
+        "candidate_class_fractions": {}
+      },
+      "dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989"
+      },
+      "source_discovery_run_id": "adc68c9d64de024497c0"
+    },
+    "local_relief": {
+      "feature": "local_relief",
+      "evidence_status": "INSUFFICIENT_EVIDENCE",
+      "interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+      "comparison": {
+        "feature": "local_relief",
+        "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+        "units": "m",
+        "reference_sample_count": 9,
+        "candidate_sample_count": 1849,
+        "reference_coverage": 0.0046487603305785125,
+        "candidate_coverage": 0.9550619834710744,
+        "wasserstein_distance": 4.155007416866312,
+        "median_difference": -0.089813232421875,
+        "normalization_scale": 14.3515625,
+        "normalized_distance": 0.2895160312242177,
+        "distance_standard_error": 0.16371347203862302,
+        "reference_median": 27.837890625,
+        "candidate_median": 27.748077392578125,
+        "reference_summary": {
+          "mean": 31.87445746527778,
+          "median": 27.837890625,
+          "standard_deviation": 10.852581118121691,
+          "minimum": 18.791259765625,
+          "maximum": 55.947509765625,
+          "percentile_05": 20.787744140625,
+          "percentile_25": 25.958984375,
+          "percentile_75": 40.310546875,
+          "percentile_95": 49.69272460937499
+        },
+        "candidate_summary": {
+          "mean": 28.310962452122556,
+          "median": 27.748077392578125,
+          "standard_deviation": 9.524753353278244,
+          "minimum": 3.252410888671875,
+          "maximum": 60.942962646484375,
+          "percentile_05": 13.954681396484375,
+          "percentile_25": 21.412017822265625,
+          "percentile_75": 34.13800048828125,
+          "percentile_95": 45.49935302734374
+        },
+        "reference_class_fractions": {},
+        "candidate_class_fractions": {}
+      },
+      "dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989"
+      },
+      "source_discovery_run_id": "adc68c9d64de024497c0"
+    },
+    "terrain_roughness": {
+      "feature": "terrain_roughness",
+      "evidence_status": "INSUFFICIENT_EVIDENCE",
+      "interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+      "comparison": {
+        "feature": "terrain_roughness",
+        "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+        "units": "m",
+        "reference_sample_count": 9,
+        "candidate_sample_count": 1849,
+        "reference_coverage": 0.0046487603305785125,
+        "candidate_coverage": 0.9550619834710744,
+        "wasserstein_distance": 1.9154712146566826,
+        "median_difference": -1.621729850769043,
+        "normalization_scale": 3.4252662658691406,
+        "normalized_distance": 0.5592181938505862,
+        "distance_standard_error": 0.24207275527416197,
+        "reference_median": 10.506657600402832,
+        "candidate_median": 8.884927749633789,
+        "reference_summary": {
+          "mean": 10.970754941304525,
+          "median": 10.506657600402832,
+          "standard_deviation": 3.346071079316641,
+          "minimum": 6.405467987060547,
+          "maximum": 18.36829376220703,
+          "percentile_05": 6.779936599731445,
+          "percentile_25": 8.934149742126465,
+          "percentile_75": 12.359416007995605,
+          "percentile_95": 16.331880569458008
+        },
+        "candidate_summary": {
+          "mean": 9.060180335189278,
+          "median": 8.884927749633789,
+          "standard_deviation": 3.1132090328446793,
+          "minimum": 1.0775394439697266,
+          "maximum": 20.459701538085938,
+          "percentile_05": 4.315044116973877,
+          "percentile_25": 6.817788600921631,
+          "percentile_75": 10.965583801269531,
+          "percentile_95": 14.716239929199219
+        },
+        "reference_class_fractions": {},
+        "candidate_class_fractions": {}
+      },
+      "dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989"
+      },
+      "source_discovery_run_id": "adc68c9d64de024497c0"
+    },
+    "profile_curvature": {
+      "feature": "profile_curvature",
+      "evidence_status": "INSUFFICIENT_EVIDENCE",
+      "interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+      "comparison": {
+        "feature": "profile_curvature",
+        "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+        "units": "m^-1",
+        "reference_sample_count": 4,
+        "candidate_sample_count": 1849,
+        "reference_coverage": 0.002066115702479339,
+        "candidate_coverage": 0.9550619834710744,
+        "wasserstein_distance": 0.00005222466237943941,
+        "median_difference": -0.00004639547523765941,
+        "normalization_scale": 0.000024089460566756316,
+        "normalized_distance": 2.167946527267196,
+        "distance_standard_error": 0.23694609909611633,
+        "reference_median": 0.00005248642264632508,
+        "candidate_median": 6.09094740866567e-6,
+        "reference_summary": {
+          "mean": 0.0000499472862429684,
+          "median": 0.00005248642264632508,
+          "standard_deviation": 0.000015407751972560158,
+          "minimum": 0.000028209571610204875,
+          "maximum": 0.00006660672806901857,
+          "percentile_05": 0.000030402082120417618,
+          "percentile_25": 0.000039172124161268584,
+          "percentile_75": 0.0000632615847280249,
+          "percentile_95": 0.00006593769940081984
+        },
+        "candidate_summary": {
+          "mean": 1.4482631797219128e-6,
+          "median": 6.09094740866567e-6,
+          "standard_deviation": 0.000051543902273471795,
+          "minimum": -0.00022409536177292466,
+          "maximum": 0.00017343214130960405,
+          "percentile_05": -0.00009084455959964543,
+          "percentile_25": -0.00003066912177018821,
+          "percentile_75": 0.00003531820038915612,
+          "percentile_95": 0.00008124874730128793
+        },
+        "reference_class_fractions": {},
+        "candidate_class_fractions": {}
+      },
+      "dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989"
+      },
+      "source_discovery_run_id": "adc68c9d64de024497c0"
+    },
+    "plan_curvature": {
+      "feature": "plan_curvature",
+      "evidence_status": "INSUFFICIENT_EVIDENCE",
+      "interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+      "comparison": {
+        "feature": "plan_curvature",
+        "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+        "units": "m^-1",
+        "reference_sample_count": 4,
+        "candidate_sample_count": 1849,
+        "reference_coverage": 0.002066115702479339,
+        "candidate_coverage": 0.9550619834710744,
+        "wasserstein_distance": 0.00250470167945917,
+        "median_difference": 0.00013645415901919478,
+        "normalization_scale": 0.0004438325568116852,
+        "normalized_distance": 5.643348242526282,
+        "distance_standard_error": 0.25485601958387333,
+        "reference_median": -0.00013883101746614557,
+        "candidate_median": -2.3768584469507914e-6,
+        "reference_summary": {
+          "mean": -0.0001963139375220635,
+          "median": -0.00013883101746614557,
+          "standard_deviation": 0.0002755650787117851,
+          "minimum": -0.0005871484172530472,
+          "maximum": 0.00007955470209708437,
+          "percentile_05": -0.0005476164849824272,
+          "percentile_25": -0.00038948875589994714,
+          "percentile_75": 0.00005434380091173807,
+          "percentile_95": 0.0000745125218600151
+        },
+        "candidate_summary": {
+          "mean": 0.00008675912219232787,
+          "median": -2.3768584469507914e-6,
+          "standard_deviation": 0.004612550869745896,
+          "minimum": -0.031207343563437462,
+          "maximum": 0.07772086560726166,
+          "percentile_05": -0.005854470189660788,
+          "percentile_25": -0.001764422282576561,
+          "percentile_75": 0.0017435349291190505,
+          "percentile_95": 0.00613224394619464
+        },
+        "reference_class_fractions": {},
+        "candidate_class_fractions": {}
+      },
+      "dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989"
+      },
+      "source_discovery_run_id": "adc68c9d64de024497c0"
+    },
+    "topographic_position_index": {
+      "feature": "topographic_position_index",
+      "evidence_status": "INSUFFICIENT_EVIDENCE",
+      "interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+      "comparison": {
+        "feature": "topographic_position_index",
+        "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+        "units": "m",
+        "reference_sample_count": 9,
+        "candidate_sample_count": 1849,
+        "reference_coverage": 0.0046487603305785125,
+        "candidate_coverage": 0.9550619834710744,
+        "wasserstein_distance": 2.1304459006761447,
+        "median_difference": 2.465949147939682,
+        "normalization_scale": 3.7012767791748047,
+        "normalized_distance": 0.5755975647817198,
+        "distance_standard_error": 0.22989033770373815,
+        "reference_median": -2.961290121078491,
+        "candidate_median": -0.4953409731388092,
+        "reference_summary": {
+          "mean": -1.3517026371426053,
+          "median": -2.961290121078491,
+          "standard_deviation": 3.90955253793118,
+          "minimum": -5.717339515686035,
+          "maximum": 6.260528564453125,
+          "percentile_05": -5.478694725036621,
+          "percentile_25": -4.00111198425293,
+          "percentile_75": -0.299835205078125,
+          "percentile_95": 5.3255676269531245
+        },
+        "candidate_summary": {
+          "mean": 0.0459089574874759,
+          "median": -0.4953409731388092,
+          "standard_deviation": 5.598858617746138,
+          "minimum": -14.612579345703125,
+          "maximum": 24.948455810546875,
+          "percentile_05": -8.099509620666504,
+          "percentile_25": -4.046756267547607,
+          "percentile_75": 3.869917154312134,
+          "percentile_95": 9.68373336791992
+        },
+        "reference_class_fractions": {},
+        "candidate_class_fractions": {}
+      },
+      "dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989"
+      },
+      "source_discovery_run_id": "adc68c9d64de024497c0"
+    },
+    "landform_morphology": {
+      "feature": "landform_morphology",
+      "evidence_status": "INSUFFICIENT_EVIDENCE",
+      "interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+      "comparison": {
+        "feature": "landform_morphology",
+        "method": "total variation distance over relative-position class proportions",
+        "units": "dimensionless",
+        "reference_sample_count": 9,
+        "candidate_sample_count": 1849,
+        "reference_coverage": 0.0046487603305785125,
+        "candidate_coverage": 0.9550619834710744,
+        "wasserstein_distance": null,
+        "median_difference": null,
+        "normalization_scale": 1.0,
+        "normalized_distance": 0.40183883180097346,
+        "distance_standard_error": 0.01137204779456235,
+        "reference_median": null,
+        "candidate_median": null,
+        "reference_summary": {},
+        "candidate_summary": {},
+        "reference_class_fractions": {
+          "-1": 0.0,
+          "0": 1.0,
+          "1": 0.0
+        },
+        "candidate_class_fractions": {
+          "-1": 0.1995673336938886,
+          "0": 0.5981611681990265,
+          "1": 0.20227149810708492
+        }
+      },
+      "dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989"
+      },
+      "source_discovery_run_id": "adc68c9d64de024497c0"
+    }
+  },
+  "weighted_distance": {
+    "value": null,
+    "standard_error": null,
+    "interpretation": "Not computed because one or more required feature evidence gates failed; no rank was assigned. A weighted distance is not a suitability or safety score.",
+    "method": "Weighted mean of normalized feature distances is withheld when required evidence gates fail."
+  },
+  "evidence_coverage": {
+    "overall": 0.002066115702479339,
+    "required_features": [
+      "slope",
+      "local_relief",
+      "terrain_roughness",
+      "profile_curvature",
+      "plan_curvature",
+      "topographic_position_index",
+      "landform_morphology"
+    ],
+    "available_features": [
+      "slope",
+      "local_relief",
+      "terrain_roughness",
+      "profile_curvature",
+      "plan_curvature",
+      "topographic_position_index",
+      "landform_morphology"
+    ],
+    "missing_features": [
+      "slope",
+      "local_relief",
+      "terrain_roughness",
+      "profile_curvature",
+      "plan_curvature",
+      "topographic_position_index",
+      "landform_morphology"
+    ],
+    "by_feature": {
+      "slope": 0.002066115702479339,
+      "local_relief": 0.0046487603305785125,
+      "terrain_roughness": 0.0046487603305785125,
+      "profile_curvature": 0.002066115702479339,
+      "plan_curvature": 0.002066115702479339,
+      "topographic_position_index": 0.0046487603305785125,
+      "landform_morphology": 0.0046487603305785125
+    },
+    "planetary_by_feature": {
+      "slope": 0.002066115702479339,
+      "local_relief": 0.0046487603305785125,
+      "terrain_roughness": 0.0046487603305785125,
+      "profile_curvature": 0.002066115702479339,
+      "plan_curvature": 0.002066115702479339,
+      "topographic_position_index": 0.0046487603305785125,
+      "landform_morphology": 0.0046487603305785125
+    },
+    "earth_by_feature": {
+      "slope": 0.9550619834710744,
+      "local_relief": 0.9550619834710744,
+      "terrain_roughness": 0.9550619834710744,
+      "profile_curvature": 0.9550619834710744,
+      "plan_curvature": 0.9550619834710744,
+      "topographic_position_index": 0.9550619834710744,
+      "landform_morphology": 0.9550619834710744
+    },
+    "minimum_required_coverage": 0.8,
+    "minimum_required_samples_per_surface": 20
+  },
+  "uncertainty": {
+    "method": "Bootstrap standard error of feature distribution distances; it estimates finite-sample sampling variability only, not DEM measurement or instrument uncertainty.",
+    "feature_distance_standard_errors": {
+      "slope": 0.06791291256732349,
+      "local_relief": 0.16371347203862302,
+      "terrain_roughness": 0.24207275527416197,
+      "profile_curvature": 0.23694609909611633,
+      "plan_curvature": 0.25485601958387333,
+      "topographic_position_index": 0.22989033770373815,
+      "landform_morphology": 0.01137204779456235
+    },
+    "instrument_or_dem_measurement_uncertainty": "unavailable",
+    "interpretation": "Reported bootstrap standard errors represent finite-sample variability of feature distances only. They do not quantify DEM or instrument measurement uncertainty."
+  },
+  "terrain_twin": {
+    "terrain_twin_id": "7a7d7e5aa32745313b158d21",
+    "candidate_id": "63af46cd196d205c2d9071d9",
+    "discovery_run_id": "adc68c9d64de024497c0",
+    "discovery_status": "insufficient_evidence",
+    "ranking": null,
+    "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+    "source_product": "Copernicus DEM GLO-30 Public DSM",
+    "source_sha256": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+    "geographic_bounds_wgs84": [
+      77.2629323271279,
+      18.541681662286035,
+      77.45614568629264,
+      18.7258740889861
+    ],
+    "candidate_boundary_wgs84": [
+      [
+        77.2629323271279,
+        18.725730336909315
+      ],
+      [
+        77.28707808469389,
+        18.72575911536313
+      ],
+      [
+        77.31122384996422,
+        18.72578480541363
+      ],
+      [
+        77.33536962206523,
+        18.72580740705533
+      ],
+      [
+        77.35951540012323,
+        18.725826920283414
+      ],
+      [
+        77.38366118326454,
+        18.72584334509371
+      ],
+      [
+        77.40780697061545,
+        18.725856681482718
+      ],
+      [
+        77.43195276130231,
+        18.72586692944757
+      ],
+      [
+        77.4560985544514,
+        18.7258740889861
+      ],
+      [
+        77.45610446790485,
+        18.702868125442514
+      ],
+      [
+        77.45611037507139,
+        18.679862105511262
+      ],
+      [
+        77.45611627595544,
+        18.65685602925139
+      ],
+      [
+        77.45612217056139,
+        18.63384989672199
+      ],
+      [
+        77.4561280588937,
+        18.610843707982177
+      ],
+      [
+        77.45613394095673,
+        18.587837463091116
+      ],
+      [
+        77.45613981675493,
+        18.564831162108003
+      ],
+      [
+        77.45614568629264,
+        18.541824805092084
+      ],
+      [
+        77.43202581563207,
+        18.54181767589817
+      ],
+      [
+        77.40790594740247,
+        18.54180747136775
+      ],
+      [
+        77.38378608246641,
+        18.541794191502994
+      ],
+      [
+        77.35966622168651,
+        18.54177783630672
+      ],
+      [
+        77.33554636592535,
+        18.54175840578243
+      ],
+      [
+        77.31142651604551,
+        18.541735899934245
+      ],
+      [
+        77.28730667290961,
+        18.541710318766963
+      ],
+      [
+        77.26318683738016,
+        18.541681662286035
+      ],
+      [
+        77.26315514208683,
+        18.564687943265707
+      ],
+      [
+        77.26312341298723,
+        18.58769416817763
+      ],
+      [
+        77.26309165005767,
+        18.61070033696252
+      ],
+      [
+        77.26305985327441,
+        18.63370644956112
+      ],
+      [
+        77.26302802261365,
+        18.656712505914253
+      ],
+      [
+        77.26299615805155,
+        18.679718505962743
+      ],
+      [
+        77.26296425956427,
+        18.702724449647466
+      ],
+      [
+        77.2629323271279,
+        18.725730336909315
+      ]
+    ],
+    "source_crs": "EPSG:4326",
+    "mesh_crs": "EPSG:32643",
+    "horizontal_transformation": "EPSG:4326 to EPSG:32643 using GDAL bilinear resampling",
+    "source_vertical_units": "m",
+    "source_vertical_reference": "EGM2008 orthometric height",
+    "vertical_transformation": "no datum conversion; vertical exaggeration is applied around the median elevation",
+    "vertical_exaggeration": 1.0,
+    "source_raster_resolution": [
+      0.0002777777777777778,
+      0.0002777777777777778
+    ],
+    "source_resolution_unit": "degrees",
+    "mesh_resolution_m": [
+      30.746156883855424,
+      30.746156883855424
+    ],
+    "source_dimensions": [
+      3600,
+      3600
+    ],
+    "candidate_crop_dimensions": [
+      664,
+      696
+    ],
+    "mesh_dimensions": [
+      673,
+      673
+    ],
+    "simplification_stride": 2,
+    "max_vertices": 150000,
+    "actual_vertex_count": 114921,
+    "chunk_count": 9,
+    "source_valid_cell_count": 460548,
+    "source_nodata_cell_count": 0,
+    "source_candidate_exterior_cell_count": 1596,
+    "mesh_valid_cell_count": 439387,
+    "mesh_nodata_cell_count": 13542,
+    "elevation_range_m": [
+      372.5,
+      527.5499267578125
+    ],
+    "validation_status": "unvalidated",
+    "validation_reason": "No independent reference DEM was selected.",
+    "reference_dataset_id": null,
+    "reference_sha256": null,
+    "validation_metrics": null,
+    "artifacts": {
+      "mesh": "/api/v1/terrain-twins/7a7d7e5aa32745313b158d21/artifacts/mesh",
+      "elevation_map": "/api/v1/terrain-twins/7a7d7e5aa32745313b158d21/artifacts/elevation-map",
+      "slope_map": "/api/v1/terrain-twins/7a7d7e5aa32745313b158d21/artifacts/slope-map",
+      "error_map": "/api/v1/terrain-twins/7a7d7e5aa32745313b158d21/artifacts/error-map",
+      "valid_comparison_mask": "/api/v1/terrain-twins/7a7d7e5aa32745313b158d21/artifacts/valid-mask"
+    },
+    "warnings": [
+      "The selected Earth window is insufficient evidence and has no analogue ranking.",
+      "No independent reference DEM is selected; mesh is visualization-only."
+    ],
+    "software": {
+      "engine": "0.1.2",
+      "rasterio": "1.5.2",
+      "gdal": "3.12.2",
+      "pyproj": "3.7.2",
+      "numpy": "2.5.4"
+    }
+  },
+  "terrain_twin_mesh_sha256": "528ad29ee11e24b892b9eb09ade695441c4dc40887ab52040ee28b6b62559eb8",
+  "terrain_twin_validation_status": "unvalidated",
+  "assessment": {
+    "assessment_schema_version": "1.0.0",
+    "assessment_id": "c3f0101a0f4ade935a4883be",
+    "candidate_id": "63af46cd196d205c2d9071d9",
+    "discovery_run_id": "adc68c9d64de024497c0",
+    "discovery_status": "insufficient_evidence",
+    "ranking": null,
+    "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+    "mission_profile_version": "1.0.0",
+    "mission_experiment": "Rover mobility and terrain navigation",
+    "overall_evidence_status": "INSUFFICIENT_EVIDENCE",
+    "evidence_coverage": 0.002066115702479339,
+    "minimum_required_coverage": 0.8,
+    "minimum_required_samples": 20,
+    "weighted_distance": null,
+    "weighted_distance_standard_error": null,
+    "terrain_twin_validation_status": "unvalidated",
+    "conclusions": [
+      {
+        "conclusion_id": "terrain-slope",
+        "category": "POTENTIALLY_TRANSFERABLE",
+        "conclusion": "Slope is within the profile's terrain-geometry test domain; no claim of demonstrated transfer is made.",
+        "evidence_status": "INSUFFICIENT_EVIDENCE",
+        "evidence_interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+        "evidence": [
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+            "feature": "slope",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.slope",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": 1.6007092595100403,
+              "candidate_median": 1.1392126083374023,
+              "median_difference": -0.46149665117263794,
+              "normalized_distance": 0.5187271366277665,
+              "distance_standard_error": 0.06791291256732349,
+              "reference_sample_count": 4,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.002066115702479339,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          },
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+            "feature": "slope",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.slope",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": 1.6007092595100403,
+              "candidate_median": 1.1392126083374023,
+              "median_difference": -0.46149665117263794,
+              "normalized_distance": 0.5187271366277665,
+              "distance_standard_error": 0.06791291256732349,
+              "reference_sample_count": 4,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.002066115702479339,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          }
+        ],
+        "missing_information": [
+          "reference samples: 4 of 20 required",
+          "candidate samples: 1849 of 20 required",
+          "reference coverage: 0.002066 of 0.800000 required",
+          "candidate coverage: 0.955062 of 0.800000 required"
+        ],
+        "limitations": [
+          "Provisional researcher-set priority for terrain inclination; not a rover safety threshold.",
+          "Feature-distance uncertainty estimates finite-sample variability only; it is not DEM measurement uncertainty."
+        ]
+      },
+      {
+        "conclusion_id": "terrain-local_relief",
+        "category": "POTENTIALLY_TRANSFERABLE",
+        "conclusion": "Local relief is within the profile's terrain-geometry test domain; no claim of demonstrated transfer is made.",
+        "evidence_status": "INSUFFICIENT_EVIDENCE",
+        "evidence_interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+        "evidence": [
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+            "feature": "local_relief",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.local_relief",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": 27.837890625,
+              "candidate_median": 27.748077392578125,
+              "median_difference": -0.089813232421875,
+              "normalized_distance": 0.2895160312242177,
+              "distance_standard_error": 0.16371347203862302,
+              "reference_sample_count": 9,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.0046487603305785125,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          },
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+            "feature": "local_relief",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.local_relief",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": 27.837890625,
+              "candidate_median": 27.748077392578125,
+              "median_difference": -0.089813232421875,
+              "normalized_distance": 0.2895160312242177,
+              "distance_standard_error": 0.16371347203862302,
+              "reference_sample_count": 9,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.0046487603305785125,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          }
+        ],
+        "missing_information": [
+          "reference samples: 9 of 20 required",
+          "candidate samples: 1849 of 20 required",
+          "reference coverage: 0.004649 of 0.800000 required",
+          "candidate coverage: 0.955062 of 0.800000 required"
+        ],
+        "limitations": [
+          "Provisional researcher-set priority for neighborhood elevation range.",
+          "Feature-distance uncertainty estimates finite-sample variability only; it is not DEM measurement uncertainty."
+        ]
+      },
+      {
+        "conclusion_id": "terrain-terrain_roughness",
+        "category": "POTENTIALLY_TRANSFERABLE",
+        "conclusion": "Terrain roughness is within the profile's terrain-geometry test domain; no claim of demonstrated transfer is made.",
+        "evidence_status": "INSUFFICIENT_EVIDENCE",
+        "evidence_interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+        "evidence": [
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+            "feature": "terrain_roughness",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.terrain_roughness",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": 10.506657600402832,
+              "candidate_median": 8.884927749633789,
+              "median_difference": -1.621729850769043,
+              "normalized_distance": 0.5592181938505862,
+              "distance_standard_error": 0.24207275527416197,
+              "reference_sample_count": 9,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.0046487603305785125,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          },
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+            "feature": "terrain_roughness",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.terrain_roughness",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": 10.506657600402832,
+              "candidate_median": 8.884927749633789,
+              "median_difference": -1.621729850769043,
+              "normalized_distance": 0.5592181938505862,
+              "distance_standard_error": 0.24207275527416197,
+              "reference_sample_count": 9,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.0046487603305785125,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          }
+        ],
+        "missing_information": [
+          "reference samples: 9 of 20 required",
+          "candidate samples: 1849 of 20 required",
+          "reference coverage: 0.004649 of 0.800000 required",
+          "candidate coverage: 0.955062 of 0.800000 required"
+        ],
+        "limitations": [
+          "Provisional researcher-set priority for the configured elevation-dispersion measure; not traction.",
+          "Feature-distance uncertainty estimates finite-sample variability only; it is not DEM measurement uncertainty."
+        ]
+      },
+      {
+        "conclusion_id": "terrain-profile_curvature",
+        "category": "POTENTIALLY_TRANSFERABLE",
+        "conclusion": "Profile curvature is within the profile's terrain-geometry test domain; no claim of demonstrated transfer is made.",
+        "evidence_status": "INSUFFICIENT_EVIDENCE",
+        "evidence_interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+        "evidence": [
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+            "feature": "profile_curvature",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.profile_curvature",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": 0.00005248642264632508,
+              "candidate_median": 6.09094740866567e-6,
+              "median_difference": -0.00004639547523765941,
+              "normalized_distance": 2.167946527267196,
+              "distance_standard_error": 0.23694609909611633,
+              "reference_sample_count": 4,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.002066115702479339,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          },
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+            "feature": "profile_curvature",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.profile_curvature",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": 0.00005248642264632508,
+              "candidate_median": 6.09094740866567e-6,
+              "median_difference": -0.00004639547523765941,
+              "normalized_distance": 2.167946527267196,
+              "distance_standard_error": 0.23694609909611633,
+              "reference_sample_count": 4,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.002066115702479339,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          }
+        ],
+        "missing_information": [
+          "reference samples: 4 of 20 required",
+          "candidate samples: 1849 of 20 required",
+          "reference coverage: 0.002066 of 0.800000 required",
+          "candidate coverage: 0.955062 of 0.800000 required"
+        ],
+        "limitations": [
+          "Provisional researcher-set priority for along-slope terrain shape.",
+          "Feature-distance uncertainty estimates finite-sample variability only; it is not DEM measurement uncertainty."
+        ]
+      },
+      {
+        "conclusion_id": "terrain-plan_curvature",
+        "category": "POTENTIALLY_TRANSFERABLE",
+        "conclusion": "Plan curvature is within the profile's terrain-geometry test domain; no claim of demonstrated transfer is made.",
+        "evidence_status": "INSUFFICIENT_EVIDENCE",
+        "evidence_interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+        "evidence": [
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+            "feature": "plan_curvature",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.plan_curvature",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": -0.00013883101746614557,
+              "candidate_median": -2.3768584469507914e-6,
+              "median_difference": 0.00013645415901919478,
+              "normalized_distance": 5.643348242526282,
+              "distance_standard_error": 0.25485601958387333,
+              "reference_sample_count": 4,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.002066115702479339,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          },
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+            "feature": "plan_curvature",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.plan_curvature",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": -0.00013883101746614557,
+              "candidate_median": -2.3768584469507914e-6,
+              "median_difference": 0.00013645415901919478,
+              "normalized_distance": 5.643348242526282,
+              "distance_standard_error": 0.25485601958387333,
+              "reference_sample_count": 4,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.002066115702479339,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          }
+        ],
+        "missing_information": [
+          "reference samples: 4 of 20 required",
+          "candidate samples: 1849 of 20 required",
+          "reference coverage: 0.002066 of 0.800000 required",
+          "candidate coverage: 0.955062 of 0.800000 required"
+        ],
+        "limitations": [
+          "Provisional researcher-set priority for cross-slope terrain shape.",
+          "Feature-distance uncertainty estimates finite-sample variability only; it is not DEM measurement uncertainty."
+        ]
+      },
+      {
+        "conclusion_id": "terrain-topographic_position_index",
+        "category": "POTENTIALLY_TRANSFERABLE",
+        "conclusion": "Topographic position index is within the profile's terrain-geometry test domain; no claim of demonstrated transfer is made.",
+        "evidence_status": "INSUFFICIENT_EVIDENCE",
+        "evidence_interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+        "evidence": [
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+            "feature": "topographic_position_index",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.topographic_position_index",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": -2.961290121078491,
+              "candidate_median": -0.4953409731388092,
+              "median_difference": 2.465949147939682,
+              "normalized_distance": 0.5755975647817198,
+              "distance_standard_error": 0.22989033770373815,
+              "reference_sample_count": 9,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.0046487603305785125,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          },
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+            "feature": "topographic_position_index",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.topographic_position_index",
+            "comparison_method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+            "measurement": {
+              "reference_median": -2.961290121078491,
+              "candidate_median": -0.4953409731388092,
+              "median_difference": 2.465949147939682,
+              "normalized_distance": 0.5755975647817198,
+              "distance_standard_error": 0.22989033770373815,
+              "reference_sample_count": 9,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.0046487603305785125,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          }
+        ],
+        "missing_information": [
+          "reference samples: 9 of 20 required",
+          "candidate samples: 1849 of 20 required",
+          "reference coverage: 0.004649 of 0.800000 required",
+          "candidate coverage: 0.955062 of 0.800000 required"
+        ],
+        "limitations": [
+          "Provisional researcher-set priority for relative local topographic position.",
+          "Feature-distance uncertainty estimates finite-sample variability only; it is not DEM measurement uncertainty."
+        ]
+      },
+      {
+        "conclusion_id": "terrain-landform_morphology",
+        "category": "POTENTIALLY_TRANSFERABLE",
+        "conclusion": "Landform morphology is within the profile's terrain-geometry test domain; no claim of demonstrated transfer is made.",
+        "evidence_status": "INSUFFICIENT_EVIDENCE",
+        "evidence_interpretation": "Pipeline measurements exist, but the comparison does not pass the discovery run's required evidence gates. Do not interpret its distribution distance as a supported similarity finding.",
+        "evidence": [
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+            "feature": "landform_morphology",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.landform_morphology",
+            "comparison_method": "total variation distance over relative-position class proportions",
+            "measurement": {
+              "reference_median": null,
+              "candidate_median": null,
+              "median_difference": null,
+              "normalized_distance": 0.40183883180097346,
+              "distance_standard_error": 0.01137204779456235,
+              "reference_sample_count": 9,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.0046487603305785125,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          },
+          {
+            "source_type": "discovery_feature",
+            "source_record_id": "adc68c9d64de024497c0",
+            "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+            "feature": "landform_morphology",
+            "source_field": "candidates[63af46cd196d205c2d9071d9].feature_comparisons.landform_morphology",
+            "comparison_method": "total variation distance over relative-position class proportions",
+            "measurement": {
+              "reference_median": null,
+              "candidate_median": null,
+              "median_difference": null,
+              "normalized_distance": 0.40183883180097346,
+              "distance_standard_error": 0.01137204779456235,
+              "reference_sample_count": 9,
+              "candidate_sample_count": 1849,
+              "reference_coverage": 0.0046487603305785125,
+              "candidate_coverage": 0.9550619834710744,
+              "minimum_coverage": 0.8,
+              "minimum_samples_per_surface": 20
+            }
+          }
+        ],
+        "missing_information": [
+          "reference samples: 9 of 20 required",
+          "candidate samples: 1849 of 20 required",
+          "reference coverage: 0.004649 of 0.800000 required",
+          "candidate coverage: 0.955062 of 0.800000 required"
+        ],
+        "limitations": [
+          "Provisional researcher-set priority for elevation-derived relative-position classes only.",
+          "Feature-distance uncertainty estimates finite-sample variability only; it is not DEM measurement uncertainty."
+        ]
+      },
+      {
+        "conclusion_id": "additional-soil_mechanics",
+        "category": "REQUIRES_ADDITIONAL_EVIDENCE",
+        "conclusion": "Soil mechanics is not assessed from these DEM-derived terrain records.",
+        "evidence_status": "ADDITIONAL_EVIDENCE_REQUIRED",
+        "evidence_interpretation": "No corresponding measurement was found in the source evidence records.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "additional-soil_mechanics",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "additional-subsurface_composition",
+        "category": "REQUIRES_ADDITIONAL_EVIDENCE",
+        "conclusion": "Subsurface composition is not assessed from these DEM-derived terrain records.",
+        "evidence_status": "ADDITIONAL_EVIDENCE_REQUIRED",
+        "evidence_interpretation": "No corresponding measurement was found in the source evidence records.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "additional-subsurface_composition",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "additional-wheel_traction",
+        "category": "REQUIRES_ADDITIONAL_EVIDENCE",
+        "conclusion": "Wheel traction is not assessed from these DEM-derived terrain records.",
+        "evidence_status": "ADDITIONAL_EVIDENCE_REQUIRED",
+        "evidence_interpretation": "No corresponding measurement was found in the source evidence records.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "additional-wheel_traction",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "additional-dust_behavior",
+        "category": "REQUIRES_ADDITIONAL_EVIDENCE",
+        "conclusion": "Dust behavior is not assessed from these DEM-derived terrain records.",
+        "evidence_status": "ADDITIONAL_EVIDENCE_REQUIRED",
+        "evidence_interpretation": "No corresponding measurement was found in the source evidence records.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "additional-dust_behavior",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "additional-material_properties",
+        "category": "REQUIRES_ADDITIONAL_EVIDENCE",
+        "conclusion": "Material properties is not assessed from these DEM-derived terrain records.",
+        "evidence_status": "ADDITIONAL_EVIDENCE_REQUIRED",
+        "evidence_interpretation": "No corresponding measurement was found in the source evidence records.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "additional-material_properties",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "environment-planetary_gravity",
+        "category": "CANNOT_BE_REPRODUCED_BY_THE_EARTH_SITE_ALONE",
+        "conclusion": "Planetary gravity is outside what an Earth terrain site alone can reproduce.",
+        "evidence_status": "PROFILE_RULE_ONLY",
+        "evidence_interpretation": "This conclusion follows the mission-profile scope rule and is not a measured candidate property.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "environment-planetary_gravity",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "environment-vacuum",
+        "category": "CANNOT_BE_REPRODUCED_BY_THE_EARTH_SITE_ALONE",
+        "conclusion": "Vacuum is outside what an Earth terrain site alone can reproduce.",
+        "evidence_status": "PROFILE_RULE_ONLY",
+        "evidence_interpretation": "This conclusion follows the mission-profile scope rule and is not a measured candidate property.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "environment-vacuum",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "environment-radiation",
+        "category": "CANNOT_BE_REPRODUCED_BY_THE_EARTH_SITE_ALONE",
+        "conclusion": "Radiation is outside what an Earth terrain site alone can reproduce.",
+        "evidence_status": "PROFILE_RULE_ONLY",
+        "evidence_interpretation": "This conclusion follows the mission-profile scope rule and is not a measured candidate property.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "environment-radiation",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "environment-complete_planetary_atmosphere",
+        "category": "CANNOT_BE_REPRODUCED_BY_THE_EARTH_SITE_ALONE",
+        "conclusion": "Complete planetary atmosphere is outside what an Earth terrain site alone can reproduce.",
+        "evidence_status": "PROFILE_RULE_ONLY",
+        "evidence_interpretation": "This conclusion follows the mission-profile scope rule and is not a measured candidate property.",
+        "evidence": [
+          {
+            "source_type": "profile_rule",
+            "source_record_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0",
+            "source_dataset_id": null,
+            "feature": null,
+            "source_field": "environment-complete_planetary_atmosphere",
+            "comparison_method": "versioned deterministic mission-profile rule",
+            "measurement": {
+              "site_measurement": "unavailable"
+            }
+          }
+        ],
+        "missing_information": [
+          "No corresponding in-situ or environmental observation is recorded."
+        ],
+        "limitations": [
+          "This is an evidence-scope rule, not a measurement from the Earth candidate."
+        ]
+      },
+      {
+        "conclusion_id": "terrain-twin-independent-validation",
+        "category": "POTENTIALLY_TRANSFERABLE",
+        "conclusion": "The reconstructed mesh has no available independent validation metrics.",
+        "evidence_status": "UNVALIDATED",
+        "evidence_interpretation": "No independent reference DEM was selected.",
+        "evidence": [
+          {
+            "source_type": "terrain_twin",
+            "source_record_id": "7a7d7e5aa32745313b158d21",
+            "source_dataset_id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+            "feature": null,
+            "source_field": "validation_status",
+            "comparison_method": "independent-reference DEM comparison",
+            "measurement": {
+              "validation_status": "unvalidated",
+              "validation_metrics_available": false
+            }
+          }
+        ],
+        "missing_information": [
+          "A distinct compatible elevation reference and datum reconciliation."
+        ],
+        "limitations": [
+          "No reconstruction accuracy or geometry validation claim is made."
+        ]
+      }
+    ],
+    "missing_evidence": [
+      "slope",
+      "local_relief",
+      "terrain_roughness",
+      "profile_curvature",
+      "plan_curvature",
+      "topographic_position_index",
+      "landform_morphology",
+      "additional evidence: soil mechanics",
+      "additional evidence: subsurface composition",
+      "additional evidence: wheel traction",
+      "additional evidence: dust behavior",
+      "additional evidence: material properties",
+      "independent terrain reconstruction validation"
+    ],
+    "limitations": [
+      "Feature weights are provisional researcher choices, not validated rover engineering priorities.",
+      "DEM morphology cannot establish soil mechanics, traction, dust behavior, subsurface composition, or material properties.",
+      "A digital elevation model does not reproduce planetary gravity, vacuum, radiation, or a complete planetary atmosphere.",
+      "Discovery confidence describes finite-sample distribution-distance variability only; it is not DEM measurement uncertainty.",
+      "A Copernicus GLO-30 DSM may include vegetation and built surfaces and is not necessarily bare-earth terrain.",
+      "Terrain similarity does not guarantee rover safety, mobility, or mission performance.",
+      "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+      "Planetary effective spatial resolution is unavailable.",
+      "Earth effective spatial resolution is unavailable."
+    ],
+    "assessment_profile_sha256": "621cd47e8152b24c9a0f3cd5078ad607c21fea58d6cb4446c43d5d04d7a54efc",
+    "source_discovery_report_sha256": "4a118b57163fa33aaf940733a0ec7c07a876e8818f83225f88c06321e70e710b",
+    "uncertainty_method": "Bootstrap standard error of feature distribution distances; it estimates finite-sample sampling variability only, not DEM measurement or instrument uncertainty."
+  },
+  "missing_evidence": [
+    "slope",
+    "local_relief",
+    "terrain_roughness",
+    "profile_curvature",
+    "plan_curvature",
+    "topographic_position_index",
+    "landform_morphology",
+    "additional evidence unavailable: soil mechanics",
+    "additional evidence unavailable: subsurface composition",
+    "additional evidence unavailable: wheel traction",
+    "additional evidence unavailable: dust behavior",
+    "additional evidence unavailable: material properties",
+    "independent terrain reconstruction validation"
+  ],
+  "limitations": [
+    "Feature weights are provisional researcher choices, not validated rover engineering priorities.",
+    "DEM morphology cannot establish soil mechanics, traction, dust behavior, subsurface composition, or material properties.",
+    "A digital elevation model does not reproduce planetary gravity, vacuum, radiation, or a complete planetary atmosphere.",
+    "Discovery confidence describes finite-sample distribution-distance variability only; it is not DEM measurement uncertainty.",
+    "A Copernicus GLO-30 DSM may include vegetation and built surfaces and is not necessarily bare-earth terrain.",
+    "Terrain similarity does not guarantee rover safety, mobility, or mission performance.",
+    "This is a bounded Earth test-window search; it is not a global search or novelty claim.",
+    "Lower weighted distance means closer under the configured feature set and weights only.",
+    "Provisional mission weights are transparent configuration choices, not established scientific truths.",
+    "Planetary reference valid-cell coverage is below the configured threshold; candidates cannot receive a weighted rank unless every required feature meets evidence gates.",
+    "No candidate met all required feature sample-count and coverage gates.",
+    "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+    "Planetary effective spatial resolution is unavailable.",
+    "Earth effective spatial resolution is unavailable.",
+    "Earth and planetary grids use independent local CRSs and origins; array indices represent paired support only.",
+    "Vertical datums and reference surfaces are not reconciled; each output is centered on its own valid-cell median.",
+    "At least one product has no documented effective spatial resolution; nominal sampling is only a conservative grid floor.",
+    "Input vertical references differ and absolute elevations must not be compared.",
+    "Some requested support cells did not meet the per-cell valid-data threshold; interpret comparisons with the reported coverage.",
+    "MGS MOLA MEGDR median topography documents interpolation for bins without observations; the companion counts mask excluded zero-count bins, but does not quantify uncertainty or other interpolation effects in retained cells."
+  ],
+  "processing": {
+    "discovery_engine_version": "0.5.1",
+    "discovery_configuration": {
+      "candidate_width_m": 20000.0,
+      "candidate_height_m": 20000.0,
+      "candidate_stride_m": 10000.0,
+      "selected_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "minimum_evidence_coverage": 0.8,
+      "minimum_feature_samples": 20,
+      "maximum_candidate_count": 10000,
+      "duplicate_overlap_iou": 0.1,
+      "bootstrap_replicates": 100,
+      "normalization_scale_floor": {
+        "slope": 1.0,
+        "local_relief": 1.0,
+        "terrain_roughness": 0.5,
+        "profile_curvature": 0.00001,
+        "plan_curvature": 0.00001,
+        "topographic_position_index": 1.0
+      },
+      "search_boundary_wgs84": null
+    },
+    "discovery_processing_configuration_sha256": "b3aac354e1a10700cf0bd507ae163c3a35fbf748f155dedc21fb8a066f4a236e",
+    "scale_bridge": {
+      "run_id": "4b76a5af44a9658065a4",
+      "target_resolution_m": 463.0000000233211,
+      "target_resolution_basis": "maximum of measured local ground pixel spacing and documented effective resolution; optional requested resolution may coarsen further",
+      "resampling": "area-weighted average; no upsampling below source sampling support",
+      "information_loss": {
+        "planetary": "No finer spatial detail is created. Source cells are averaged onto the comparison grid. The MOLA counts mask excluded zero-count bins; retained cells remain product-level MEGDR values and do not resolve sub-grid terrain.",
+        "earth": "Fine-scale terrain is aggregated to the coarsest comparison support and is not retained as resolvable detail in the output."
+      },
+      "actual_support_width_m": 50004.000002518675,
+      "actual_support_height_m": 50004.000002518675,
+      "coverage": {
+        "planetary_valid_cells": 1086.0,
+        "earth_valid_cells": 11664.0,
+        "common_valid_cells": 1086.0,
+        "output_cells": 11664.0,
+        "planetary_valid_area_m2": 232804734.02345252,
+        "earth_valid_area_m2": 2500400016.251888,
+        "planetary_fraction": 0.09310699588477367,
+        "earth_fraction": 1.0,
+        "common_fraction": 0.09310699588477367,
+        "common_valid_area_m2": 232804734.02345252
+      },
+      "vertical_comparison_status": "relative terrain only; absolute elevations not compared",
+      "vertical_normalization": "Convert recognized linear units to metres, area-average, then subtract each source's own median over valid output cells; no vertical datum conversion."
+    },
+    "terrain_analytics_run_ids": {
+      "planetary": "4aa2a0f6cc4cd73fa047",
+      "earth": "5cbea74eb4a9a04afd3b"
+    },
+    "profile_configuration_sha256": "621cd47e8152b24c9a0f3cd5078ad607c21fea58d6cb4446c43d5d04d7a54efc",
+    "terrain_twin_engine_version": "0.1.2"
+  },
+  "provenance": {
+    "discovery_report_sha256": "4a118b57163fa33aaf940733a0ec7c07a876e8818f83225f88c06321e70e710b",
+    "scale_bridge_report_sha256": "051c6dab069c4ef98453030bef6aade8befb37b8045d4a274767f313a149091f",
+    "dataset_manifest_sha256": {
+      "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36": "484b65c945280c6b246a28c4a692e57b5f60ceb7da376f7947564873aeb8d51f",
+      "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989": "cc075773854b889031867db3826582cf5be177404f38254b47378e278a69098d"
+    },
+    "terrain_twin_metadata_sha256": "25a3f9d59b122da0b8b6fdac018a242e8585ccc93b04d40d0c01b23b44525fb8",
+    "terrain_mesh_sha256": "528ad29ee11e24b892b9eb09ade695441c4dc40887ab52040ee28b6b62559eb8",
+    "reproducibility_inputs": [
+      "discovery-report:adc68c9d64de024497c0:4a118b57163fa33aaf940733a0ec7c07a876e8818f83225f88c06321e70e710b",
+      "scale-bridge-report:4b76a5af44a9658065a4:051c6dab069c4ef98453030bef6aade8befb37b8045d4a274767f313a149091f",
+      "mission-profile:ROVER_MOBILITY_AND_TERRAIN_NAVIGATION:1.0.0:621cd47e8152b24c9a0f3cd5078ad607c21fea58d6cb4446c43d5d04d7a54efc",
+      "dataset-manifest:14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36:484b65c945280c6b246a28c4a692e57b5f60ceb7da376f7947564873aeb8d51f",
+      "dataset-manifest:51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989:cc075773854b889031867db3826582cf5be177404f38254b47378e278a69098d",
+      "terrain-twin:7a7d7e5aa32745313b158d21:25a3f9d59b122da0b8b6fdac018a242e8585ccc93b04d40d0c01b23b44525fb8",
+      "terrain-mesh:7a7d7e5aa32745313b158d21:528ad29ee11e24b892b9eb09ade695441c4dc40887ab52040ee28b6b62559eb8"
+    ]
+  }
+}

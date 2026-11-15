@@ -1,0 +1,39 @@
+{
+  "id": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+  "target_body": "earth",
+  "provider": "Copernicus Programme (public AWS mirror)",
+  "product": "Copernicus DEM GLO-30 Public DSM",
+  "version": "2021 release",
+  "source_url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E077_00_DEM/Copernicus_DSM_COG_10_N18_00_E077_00_DEM.tif",
+  "downloaded_at": "2026-11-14T09:59:04.621163Z",
+  "checksum_sha256": "51587b0a9af347ff0bfe95b51ccd4d145ffdf0f74fdf18ce0213028f8041d989",
+  "file_size_bytes": 39715598,
+  "crs": "EPSG:4326",
+  "bounds": [
+    76.99986111111112,
+    18.000138888888888,
+    77.99986111111112,
+    19.000138888888888
+  ],
+  "width": 3600,
+  "height": 3600,
+  "pixel_resolution_x": 0.0002777777777777778,
+  "pixel_resolution_y": 0.0002777777777777778,
+  "resolution_unit": "degrees",
+  "vertical_units": "m",
+  "vertical_reference": "EGM2008 orthometric height",
+  "nodata": null,
+  "dtype": "float32",
+  "processing_status": "validated",
+  "license": "Copernicus DEM user license terms",
+  "attribution": "© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved",
+  "media_type": "GTiff",
+  "product_metadata": {
+    "product_id": "COP-DEM-GLO30-18-77",
+    "tile_origin_latitude": 18,
+    "tile_origin_longitude": 77,
+    "surface_type": "DSM",
+    "nodata_convention": "Source COG has no declared NoData sentinel",
+    "valid_pixel_count": 12960000
+  }
+}

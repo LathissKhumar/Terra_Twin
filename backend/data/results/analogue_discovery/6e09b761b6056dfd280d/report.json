@@ -1,0 +1,5936 @@
+{
+  "run_id": "6e09b761b6056dfd280d",
+  "reproducibility_sha256": "6e09b761b6056dfd280d92a4aa5ac48289fe22494cb05f8cd892a17106219811",
+  "engine_version": "0.7.0",
+  "scale_bridge_run_id": "92ae7bd8656ed441565c",
+  "mission_profile": {
+    "profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+    "version": "1.1.0",
+    "feature_weights": {
+      "slope": 0.2,
+      "local_relief": 0.18,
+      "terrain_roughness": 0.18,
+      "profile_curvature": 0.12,
+      "plan_curvature": 0.12,
+      "topographic_position_index": 0.12,
+      "landform_morphology": 0.08
+    },
+    "required_features": [
+      "slope",
+      "local_relief",
+      "terrain_roughness",
+      "profile_curvature",
+      "plan_curvature",
+      "topographic_position_index",
+      "landform_morphology"
+    ],
+    "justifications": {
+      "slope": "A provisional mobility geometry descriptor; weight is a researcher-set prior.",
+      "local_relief": "A provisional local elevation-range descriptor at the declared support.",
+      "terrain_roughness": "A provisional elevation-dispersion descriptor, not traction.",
+      "profile_curvature": "A provisional along-slope shape descriptor.",
+      "plan_curvature": "A provisional cross-slope shape descriptor.",
+      "topographic_position_index": "A provisional local-high/low context descriptor.",
+      "landform_morphology": "A low-weight relative-position class summary only."
+    }
+  },
+  "config": {
+    "candidate_width_m": 5000.0,
+    "candidate_height_m": 5000.0,
+    "candidate_stride_m": 2500.0,
+    "selected_features": [
+      "slope",
+      "local_relief",
+      "terrain_roughness",
+      "profile_curvature",
+      "plan_curvature",
+      "topographic_position_index",
+      "landform_morphology"
+    ],
+    "minimum_evidence_coverage": 0.8,
+    "minimum_feature_samples": 20,
+    "maximum_candidate_count": 1000,
+    "duplicate_overlap_iou": 0.1,
+    "bootstrap_replicates": 10,
+    "spatial_bootstrap_block_cells": 3,
+    "normalization_scale_floor": {
+      "slope": 1.0,
+      "local_relief": 1.0,
+      "terrain_roughness": 0.5,
+      "profile_curvature": 0.00001,
+      "plan_curvature": 0.00001,
+      "topographic_position_index": 1.0
+    },
+    "search_boundary_wgs84": null
+  },
+  "search_boundary_wgs84": [
+    -112.72962376581587,
+    43.33987211371054,
+    -112.60382094988614,
+    43.431572325492475
+  ],
+  "planetary_dataset_id": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+  "planetary_source_sha256": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+  "earth_dataset_id": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5",
+  "earth_source_sha256": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec",
+  "planetary_analytics_run_id": "57000adb73638dc0ca38",
+  "earth_analytics_run_id": "5ce41cf836adb935f562",
+  "planetary_effective_resolution_m": null,
+  "earth_effective_resolution_m": null,
+  "planetary_source_product": "MGS MOLA MEGDR median topography",
+  "earth_source_product": "USGS 1 Meter bare-earth DEM; tile 12 x36y481; project ID_SouthernID_2018_D19",
+  "planetary_surface_type": "planetary_dtm",
+  "earth_surface_type": "bare_earth_dtm",
+  "planetary_reference_boundary_body_lon_lat": [
+    77.47056328782735,
+    18.460935956282643,
+    77.56119726045917,
+    18.546869162315836
+  ],
+  "planetary_reference_coordinate_body": "mars",
+  "planetary_reference_window": {
+    "row_off": 48,
+    "col_off": 48,
+    "height": 11,
+    "width": 11,
+    "center_row": 53.5,
+    "center_col": 53.5,
+    "requested_width_m": 5000.0,
+    "requested_height_m": 5000.0,
+    "actual_width_m": 5093.000002579724,
+    "actual_height_m": 5093.000002579724
+  },
+  "uncertainty_method": "10 deterministic spatial block-bootstrap replicates with 3x3-cell blocks; the same sampled blocks are used jointly across features and the weighted score, preserving local spatial and cross-feature dependence within blocks. This is a descriptive resampling variability estimate, not a calibrated confidence interval. Block size is a configuration assumption; sensitivity to block size and DEM measurement/instrument uncertainty are not estimated.",
+  "earth_pixel_width_m": 463.0000002345204,
+  "earth_pixel_height_m": 463.0000002345204,
+  "planetary_reference_width_m": 5093.000002579724,
+  "planetary_reference_height_m": 5093.000002579724,
+  "candidate_width_cells": 11,
+  "candidate_height_cells": 11,
+  "actual_candidate_width_m": 5093.000002579724,
+  "actual_candidate_height_m": 5093.000002579724,
+  "actual_stride_x_m": 2315.000001172602,
+  "actual_stride_y_m": 2315.000001172602,
+  "generated_window_count": 16,
+  "evaluated_window_count": 16,
+  "eligible_candidate_count": 0,
+  "ranked_candidate_count": 0,
+  "candidates": [
+    {
+      "candidate_id": "660d05b824973de72bc2944d",
+      "window": {
+        "row_off": 0,
+        "col_off": 0,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.72962376581587,
+          43.43155503596839
+        ],
+        [
+          -112.72176109226761,
+          43.43155908819998
+        ],
+        [
+          -112.71389841774042,
+          43.431562600134356
+        ],
+        [
+          -112.70603574237413,
+          43.43156557177132
+        ],
+        [
+          -112.6981730663086,
+          43.431568003110826
+        ],
+        [
+          -112.69031038968367,
+          43.431569894152744
+        ],
+        [
+          -112.6824477126392,
+          43.43157124489703
+        ],
+        [
+          -112.67458503531502,
+          43.43157205534361
+        ],
+        [
+          -112.666722357851,
+          43.431572325492475
+        ],
+        [
+          -112.666722357851,
+          43.42584218386132
+        ],
+        [
+          -112.666722357851,
+          43.420112036466065
+        ],
+        [
+          -112.666722357851,
+          43.414381883306795
+        ],
+        [
+          -112.666722357851,
+          43.40865172438355
+        ],
+        [
+          -112.666722357851,
+          43.4029215596964
+        ],
+        [
+          -112.666722357851,
+          43.39719138924538
+        ],
+        [
+          -112.666722357851,
+          43.39146121303056
+        ],
+        [
+          -112.666722357851,
+          43.385731031052
+        ],
+        [
+          -112.67457910877836,
+          43.385730761180746
+        ],
+        [
+          -112.6824358595663,
+          43.385729951566965
+        ],
+        [
+          -112.69029261007542,
+          43.38572860221069
+        ],
+        [
+          -112.69814936016628,
+          43.38572671311198
+        ],
+        [
+          -112.7060061096995,
+          43.385724284270886
+        ],
+        [
+          -112.71386285853562,
+          43.385721315687526
+        ],
+        [
+          -112.72171960653527,
+          43.385717807361985
+        ],
+        [
+          -112.72957635355903,
+          43.38571375929439
+        ],
+        [
+          -112.72958227472003,
+          43.391443939054
+        ],
+        [
+          -112.72958819741453,
+          43.39717411304934
+        ],
+        [
+          -112.72959412164309,
+          43.402904281280335
+        ],
+        [
+          -112.72960004740624,
+          43.408634443746955
+        ],
+        [
+          -112.72960597470453,
+          43.41436460044912
+        ],
+        [
+          -112.72961190353855,
+          43.42009475138679
+        ],
+        [
+          -112.72961783390879,
+          43.42582489655989
+        ],
+        [
+          -112.72962376581587,
+          43.43155503596839
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.69816120709683,
+        43.40864740422378
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.8264462809917356,
+        "local_relief": 0.8264462809917356,
+        "terrain_roughness": 0.8264462809917356,
+        "profile_curvature": 0.8264462809917356,
+        "plan_curvature": 0.8264462809917356,
+        "topographic_position_index": 0.8264462809917356,
+        "landform_morphology": 0.8264462809917356
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "61d5a8764237aeb4",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "e91b03271d3fdbc007e10193",
+      "window": {
+        "row_off": 0,
+        "col_off": 5,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.7010322213136,
+          43.43156718150114
+        ],
+        [
+          -112.69316954487591,
+          43.43156926901491
+        ],
+        [
+          -112.68530686796781,
+          43.431570816231066
+        ],
+        [
+          -112.67744419072918,
+          43.43157182314955
+        ],
+        [
+          -112.66958151329982,
+          43.43157228977031
+        ],
+        [
+          -112.66171883581963,
+          43.43157221609335
+        ],
+        [
+          -112.65385615842841,
+          43.43157160211866
+        ],
+        [
+          -112.64599348126605,
+          43.43157044784626
+        ],
+        [
+          -112.63813080447238,
+          43.4315687532762
+        ],
+        [
+          -112.63813350079545,
+          43.42583861210428
+        ],
+        [
+          -112.63813619641998,
+          43.420108465168134
+        ],
+        [
+          -112.63813889134619,
+          43.41437831246789
+        ],
+        [
+          -112.63814158557436,
+          43.40864815400354
+        ],
+        [
+          -112.63814427910472,
+          43.40291798977517
+        ],
+        [
+          -112.63814697193754,
+          43.39718781978284
+        ],
+        [
+          -112.63814966407308,
+          43.391457644026595
+        ],
+        [
+          -112.63815235551158,
+          43.385727462506495
+        ],
+        [
+          -112.64600910577067,
+          43.385729155335234
+        ],
+        [
+          -112.6538658563973,
+          43.38573030842152
+        ],
+        [
+          -112.66172260725207,
+          43.385730921765294
+        ],
+        [
+          -112.66957935819556,
+          43.38573099536655
+        ],
+        [
+          -112.67743610908835,
+          43.38573052922528
+        ],
+        [
+          -112.68529285979102,
+          43.38572952334151
+        ],
+        [
+          -112.69314961016418,
+          43.385727977715234
+        ],
+        [
+          -112.7010063600684,
+          43.385725892346564
+        ],
+        [
+          -112.70100958979435,
+          43.39145607366494
+        ],
+        [
+          -112.70101282035678,
+          43.39718624921941
+        ],
+        [
+          -112.70101605175594,
+          43.40291641900992
+        ],
+        [
+          -112.70101928399215,
+          43.40864658303643
+        ],
+        [
+          -112.70102251706572,
+          43.414376741298845
+        ],
+        [
+          -112.70102575097695,
+          43.42010689379714
+        ],
+        [
+          -112.70102898572615,
+          43.42583704053126
+        ],
+        [
+          -112.7010322213136,
+          43.43156718150114
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.66958043518946,
+        43.408651688679754
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.9090909090909091,
+        "local_relief": 0.9090909090909091,
+        "terrain_roughness": 0.9090909090909091,
+        "profile_curvature": 0.9090909090909091,
+        "plan_curvature": 0.9090909090909091,
+        "topographic_position_index": 0.9090909090909091,
+        "landform_morphology": 0.9090909090909091
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "2e2ff5a77e658cce",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "b59b748f4d62be71a487e4f3",
+      "window": {
+        "row_off": 0,
+        "col_off": 10,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.67244066874191,
+          43.43157218260382
+        ],
+        [
+          -112.66457799126403,
+          43.43157230539877
+        ],
+        [
+          -112.65671531382428,
+          43.43157188789596
+        ],
+        [
+          -112.64885263656252,
+          43.43157093009545
+        ],
+        [
+          -112.6409899596186,
+          43.43156943199728
+        ],
+        [
+          -112.63312728313235,
+          43.431567393601455
+        ],
+        [
+          -112.62526460724366,
+          43.4315648149081
+        ],
+        [
+          -112.61740193209235,
+          43.43156169591728
+        ],
+        [
+          -112.60953925781826,
+          43.43155803662911
+        ],
+        [
+          -112.60954465046179,
+          43.42582789683486
+        ],
+        [
+          -112.60955004170822,
+          43.4200977512761
+        ],
+        [
+          -112.60955543155804,
+          43.41436759995286
+        ],
+        [
+          -112.60956082001178,
+          43.40863744286522
+        ],
+        [
+          -112.6095662070699,
+          43.40290728001322
+        ],
+        [
+          -112.60957159273296,
+          43.397177111396935
+        ],
+        [
+          -112.60957697700141,
+          43.391446937016404
+        ],
+        [
+          -112.60958235987579,
+          43.38571675687168
+        ],
+        [
+          -112.6174391076231,
+          43.385720412399614
+        ],
+        [
+          -112.62529585624493,
+          43.3857235281854
+        ],
+        [
+          -112.63315260560186,
+          43.38572610422894
+        ],
+        [
+          -112.64100935555446,
+          43.38572814053012
+        ],
+        [
+          -112.64886610596335,
+          43.38572963708888
+        ],
+        [
+          -112.65672285668906,
+          43.385730593905166
+        ],
+        [
+          -112.66457960759223,
+          43.38573101097894
+        ],
+        [
+          -112.67243635853342,
+          43.385730888310185
+        ],
+        [
+          -112.6724368968212,
+          43.39146107027041
+        ],
+        [
+          -112.67243743524838,
+          43.397191246466875
+        ],
+        [
+          -112.67243797381502,
+          43.40292141689954
+        ],
+        [
+          -112.67243851252118,
+          43.40865158156836
+        ],
+        [
+          -112.67243905136691,
+          43.41438174047323
+        ],
+        [
+          -112.67243959035224,
+          43.42011189361414
+        ],
+        [
+          -112.67244012947722,
+          43.42584204099103
+        ],
+        [
+          -112.67244066874191,
+          43.43157218260382
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.64099966261067,
+        43.408648832375725
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.9090909090909091,
+        "local_relief": 0.9090909090909091,
+        "terrain_roughness": 0.9090909090909091,
+        "profile_curvature": 0.9090909090909091,
+        "plan_curvature": 0.9090909090909091,
+        "topographic_position_index": 0.9090909090909091,
+        "landform_morphology": 0.9090909090909091
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "2e2ff5a77e658cce",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "3e901af5b91af4df18667a57",
+      "window": {
+        "row_off": 0,
+        "col_off": 11,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.666722357851,
+          43.431572325492475
+        ],
+        [
+          -112.65885968038698,
+          43.43157205534361
+        ],
+        [
+          -112.65099700306281,
+          43.43157124489703
+        ],
+        [
+          -112.64313432601834,
+          43.431569894152744
+        ],
+        [
+          -112.63527164939342,
+          43.431568003110826
+        ],
+        [
+          -112.62740897332789,
+          43.43156557177132
+        ],
+        [
+          -112.61954629796159,
+          43.431562600134356
+        ],
+        [
+          -112.6116836234344,
+          43.43155908819998
+        ],
+        [
+          -112.60382094988614,
+          43.43155503596839
+        ],
+        [
+          -112.60382688179322,
+          43.42582489655989
+        ],
+        [
+          -112.60383281216346,
+          43.42009475138679
+        ],
+        [
+          -112.60383874099747,
+          43.41436460044912
+        ],
+        [
+          -112.60384466829578,
+          43.408634443746955
+        ],
+        [
+          -112.60385059405893,
+          43.402904281280335
+        ],
+        [
+          -112.60385651828747,
+          43.39717411304934
+        ],
+        [
+          -112.60386244098198,
+          43.391443939054
+        ],
+        [
+          -112.60386836214299,
+          43.38571375929439
+        ],
+        [
+          -112.61172510916673,
+          43.385717807361985
+        ],
+        [
+          -112.61958185716638,
+          43.385721315687526
+        ],
+        [
+          -112.62743860600251,
+          43.385724284270886
+        ],
+        [
+          -112.63529535553572,
+          43.38572671311198
+        ],
+        [
+          -112.64315210562658,
+          43.38572860221069
+        ],
+        [
+          -112.6510088561357,
+          43.385729951566965
+        ],
+        [
+          -112.65886560692365,
+          43.385730761180746
+        ],
+        [
+          -112.666722357851,
+          43.385731031052
+        ],
+        [
+          -112.666722357851,
+          43.39146121303056
+        ],
+        [
+          -112.666722357851,
+          43.39719138924538
+        ],
+        [
+          -112.666722357851,
+          43.4029215596964
+        ],
+        [
+          -112.666722357851,
+          43.40865172438355
+        ],
+        [
+          -112.666722357851,
+          43.414381883306795
+        ],
+        [
+          -112.666722357851,
+          43.420112036466065
+        ],
+        [
+          -112.666722357851,
+          43.42584218386132
+        ],
+        [
+          -112.666722357851,
+          43.431572325492475
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.63528350860517,
+        43.40864740422378
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.8264462809917356,
+        "local_relief": 0.8264462809917356,
+        "terrain_roughness": 0.8264462809917356,
+        "profile_curvature": 0.8264462809917356,
+        "plan_curvature": 0.8264462809917356,
+        "topographic_position_index": 0.8264462809917356,
+        "landform_morphology": 0.8264462809917356
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "2e2ff5a77e658cce",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "7b54ba3d2c5ddb163127e04f",
+      "window": {
+        "row_off": 5,
+        "col_off": 0,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.72960220260978,
+          43.410718137760156
+        ],
+        [
+          -112.72174222445885,
+          43.41072218809805
+        ],
+        [
+          -112.71388224533032,
+          43.410725698391175
+        ],
+        [
+          -112.70602226536391,
+          43.41072866863942
+        ],
+        [
+          -112.69816228469925,
+          43.41073109884269
+        ],
+        [
+          -112.69030230347596,
+          43.41073298900087
+        ],
+        [
+          -112.68244232183373,
+          43.410734339113894
+        ],
+        [
+          -112.67458233991219,
+          43.410735149181754
+        ],
+        [
+          -112.666722357851,
+          43.410735419204364
+        ],
+        [
+          -112.666722357851,
+          43.405005256613165
+        ],
+        [
+          -112.666722357851,
+          43.3992750882581
+        ],
+        [
+          -112.666722357851,
+          43.3935449141392
+        ],
+        [
+          -112.666722357851,
+          43.38781473425654
+        ],
+        [
+          -112.666722357851,
+          43.38208454861018
+        ],
+        [
+          -112.666722357851,
+          43.37635435720016
+        ],
+        [
+          -112.666722357851,
+          43.370624160026544
+        ],
+        [
+          -112.666722357851,
+          43.36489395708941
+        ],
+        [
+          -112.67457641895426,
+          43.36489368734416
+        ],
+        [
+          -112.6824304799183,
+          43.364892878108385
+        ],
+        [
+          -112.6902845406039,
+          43.36489152938215
+        ],
+        [
+          -112.69813860087184,
+          43.36488964116548
+        ],
+        [
+          -112.70599266058292,
+          43.36488721345845
+        ],
+        [
+          -112.7138467195979,
+          43.36488424626117
+        ],
+        [
+          -112.72170077777757,
+          43.36488073957371
+        ],
+        [
+          -112.72955483498272,
+          43.36487669339623
+        ],
+        [
+          -112.72956075057202,
+          43.37060689411634
+        ],
+        [
+          -112.72956666769281,
+          43.3763370890724
+        ],
+        [
+          -112.72957258634565,
+          43.38206727826434
+        ],
+        [
+          -112.72957850653108,
+          43.38779746169211
+        ],
+        [
+          -112.72958442824967,
+          43.393527639355625
+        ],
+        [
+          -112.72959035150194,
+          43.399257811254834
+        ],
+        [
+          -112.72959627628846,
+          43.4049879773897
+        ],
+        [
+          -112.72960220260978,
+          43.410718137760156
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.69815043665295,
+        43.3878104161148
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.9090909090909091,
+        "local_relief": 0.9090909090909091,
+        "terrain_roughness": 0.9090909090909091,
+        "profile_curvature": 0.9090909090909091,
+        "plan_curvature": 0.9090909090909091,
+        "topographic_position_index": 0.9090909090909091,
+        "landform_morphology": 0.9090909090909091
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "f1c708d7ae4d8bad67685de3",
+      "window": {
+        "row_off": 5,
+        "col_off": 5,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.70102045955836,
+          43.41073027761695
+        ],
+        [
+          -112.69316047852206,
+          43.41073236415517
+        ],
+        [
+          -112.68530049701602,
+          43.410733910648275
+        ],
+        [
+          -112.6774405151799,
+          43.410734917096185
+        ],
+        [
+          -112.66958053315332,
+          43.41073538349889
+        ],
+        [
+          -112.66172055107597,
+          43.410735309856356
+        ],
+        [
+          -112.65386056908751,
+          43.41073469616859
+        ],
+        [
+          -112.64600058732755,
+          43.41073354243562
+        ],
+        [
+          -112.63814060593577,
+          43.41073184865749
+        ],
+        [
+          -112.63814329971986,
+          43.405001686525125
+        ],
+        [
+          -112.63814599280632,
+          43.39927151862877
+        ],
+        [
+          -112.63814868519538,
+          43.39354134496849
+        ],
+        [
+          -112.63815137688731,
+          43.387811165544335
+        ],
+        [
+          -112.63815406788235,
+          43.38208098035636
+        ],
+        [
+          -112.63815675818077,
+          43.376350789404626
+        ],
+        [
+          -112.63815944778277,
+          43.370620592689185
+        ],
+        [
+          -112.63816213668868,
+          43.3648903902101
+        ],
+        [
+          -112.64601619712461,
+          43.36489208224844
+        ],
+        [
+          -112.65387025792755,
+          43.36489323479633
+        ],
+        [
+          -112.66172431895832,
+          43.36489384785373
+        ],
+        [
+          -112.6695783800777,
+          43.364893921420595
+        ],
+        [
+          -112.67743244114644,
+          43.36489345549699
+        ],
+        [
+          -112.68528650202533,
+          43.36489245008286
+        ],
+        [
+          -112.69314056257517,
+          43.36489090517828
+        ],
+        [
+          -112.70099462265671,
+          43.3648888207833
+        ],
+        [
+          -112.70099784934354,
+          43.37061902306084
+        ],
+        [
+          -112.70100107686575,
+          43.376349219574664
+        ],
+        [
+          -112.7010043052236,
+          43.382079410324764
+        ],
+        [
+          -112.70100753441744,
+          43.38780959531105
+        ],
+        [
+          -112.70101076444753,
+          43.39353977453347
+        ],
+        [
+          -112.70101399531418,
+          43.39926994799196
+        ],
+        [
+          -112.70101722701769,
+          43.40500011568647
+        ],
+        [
+          -112.70102045955836,
+          43.41073027761695
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.669579456058,
+        43.387814698569414
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 1.0,
+        "local_relief": 1.0,
+        "terrain_roughness": 1.0,
+        "profile_curvature": 1.0,
+        "plan_curvature": 1.0,
+        "topographic_position_index": 1.0,
+        "landform_morphology": 1.0
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "95d17a887fbc42d3bdc8fab5",
+      "window": {
+        "row_off": 5,
+        "col_off": 10,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.67243870844894,
+          43.41073527638248
+        ],
+        [
+          -112.66457872637389,
+          43.410735399120036
+        ],
+        [
+          -112.65671874433694,
+          43.410734981812354
+        ],
+        [
+          -112.64885876247773,
+          43.41073402445945
+        ],
+        [
+          -112.6409987809359,
+          43.41073252706137
+        ],
+        [
+          -112.63313879985114,
+          43.41073048961817
+        ],
+        [
+          -112.62527881936303,
+          43.4107279121299
+        ],
+        [
+          -112.61741883961129,
+          43.41072479459666
+        ],
+        [
+          -112.60955886073555,
+          43.41072113701859
+        ],
+        [
+          -112.60956424830113,
+          43.40499097626271
+        ],
+        [
+          -112.6095696344714,
+          43.39926080974252
+        ],
+        [
+          -112.60957501924695,
+          43.39353063745808
+        ],
+        [
+          -112.6095804026282,
+          43.38780045940941
+        ],
+        [
+          -112.60958578461569,
+          43.38207027559661
+        ],
+        [
+          -112.60959116520989,
+          43.376340086019724
+        ],
+        [
+          -112.60959654441135,
+          43.3706098906788
+        ],
+        [
+          -112.60960192222053,
+          43.3648796895739
+        ],
+        [
+          -112.61745598014824,
+          43.364883343395014
+        ],
+        [
+          -112.62531003894921,
+          43.364886457726
+        ],
+        [
+          -112.63316409848424,
+          43.36488903256674
+        ],
+        [
+          -112.64101815861412,
+          43.36489106791715
+        ],
+        [
+          -112.64887221919963,
+          43.36489256377715
+        ],
+        [
+          -112.65672628010154,
+          43.36489352014667
+        ],
+        [
+          -112.66458034118062,
+          43.36489393702571
+        ],
+        [
+          -112.67243440229768,
+          43.36489381441422
+        ],
+        [
+          -112.67243494007894,
+          43.37062401733304
+        ],
+        [
+          -112.67243547799943,
+          43.37635421448834
+        ],
+        [
+          -112.6724360160592,
+          43.382084405880015
+        ],
+        [
+          -112.6724365542583,
+          43.38781459150805
+        ],
+        [
+          -112.67243709259677,
+          43.39354477137237
+        ],
+        [
+          -112.67243763107466,
+          43.39927494547291
+        ],
+        [
+          -112.67243816969203,
+          43.405005113809636
+        ],
+        [
+          -112.67243870844894,
+          43.41073527638248
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.6410084747926,
+        43.38781184359963
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 1.0,
+        "local_relief": 1.0,
+        "terrain_roughness": 1.0,
+        "profile_curvature": 1.0,
+        "plan_curvature": 1.0,
+        "topographic_position_index": 1.0,
+        "landform_morphology": 1.0
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "f1920c5672f7c2c8f00bb1eb",
+      "window": {
+        "row_off": 5,
+        "col_off": 11,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.666722357851,
+          43.410735419204364
+        ],
+        [
+          -112.65886237578982,
+          43.410735149181754
+        ],
+        [
+          -112.65100239386828,
+          43.410734339113894
+        ],
+        [
+          -112.64314241222606,
+          43.41073298900087
+        ],
+        [
+          -112.63528243100276,
+          43.41073109884269
+        ],
+        [
+          -112.6274224503381,
+          43.41072866863942
+        ],
+        [
+          -112.61956247037169,
+          43.410725698391175
+        ],
+        [
+          -112.61170249124316,
+          43.41072218809805
+        ],
+        [
+          -112.60384251309223,
+          43.410718137760156
+        ],
+        [
+          -112.60384843941354,
+          43.4049879773897
+        ],
+        [
+          -112.60385436420006,
+          43.399257811254834
+        ],
+        [
+          -112.60386028745233,
+          43.393527639355625
+        ],
+        [
+          -112.60386620917092,
+          43.38779746169211
+        ],
+        [
+          -112.60387212935635,
+          43.38206727826434
+        ],
+        [
+          -112.6038780480092,
+          43.3763370890724
+        ],
+        [
+          -112.60388396513,
+          43.37060689411634
+        ],
+        [
+          -112.6038898807193,
+          43.36487669339623
+        ],
+        [
+          -112.61174393792444,
+          43.36488073957371
+        ],
+        [
+          -112.61959799610412,
+          43.36488424626117
+        ],
+        [
+          -112.6274520551191,
+          43.36488721345845
+        ],
+        [
+          -112.63530611483017,
+          43.36488964116548
+        ],
+        [
+          -112.64316017509812,
+          43.36489152938215
+        ],
+        [
+          -112.65101423578372,
+          43.364892878108385
+        ],
+        [
+          -112.65886829674776,
+          43.36489368734416
+        ],
+        [
+          -112.666722357851,
+          43.36489395708941
+        ],
+        [
+          -112.666722357851,
+          43.370624160026544
+        ],
+        [
+          -112.666722357851,
+          43.37635435720016
+        ],
+        [
+          -112.666722357851,
+          43.38208454861018
+        ],
+        [
+          -112.666722357851,
+          43.38781473425654
+        ],
+        [
+          -112.666722357851,
+          43.3935449141392
+        ],
+        [
+          -112.666722357851,
+          43.3992750882581
+        ],
+        [
+          -112.666722357851,
+          43.405005256613165
+        ],
+        [
+          -112.666722357851,
+          43.410735419204364
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.63529427904906,
+        43.3878104161148
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.9090909090909091,
+        "local_relief": 0.9090909090909091,
+        "terrain_roughness": 0.9090909090909091,
+        "profile_curvature": 0.9090909090909091,
+        "plan_curvature": 0.9090909090909091,
+        "topographic_position_index": 0.9090909090909091,
+        "landform_morphology": 0.9090909090909091
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "bef55231b47f3f330f1510eb",
+      "window": {
+        "row_off": 10,
+        "col_off": 0,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.72958065970589,
+          43.38988116332758
+        ],
+        [
+          -112.72172337441447,
+          43.3898852117734
+        ],
+        [
+          -112.71386608814687,
+          43.38988872042673
+        ],
+        [
+          -112.70600880104256,
+          43.38989168928745
+        ],
+        [
+          -112.69815151324097,
+          43.38989411835546
+        ],
+        [
+          -112.69029422488157,
+          43.38989600763068
+        ],
+        [
+          -112.68243693610381,
+          43.38989735711303
+        ],
+        [
+          -112.67457964704712,
+          43.389898166802446
+        ],
+        [
+          -112.666722357851,
+          43.389898436698935
+        ],
+        [
+          -112.666722357851,
+          43.384168253148445
+        ],
+        [
+          -112.666722357851,
+          43.378438063834295
+        ],
+        [
+          -112.666722357851,
+          43.37270786875654
+        ],
+        [
+          -112.666722357851,
+          43.36697766791522
+        ],
+        [
+          -112.666722357851,
+          43.361247461310406
+        ],
+        [
+          -112.666722357851,
+          43.355517248942135
+        ],
+        [
+          -112.666722357851,
+          43.34978703081051
+        ],
+        [
+          -112.666722357851,
+          43.34405680691553
+        ],
+        [
+          -112.67457373166064,
+          43.34405653729618
+        ],
+        [
+          -112.68242510533126,
+          43.34405572843812
+        ],
+        [
+          -112.69027647872385,
+          43.34405438034137
+        ],
+        [
+          -112.69812785169935,
+          43.34405249300598
+        ],
+        [
+          -112.70597922411876,
+          43.344050066432025
+        ],
+        [
+          -112.71383059584309,
+          43.34404710061961
+        ],
+        [
+          -112.72168196673327,
+          43.3440435955688
+        ],
+        [
+          -112.72953333665032,
+          43.34403955127978
+        ],
+        [
+          -112.72953924667517,
+          43.34976977295963
+        ],
+        [
+          -112.72954515822954,
+          43.35549998887567
+        ],
+        [
+          -112.72955107131395,
+          43.36123019902777
+        ],
+        [
+          -112.72955698592894,
+          43.36696040341591
+        ],
+        [
+          -112.72956290207509,
+          43.372690602040024
+        ],
+        [
+          -112.72956881975291,
+          43.37842079490004
+        ],
+        [
+          -112.72957473896301,
+          43.38415098199591
+        ],
+        [
+          -112.72958065970589,
+          43.38988116332758
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.69813967634559,
+        43.36697335178976
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.9090909090909091,
+        "local_relief": 0.9090909090909091,
+        "terrain_roughness": 0.9090909090909091,
+        "profile_curvature": 0.9090909090909091,
+        "plan_curvature": 0.9090909090909091,
+        "topographic_position_index": 0.9090909090909091,
+        "landform_morphology": 0.9090909090909091
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "11507e89a961ae1192d34481",
+      "window": {
+        "row_off": 10,
+        "col_off": 5,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.70100870887705,
+          43.389893297513375
+        ],
+        [
+          -112.69315142070437,
+          43.38989538307688
+        ],
+        [
+          -112.68529413206261,
+          43.38989692884755
+        ],
+        [
+          -112.67743684309121,
+          43.38989793482531
+        ],
+        [
+          -112.66957955392967,
+          43.38989840101015
+        ],
+        [
+          -112.6617222647174,
+          43.389898327402
+        ],
+        [
+          -112.65386497559388,
+          43.389897714000924
+        ],
+        [
+          -112.64600768669857,
+          43.38989656080691
+        ],
+        [
+          -112.63815039817088,
+          43.389894867820004
+        ],
+        [
+          -112.63815308941932,
+          43.38416468472797
+        ],
+        [
+          -112.63815577997102,
+          43.37843449587213
+        ],
+        [
+          -112.63815846982624,
+          43.372704301252575
+        ],
+        [
+          -112.63816115898524,
+          43.366974100869356
+        ],
+        [
+          -112.63816384744828,
+          43.361243894722534
+        ],
+        [
+          -112.63816653521557,
+          43.355513682812166
+        ],
+        [
+          -112.6381692222874,
+          43.34978346513829
+        ],
+        [
+          -112.638171908664,
+          43.344053241701
+        ],
+        [
+          -112.64602328180725,
+          43.34405493294961
+        ],
+        [
+          -112.65387465531703,
+          43.34405608495956
+        ],
+        [
+          -112.66172602905428,
+          43.344056697730835
+        ],
+        [
+          -112.66957740288001,
+          43.34405677126339
+        ],
+        [
+          -112.67742877665518,
+          43.344056305557224
+        ],
+        [
+          -112.68528015024077,
+          43.344055300612354
+        ],
+        [
+          -112.69313152349778,
+          43.34405375642883
+        ],
+        [
+          -112.70098289628717,
+          43.34405167300668
+        ],
+        [
+          -112.70098611993885,
+          43.349781896242604
+        ],
+        [
+          -112.7009893444248,
+          43.35551211371505
+        ],
+        [
+          -112.70099256974534,
+          43.36124232542396
+        ],
+        [
+          -112.70099579590074,
+          43.36697253136927
+        ],
+        [
+          -112.70099902289131,
+          43.37270273155092
+        ],
+        [
+          -112.70100225071737,
+          43.37843292596886
+        ],
+        [
+          -112.70100547937918,
+          43.38416311462303
+        ],
+        [
+          -112.70100870887705,
+          43.389893297513375
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.66957847784805,
+        43.36697763224476
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 1.0,
+        "local_relief": 1.0,
+        "terrain_roughness": 1.0,
+        "profile_curvature": 1.0,
+        "plan_curvature": 1.0,
+        "topographic_position_index": 1.0,
+        "landform_morphology": 1.0
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "8301599a6d6418953afbd569",
+      "window": {
+        "row_off": 10,
+        "col_off": 10,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.67243675000161,
+          43.38989829394376
+        ],
+        [
+          -112.66457946079166,
+          43.38989841662399
+        ],
+        [
+          -112.65672217161972,
+          43.38989799951125
+        ],
+        [
+          -112.64886488262529,
+          43.38989704260556
+        ],
+        [
+          -112.64100759394779,
+          43.38989554590699
+        ],
+        [
+          -112.63315030572669,
+          43.389893509415536
+        ],
+        [
+          -112.62529301810143,
+          43.389890933131326
+        ],
+        [
+          -112.6174357312115,
+          43.38988781705442
+        ],
+        [
+          -112.6095784451963,
+          43.389884161184945
+        ],
+        [
+          -112.60958382769056,
+          43.38415397946818
+        ],
+        [
+          -112.60958920879135,
+          43.37842379198732
+        ],
+        [
+          -112.6095945884992,
+          43.37269359874241
+        ],
+        [
+          -112.6095999668146,
+          43.366963399733486
+        ],
+        [
+          -112.60960534373807,
+          43.36123319496065
+        ],
+        [
+          -112.60961071927008,
+          43.355502984423914
+        ],
+        [
+          -112.60961609341112,
+          43.349772768123366
+        ],
+        [
+          -112.60962146616173,
+          43.34404254605906
+        ],
+        [
+          -112.61747283680029,
+          43.34404619817484
+        ],
+        [
+          -112.62532420831091,
+          43.34404931105228
+        ],
+        [
+          -112.63317558055454,
+          43.344051884691275
+        ],
+        [
+          -112.64102695339218,
+          43.34405391909174
+        ],
+        [
+          -112.64887832668481,
+          43.34405541425357
+        ],
+        [
+          -112.65672970029338,
+          43.344056370176745
+        ],
+        [
+          -112.6645810740789,
+          43.344056786861195
+        ],
+        [
+          -112.67243244790231,
+          43.34405666430695
+        ],
+        [
+          -112.67243298517772,
+          43.3497868881836
+        ],
+        [
+          -112.67243352259217,
+          43.355517106296936
+        ],
+        [
+          -112.6724340601457,
+          43.36124731864688
+        ],
+        [
+          -112.6724345978384,
+          43.366977525233374
+        ],
+        [
+          -112.67243513567028,
+          43.372707726056376
+        ],
+        [
+          -112.67243567364142,
+          43.378437921115804
+        ],
+        [
+          -112.67243621175183,
+          43.38416811041162
+        ],
+        [
+          -112.67243675000161,
+          43.38989829394376
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.641017278681,
+        43.36697477860804
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 121,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 1.0,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 1.0,
+        "local_relief": 1.0,
+        "terrain_roughness": 1.0,
+        "profile_curvature": 1.0,
+        "plan_curvature": 1.0,
+        "topographic_position_index": 1.0,
+        "landform_morphology": 1.0
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "6a326bdf554a7428a18ef52c",
+      "window": {
+        "row_off": 10,
+        "col_off": 11,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.666722357851,
+          43.389898436698935
+        ],
+        [
+          -112.65886506865488,
+          43.389898166802446
+        ],
+        [
+          -112.6510077795982,
+          43.38989735711303
+        ],
+        [
+          -112.64315049082045,
+          43.38989600763068
+        ],
+        [
+          -112.63529320246104,
+          43.38989411835546
+        ],
+        [
+          -112.62743591465946,
+          43.38989168928745
+        ],
+        [
+          -112.61957862755513,
+          43.38988872042673
+        ],
+        [
+          -112.61172134128753,
+          43.3898852117734
+        ],
+        [
+          -112.60386405599613,
+          43.38988116332758
+        ],
+        [
+          -112.603869976739,
+          43.38415098199591
+        ],
+        [
+          -112.6038758959491,
+          43.37842079490004
+        ],
+        [
+          -112.60388181362693,
+          43.372690602040024
+        ],
+        [
+          -112.60388772977308,
+          43.36696040341591
+        ],
+        [
+          -112.60389364438807,
+          43.36123019902777
+        ],
+        [
+          -112.60389955747247,
+          43.35549998887567
+        ],
+        [
+          -112.60390546902683,
+          43.34976977295963
+        ],
+        [
+          -112.60391137905168,
+          43.34403955127978
+        ],
+        [
+          -112.61176274896873,
+          43.3440435955688
+        ],
+        [
+          -112.61961411985891,
+          43.34404710061961
+        ],
+        [
+          -112.62746549158324,
+          43.344050066432025
+        ],
+        [
+          -112.63531686400266,
+          43.34405249300598
+        ],
+        [
+          -112.64316823697817,
+          43.34405438034137
+        ],
+        [
+          -112.65101961037074,
+          43.34405572843812
+        ],
+        [
+          -112.65887098404137,
+          43.34405653729618
+        ],
+        [
+          -112.666722357851,
+          43.34405680691553
+        ],
+        [
+          -112.666722357851,
+          43.34978703081051
+        ],
+        [
+          -112.666722357851,
+          43.355517248942135
+        ],
+        [
+          -112.666722357851,
+          43.361247461310406
+        ],
+        [
+          -112.666722357851,
+          43.36697766791522
+        ],
+        [
+          -112.666722357851,
+          43.37270786875654
+        ],
+        [
+          -112.666722357851,
+          43.378438063834295
+        ],
+        [
+          -112.666722357851,
+          43.384168253148445
+        ],
+        [
+          -112.666722357851,
+          43.389898436698935
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.63530503935642,
+        43.36697335178976
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.9090909090909091,
+        "local_relief": 0.9090909090909091,
+        "terrain_roughness": 0.9090909090909091,
+        "profile_curvature": 0.9090909090909091,
+        "plan_curvature": 0.9090909090909091,
+        "topographic_position_index": 0.9090909090909091,
+        "landform_morphology": 0.9090909090909091
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "253877773d9123a3cb7a1863",
+      "window": {
+        "row_off": 11,
+        "col_off": 0,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.72957635355903,
+          43.38571375929439
+        ],
+        [
+          -112.72171960653527,
+          43.385717807361985
+        ],
+        [
+          -112.71386285853562,
+          43.385721315687526
+        ],
+        [
+          -112.7060061096995,
+          43.385724284270886
+        ],
+        [
+          -112.69814936016628,
+          43.38572671311198
+        ],
+        [
+          -112.69029261007542,
+          43.38572860221069
+        ],
+        [
+          -112.6824358595663,
+          43.385729951566965
+        ],
+        [
+          -112.67457910877836,
+          43.385730761180746
+        ],
+        [
+          -112.666722357851,
+          43.385731031052
+        ],
+        [
+          -112.666722357851,
+          43.38000084330976
+        ],
+        [
+          -112.666722357851,
+          43.374270649803876
+        ],
+        [
+          -112.666722357851,
+          43.36854045053444
+        ],
+        [
+          -112.666722357851,
+          43.36281024550148
+        ],
+        [
+          -112.666722357851,
+          43.35708003470507
+        ],
+        [
+          -112.666722357851,
+          43.35134981814525
+        ],
+        [
+          -112.666722357851,
+          43.34561959582209
+        ],
+        [
+          -112.666722357851,
+          43.33988936773566
+        ],
+        [
+          -112.67457319450529,
+          43.33988909814146
+        ],
+        [
+          -112.6824240310206,
+          43.33988828935889
+        ],
+        [
+          -112.69027486725793,
+          43.33988694138798
+        ],
+        [
+          -112.69812570307832,
+          43.339885054228766
+        ],
+        [
+          -112.70597653834278,
+          43.33988262788131
+        ],
+        [
+          -112.71382737291233,
+          43.33987966234572
+        ],
+        [
+          -112.721678206648,
+          43.33987615762208
+        ],
+        [
+          -112.72952903941078,
+          43.33987211371054
+        ],
+        [
+          -112.72953494832362,
+          43.345602339582264
+        ],
+        [
+          -112.72954085876556,
+          43.35133255969019
+        ],
+        [
+          -112.72954677073716,
+          43.357062774034226
+        ],
+        [
+          -112.72955268423893,
+          43.36279298261435
+        ],
+        [
+          -112.72955859927147,
+          43.36852318543048
+        ],
+        [
+          -112.72956451583529,
+          43.37425338248258
+        ],
+        [
+          -112.72957043393096,
+          43.37998357377056
+        ],
+        [
+          -112.72957635355903,
+          43.38571375929439
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.69813752549932,
+        43.36280592977907
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.8264462809917356,
+        "local_relief": 0.8264462809917356,
+        "terrain_roughness": 0.8264462809917356,
+        "profile_curvature": 0.8264462809917356,
+        "plan_curvature": 0.8264462809917356,
+        "topographic_position_index": 0.8264462809917356,
+        "landform_morphology": 0.8264462809917356
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "5cab77c5b1e9161ce0c54ee2",
+      "window": {
+        "row_off": 11,
+        "col_off": 5,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.7010063600684,
+          43.385725892346564
+        ],
+        [
+          -112.69314961016418,
+          43.385727977715234
+        ],
+        [
+          -112.68529285979102,
+          43.38572952334151
+        ],
+        [
+          -112.67743610908835,
+          43.38573052922528
+        ],
+        [
+          -112.66957935819556,
+          43.38573099536655
+        ],
+        [
+          -112.66172260725207,
+          43.385730921765294
+        ],
+        [
+          -112.6538658563973,
+          43.38573030842152
+        ],
+        [
+          -112.64600910577067,
+          43.385729155335234
+        ],
+        [
+          -112.63815235551158,
+          43.385727462506495
+        ],
+        [
+          -112.63815504625326,
+          43.37999727522261
+        ],
+        [
+          -112.63815773629841,
+          43.37426708217497
+        ],
+        [
+          -112.63816042564727,
+          43.36853688336366
+        ],
+        [
+          -112.6381631143001,
+          43.36280667878871
+        ],
+        [
+          -112.6381658022571,
+          43.35707646845021
+        ],
+        [
+          -112.63816848951859,
+          43.35134625234819
+        ],
+        [
+          -112.63817117608477,
+          43.345616030482745
+        ],
+        [
+          -112.6381738619559,
+          43.33988580285389
+        ],
+        [
+          -112.64602469794399,
+          43.33988749394465
+        ],
+        [
+          -112.65387553429849,
+          43.33988864584708
+        ],
+        [
+          -112.66172637088042,
+          43.33988925856116
+        ],
+        [
+          -112.66957720755079,
+          43.339889332086834
+        ],
+        [
+          -112.67742804417061,
+          43.33988886642415
+        ],
+        [
+          -112.68527888060092,
+          43.339887861573075
+        ],
+        [
+          -112.69312971670273,
+          43.33988631753368
+        ],
+        [
+          -112.70098055233704,
+          43.339884234306
+        ],
+        [
+          -112.70098377538218,
+          43.34561446173351
+        ],
+        [
+          -112.70098699926136,
+          43.351344683397585
+        ],
+        [
+          -112.70099022397491,
+          43.35707489929816
+        ],
+        [
+          -112.7009934495231,
+          43.362805109435186
+        ],
+        [
+          -112.70099667590625,
+          43.36853531380859
+        ],
+        [
+          -112.70099990312465,
+          43.37426551241833
+        ],
+        [
+          -112.70100313117861,
+          43.37999570526434
+        ],
+        [
+          -112.7010063600684,
+          43.385725892346564
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.66957828231654,
+        43.36281020983436
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.9090909090909091,
+        "local_relief": 0.9090909090909091,
+        "terrain_roughness": 0.9090909090909091,
+        "profile_curvature": 0.9090909090909091,
+        "plan_curvature": 0.9090909090909091,
+        "topographic_position_index": 0.9090909090909091,
+        "landform_morphology": 0.9090909090909091
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "50fe753120e8d9f0fb9d976b",
+      "window": {
+        "row_off": 11,
+        "col_off": 10,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.67243635853342,
+          43.385730888310185
+        ],
+        [
+          -112.66457960759223,
+          43.38573101097894
+        ],
+        [
+          -112.65672285668906,
+          43.385730593905166
+        ],
+        [
+          -112.64886610596335,
+          43.38572963708888
+        ],
+        [
+          -112.64100935555446,
+          43.38572814053012
+        ],
+        [
+          -112.63315260560186,
+          43.38572610422894
+        ],
+        [
+          -112.62529585624493,
+          43.3857235281854
+        ],
+        [
+          -112.6174391076231,
+          43.385720412399614
+        ],
+        [
+          -112.60958235987579,
+          43.38571675687168
+        ],
+        [
+          -112.60958774135658,
+          43.379986570962856
+        ],
+        [
+          -112.60959312144428,
+          43.374256379289925
+        ],
+        [
+          -112.60959850013938,
+          43.36852618185301
+        ],
+        [
+          -112.60960387744241,
+          43.36279597865213
+        ],
+        [
+          -112.60960925335387,
+          43.35706576968737
+        ],
+        [
+          -112.60961462787421,
+          43.35133555495877
+        ],
+        [
+          -112.60962000100398,
+          43.345605334466384
+        ],
+        [
+          -112.60962537274365,
+          43.33987510821029
+        ],
+        [
+          -112.61747620622776,
+          43.33987875998518
+        ],
+        [
+          -112.62532704058367,
+          43.33988187257207
+        ],
+        [
+          -112.6331778756724,
+          43.33988444597084
+        ],
+        [
+          -112.64102871135495,
+          43.339886480181406
+        ],
+        [
+          -112.64887954749236,
+          43.33988797520367
+        ],
+        [
+          -112.65673038394564,
+          43.33988893103763
+        ],
+        [
+          -112.6645812205758,
+          43.3398893476832
+        ],
+        [
+          -112.67243205724388,
+          43.33988922514039
+        ],
+        [
+          -112.67243259441818,
+          43.34561945320852
+        ],
+        [
+          -112.67243313173151,
+          43.35134967551336
+        ],
+        [
+          -112.67243366918389,
+          43.357079892054855
+        ],
+        [
+          -112.67243420677538,
+          43.36281010283296
+        ],
+        [
+          -112.67243474450602,
+          43.3685403078476
+        ],
+        [
+          -112.67243528237586,
+          43.37427050709873
+        ],
+        [
+          -112.67243582038499,
+          43.38000070058627
+        ],
+        [
+          -112.67243635853342,
+          43.385730888310185
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.64101903846444,
+        43.362807356464124
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 110,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.9090909090909091,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.9090909090909091,
+        "local_relief": 0.9090909090909091,
+        "terrain_roughness": 0.9090909090909091,
+        "profile_curvature": 0.9090909090909091,
+        "plan_curvature": 0.9090909090909091,
+        "topographic_position_index": 0.9090909090909091,
+        "landform_morphology": 0.9090909090909091
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    },
+    {
+      "candidate_id": "24d3bad5eb92bbb82eedbe9a",
+      "window": {
+        "row_off": 11,
+        "col_off": 11,
+        "height": 11,
+        "width": 11,
+        "actual_width_m": 5093.000002579724,
+        "actual_height_m": 5093.000002579724
+      },
+      "geographic_boundary_wgs84": [
+        [
+          -112.666722357851,
+          43.385731031052
+        ],
+        [
+          -112.65886560692365,
+          43.385730761180746
+        ],
+        [
+          -112.6510088561357,
+          43.385729951566965
+        ],
+        [
+          -112.64315210562658,
+          43.38572860221069
+        ],
+        [
+          -112.63529535553572,
+          43.38572671311198
+        ],
+        [
+          -112.62743860600251,
+          43.385724284270886
+        ],
+        [
+          -112.61958185716638,
+          43.385721315687526
+        ],
+        [
+          -112.61172510916673,
+          43.385717807361985
+        ],
+        [
+          -112.60386836214299,
+          43.38571375929439
+        ],
+        [
+          -112.60387428177104,
+          43.37998357377056
+        ],
+        [
+          -112.60388019986672,
+          43.37425338248258
+        ],
+        [
+          -112.60388611643054,
+          43.36852318543048
+        ],
+        [
+          -112.60389203146308,
+          43.36279298261435
+        ],
+        [
+          -112.60389794496486,
+          43.357062774034226
+        ],
+        [
+          -112.60390385693644,
+          43.35133255969019
+        ],
+        [
+          -112.60390976737838,
+          43.345602339582264
+        ],
+        [
+          -112.60391567629124,
+          43.33987211371054
+        ],
+        [
+          -112.61176650905402,
+          43.33987615762208
+        ],
+        [
+          -112.61961734278968,
+          43.33987966234572
+        ],
+        [
+          -112.62746817735922,
+          43.33988262788131
+        ],
+        [
+          -112.6353190126237,
+          43.339885054228766
+        ],
+        [
+          -112.64316984844409,
+          43.33988694138798
+        ],
+        [
+          -112.65102068468141,
+          43.33988828935889
+        ],
+        [
+          -112.65887152119673,
+          43.33988909814146
+        ],
+        [
+          -112.666722357851,
+          43.33988936773566
+        ],
+        [
+          -112.666722357851,
+          43.34561959582209
+        ],
+        [
+          -112.666722357851,
+          43.35134981814525
+        ],
+        [
+          -112.666722357851,
+          43.35708003470507
+        ],
+        [
+          -112.666722357851,
+          43.36281024550148
+        ],
+        [
+          -112.666722357851,
+          43.36854045053444
+        ],
+        [
+          -112.666722357851,
+          43.374270649803876
+        ],
+        [
+          -112.666722357851,
+          43.38000084330976
+        ],
+        [
+          -112.666722357851,
+          43.385731031052
+        ]
+      ],
+      "centroid_wgs84": [
+        -112.63530719020268,
+        43.36280592977907
+      ],
+      "feature_comparisons": {
+        "slope": {
+          "feature": "slope",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "degree",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "local_relief": {
+          "feature": "local_relief",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "terrain_roughness": {
+          "feature": "terrain_roughness",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "profile_curvature": {
+          "feature": "profile_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "plan_curvature": {
+          "feature": "plan_curvature",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m^-1",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "topographic_position_index": {
+          "feature": "topographic_position_index",
+          "method": "first Wasserstein distance divided by max(reference IQR, configured feature scale floor)",
+          "units": "m",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        },
+        "landform_morphology": {
+          "feature": "landform_morphology",
+          "method": "total variation distance over relative-position class proportions",
+          "units": "dimensionless",
+          "reference_sample_count": 0,
+          "candidate_sample_count": 100,
+          "reference_coverage": 0.0,
+          "candidate_coverage": 0.8264462809917356,
+          "wasserstein_distance": null,
+          "median_difference": null,
+          "normalization_scale": null,
+          "normalized_distance": null,
+          "distance_standard_error": null,
+          "reference_median": null,
+          "candidate_median": null,
+          "reference_summary": {},
+          "candidate_summary": {},
+          "reference_class_fractions": {},
+          "candidate_class_fractions": {}
+        }
+      },
+      "required_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "available_features": [],
+      "missing_features": [
+        "slope",
+        "local_relief",
+        "terrain_roughness",
+        "profile_curvature",
+        "plan_curvature",
+        "topographic_position_index",
+        "landform_morphology"
+      ],
+      "feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "planetary_feature_coverage": {
+        "slope": 0.0,
+        "local_relief": 0.0,
+        "terrain_roughness": 0.0,
+        "profile_curvature": 0.0,
+        "plan_curvature": 0.0,
+        "topographic_position_index": 0.0,
+        "landform_morphology": 0.0
+      },
+      "earth_feature_coverage": {
+        "slope": 0.8264462809917356,
+        "local_relief": 0.8264462809917356,
+        "terrain_roughness": 0.8264462809917356,
+        "profile_curvature": 0.8264462809917356,
+        "plan_curvature": 0.8264462809917356,
+        "topographic_position_index": 0.8264462809917356,
+        "landform_morphology": 0.8264462809917356
+      },
+      "evidence_coverage": 0.0,
+      "status": "insufficient_evidence",
+      "weighted_distance": null,
+      "weighted_distance_standard_error": null,
+      "ranking": null,
+      "cluster_id": "9649ca829e28fbdd",
+      "selected_cluster_representative": false,
+      "source_dataset_ids": {
+        "planetary": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+        "earth": "e3453aef4b3b1b839a63073318fc5f78153b2f0ad26f35dfa958798e0d179fa5"
+      },
+      "source_sha256": {
+        "planetary": "270014f34d3951d289f35c9dbb33d206b209e464376c807577271594187a83ea",
+        "earth": "fc988d965c6f18ae0251fad91d75ccc4f8f3757a01592ac2f2528ed00e25a3ec"
+      },
+      "processing_configuration_sha256": "7f635b91aa0b6405abbacdb70f2d9b0a39a1d6bfcaad270403c40343ad0e7a08",
+      "mission_profile_id": "ROVER_MOBILITY_AND_TERRAIN_NAVIGATION",
+      "mission_profile_version": "1.1.0",
+      "scale_bridge_run_id": "92ae7bd8656ed441565c",
+      "planetary_analytics_run_id": "57000adb73638dc0ca38",
+      "earth_analytics_run_id": "5ce41cf836adb935f562",
+      "warnings": [
+        "Insufficient required evidence: slope, local_relief, terrain_roughness, profile_curvature, plan_curvature, topographic_position_index, landform_morphology",
+        "Planetary effective spatial resolution is unavailable.",
+        "Earth effective spatial resolution is unavailable."
+      ]
+    }
+  ],
+  "warnings": [
+    "This is a bounded Earth test-window search; it is not a global search or novelty claim.",
+    "Lower weighted distance means closer under the configured feature set and weights only.",
+    "Provisional mission weights are transparent configuration choices, not established scientific truths.",
+    "Reported standard errors are naive pixel bootstrap variability estimates; they are not confidence intervals and do not account for spatial autocorrelation, cross-feature dependence, or source DEM measurement uncertainty.",
+    "Planetary reference valid-cell coverage is below the configured threshold; candidates cannot receive a weighted rank unless every required feature meets evidence gates.",
+    "No candidate met all required feature sample-count and coverage gates."
+  ]
+}

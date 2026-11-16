@@ -11,6 +11,7 @@ import sys
 import time
 import urllib.request
 from pathlib import Path
+from typing import Any
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("terratwin.ensure_rasters")
@@ -97,7 +98,8 @@ def download_stream(url: str, destination: Path, expected_hash: str | None = Non
                 if actual_hash != expected_hash:
                     temp_path.unlink(missing_ok=True)
                     raise ValueError(
-                        f"Checksum mismatch for {destination.name}: expected {expected_hash}, got {actual_hash}"
+                        f"Checksum mismatch for {destination.name}: "
+                        f"expected {expected_hash}, got {actual_hash}"
                     )
 
             temp_path.replace(destination)
@@ -146,9 +148,18 @@ def ensure_dataset(manifest_path: Path, data_dir: Path) -> bool:
 def ensure_aliases(data_dir: Path) -> None:
     mars_dir = data_dir / "raw" / "mars"
     aliases = [
-        ("DTEEC_048842_1985_048908_1985_U01.IMG", "9e723a990ef2694474bbc2486039098c885d09b938e70b903d60c15cbf704008.img"),
-        ("MEGT44N000HB.IMG", "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36.img"),
-        ("MEGC44N000HB.IMG", "cfb4d7e3626106ef4ed2a466eb03a538feed9c163be99e860b7ae8700a8ecab5.img"),
+        (
+            "DTEEC_048842_1985_048908_1985_U01.IMG",
+            "9e723a990ef2694474bbc2486039098c885d09b938e70b903d60c15cbf704008.img",
+        ),
+        (
+            "MEGT44N000HB.IMG",
+            "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36.img",
+        ),
+        (
+            "MEGC44N000HB.IMG",
+            "cfb4d7e3626106ef4ed2a466eb03a538feed9c163be99e860b7ae8700a8ecab5.img",
+        ),
     ]
     for alias_name, target_name in aliases:
         target_path = mars_dir / target_name
@@ -159,20 +170,14 @@ def ensure_aliases(data_dir: Path) -> None:
                 logger.info("Created alias symlink: %s -> %s", alias_name, target_name)
             except OSError:
                 import shutil
+
                 shutil.copy2(target_path, alias_path)
                 logger.info("Copied alias: %s -> %s", alias_name, target_name)
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--data-dir",
-        type=Path,
-        default=Path(os.environ.get("DATA_DIR", "/app/data")),
-        help="Path to TerraTwin data root",
-    )
-    args = parser.parse_args()
-    data_dir = args.data_dir.resolve()
+def run_provisioning(data_dir: Path) -> dict[str, Any]:
+    """Execute complete dataset provisioning, download missing rasters, and verify checksums."""
+    data_dir = data_dir.resolve()
     logger.info("Ensuring production rasters in: %s", data_dir)
 
     # 1. Ancillary downloads (PDS labels)
@@ -189,28 +194,57 @@ def main() -> None:
         manifest_files.extend(sorted(ancillary_dir.glob("*.json")))
 
     if not manifest_files:
-        logger.error("No manifest files found in %s", manifests_dir)
-        sys.exit(1)
+        raise FileNotFoundError(f"No manifest files found in {manifests_dir}")
 
     logger.info("Found %d dataset manifests to verify", len(manifest_files))
+    results: list[dict[str, Any]] = []
     all_ok = True
     for mf in manifest_files:
         try:
             ok = ensure_dataset(mf, data_dir)
             if not ok:
                 all_ok = False
+            results.append({"manifest": mf.stem, "status": "verified" if ok else "failed"})
         except Exception as exc:
             logger.error("Failed to ensure dataset from %s: %s", mf.name, exc)
             all_ok = False
+            results.append({"manifest": mf.stem, "status": "error", "error": str(exc)})
 
     # 3. Create aliases
     ensure_aliases(data_dir)
 
     if not all_ok:
         logger.error("One or more datasets failed to verify")
-        sys.exit(1)
+        return {
+            "status": "degraded",
+            "all_verified": False,
+            "manifest_count": len(manifest_files),
+            "results": results,
+            "message": "One or more datasets failed to download or verify",
+        }
 
     logger.info("All production datasets and rasters verified successfully!")
+    return {
+        "status": "success",
+        "all_verified": True,
+        "manifest_count": len(manifest_files),
+        "results": results,
+        "message": "All production datasets and rasters verified and provisioned successfully",
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--data-dir",
+        type=Path,
+        default=Path(os.environ.get("DATA_DIR", "/app/data")),
+        help="Path to TerraTwin data root",
+    )
+    args = parser.parse_args()
+    result = run_provisioning(args.data_dir)
+    if not result.get("all_verified", False):
+        sys.exit(1)
 
 
 if __name__ == "__main__":

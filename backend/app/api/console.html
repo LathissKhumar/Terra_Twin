@@ -704,6 +704,7 @@
         <button class="tab-btn" data-url="/api/v1/discovery/jobs"><span class="method">GET</span>/discovery/jobs</button>
         <button class="tab-btn" data-url="/api/v1/terrain-twins/d7a162f694baf5e49fae4e6a"><span class="method">GET</span>/terrain-twins/.../meta</button>
         <button class="tab-btn" data-url="/api/v1/candidates/461a3ce1a8b83a070c9f0c01/evidence-passport"><span class="method">GET</span>/evidence-passport</button>
+        <button class="tab-btn" data-url="/api/v1/datasets/provision" data-method="POST"><span class="method" style="color:var(--cyan)">POST</span>/datasets/provision (Run Setup)</button>
       </div>
 
       <div class="console-runner">
@@ -887,26 +888,29 @@
       const statusSpan = document.getElementById('terminal-status');
       const timeSpan = document.getElementById('terminal-time');
 
+      let currentMethod = 'GET';
+
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
           tabs.forEach(t => t.classList.remove('active'));
           tab.classList.add('active');
           const url = tab.getAttribute('data-url');
+          currentMethod = tab.getAttribute('data-method') || 'GET';
           input.value = url;
           extLink.href = url;
-          executeCall(url);
+          executeCall(url, currentMethod);
         });
       });
 
-      runBtn.addEventListener('click', () => executeCall(input.value));
+      runBtn.addEventListener('click', () => executeCall(input.value, currentMethod));
 
-      async function executeCall(url) {
-        statusSpan.textContent = 'FETCHING...';
+      async function executeCall(url, method = 'GET') {
+        statusSpan.textContent = 'FETCHING (' + method + ')...';
         statusSpan.style.color = 'var(--cyan)';
-        out.textContent = '// Querying ' + url + '...';
+        out.textContent = '// Querying [' + method + '] ' + url + '...';
         const start = performance.now();
         try {
-          const res = await fetch(url);
+          const res = await fetch(url, { method: method });
           const duration = Math.round(performance.now() - start);
           timeSpan.textContent = 'LATENCY: ' + duration + 'ms';
           statusSpan.textContent = 'STATUS: ' + res.status + ' ' + res.statusText;

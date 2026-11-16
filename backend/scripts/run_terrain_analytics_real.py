@@ -28,7 +28,10 @@ def main() -> None:
     parser.add_argument(
         "--landform-standardization-scale-m",
         type=float,
-        help="Shared TPI scale in metres. Defaults to the Mars feature raster's TPI SD for both bodies.",
+        help=(
+            "Shared TPI scale in metres. Defaults to the Mars feature raster's "
+            "TPI SD for both bodies."
+        ),
     )
     args = parser.parse_args()
     run_dir = settings.DATA_DIR / "processed" / "scale_bridge" / args.scale_bridge_run_id

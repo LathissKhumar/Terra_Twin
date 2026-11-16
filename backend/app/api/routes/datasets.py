@@ -167,6 +167,18 @@ async def acquire_hirise_jezero_route() -> DatasetManifest:
         ) from exc
 
 
+@router.api_route("/provision", methods=["GET", "POST"])
+async def provision_production_datasets() -> dict[str, Any]:
+    """Execute dataset setup: download missing planetary & Earth rasters and verify checksums."""
+    try:
+        from scripts.ensure_production_rasters import run_provisioning
+
+        result = await run_in_threadpool(run_provisioning, settings.DATA_DIR)
+        return result
+    except Exception as exc:
+        raise HTTPException(500, f"Production dataset provisioning failed: {exc}") from exc
+
+
 @router.post("/acquire/copernicus-glo30", response_model=DatasetManifest)
 async def acquire_copernicus_route(
     latitude: int = Query(ge=-90, le=89),

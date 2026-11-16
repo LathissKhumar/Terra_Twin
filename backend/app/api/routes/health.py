@@ -11,7 +11,12 @@ from app.domain.schemas.health import DatabaseHealth, HealthResponse, SystemInfo
 router = APIRouter(prefix="/health", tags=["Health"])
 
 
-@router.get("", response_model=HealthResponse, responses={503: {"model": HealthResponse}})
+@router.api_route(
+    "",
+    methods=["GET", "HEAD"],
+    response_model=HealthResponse,
+    responses={503: {"model": HealthResponse}},
+)
 async def get_health(
     response: Response,
     database: DatabaseHealth = Depends(check_database_health),

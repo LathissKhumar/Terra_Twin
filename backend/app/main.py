@@ -3,12 +3,13 @@
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException, Request, status
+from fastapi import FastAPI, HTTPException, Request, Response, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 
 from app.api.api_v1 import api_router
+from app.api.console_html import get_console_html
 from app.core.config import settings
 from app.core.exceptions import TerraTwinError, domain_exception_handler
 from app.core.logging import get_logger, setup_logging
@@ -47,6 +48,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
+    allow_origin_regex=r"^https:\/\/.*\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -115,12 +117,66 @@ async def global_exception_handler(request: Request, exc: Exception) -> JSONResp
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
 
-@app.get("/", tags=["Root"])
-async def root() -> dict[str, str]:
-    """Root info endpoint."""
-    return {
-        "app": settings.PROJECT_NAME,
-        "version": settings.VERSION,
-        "docs": f"{settings.API_V1_STR}/docs",
-        "health": f"{settings.API_V1_STR}/health",
-    }
+def should_render_html(request: Request) -> bool:
+    fmt = request.query_params.get("format", "").lower()
+    if fmt == "json":
+        return False
+    if fmt == "html":
+        return True
+    accept = request.headers.get("accept", "")
+    return "text/html" in accept and not accept.startswith("application/json") and accept != "*/*"
+
+
+@app.api_route("/", methods=["GET", "HEAD"], tags=["Root"], response_model=None)
+async def root(request: Request) -> Response:
+    """Root endpoint: serves interactive scientific console in browser, JSON otherwise."""
+    if should_render_html(request):
+        return HTMLResponse(
+            content=get_console_html(version=settings.VERSION, environment=settings.ENVIRONMENT)
+        )
+    return JSONResponse(
+        content={
+            "app": settings.PROJECT_NAME,
+            "version": settings.VERSION,
+            "docs": f"{settings.API_V1_STR}/docs",
+            "health": f"{settings.API_V1_STR}/health",
+            "console": "/console",
+            "frontend": "https://frontend-alpha-azure-30.vercel.app",
+        }
+    )
+
+
+@app.get("/console", include_in_schema=False)
+@app.get("/dashboard", include_in_schema=False)
+async def web_console() -> HTMLResponse:
+    """Explicitly render the interactive web console."""
+    return HTMLResponse(
+        content=get_console_html(version=settings.VERSION, environment=settings.ENVIRONMENT)
+    )
+
+
+@app.get("/docs", include_in_schema=False)
+async def redirect_docs() -> RedirectResponse:
+    """Redirect top-level /docs to versioned API documentation."""
+    return RedirectResponse(url=f"{settings.API_V1_STR}/docs")
+
+
+@app.get("/redoc", include_in_schema=False)
+async def redirect_redoc() -> RedirectResponse:
+    """Redirect top-level /redoc to versioned ReDoc documentation."""
+    return RedirectResponse(url=f"{settings.API_V1_STR}/redoc")
+
+
+@app.get("/openapi.json", include_in_schema=False)
+async def redirect_openapi() -> RedirectResponse:
+    """Redirect top-level /openapi.json to versioned OpenAPI specification."""
+    return RedirectResponse(url=f"{settings.API_V1_STR}/openapi.json")
+
+
+@app.get("/missions", include_in_schema=False)
+@app.get("/discovery", include_in_schema=False)
+@app.get("/terrain-twin", include_in_schema=False)
+@app.get("/terrain-comparison", include_in_schema=False)
+async def redirect_frontend_routes(request: Request) -> RedirectResponse:
+    """Redirect web workspace route requests to the deployed frontend app."""
+    return RedirectResponse(url=f"https://frontend-alpha-azure-30.vercel.app{request.url.path}")

@@ -49,10 +49,30 @@ async def test_health_endpoint_structure():
 async def test_root_endpoint():
     """Verify root discovery endpoint."""
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+        # JSON fallback when no HTML requested
         response = await client.get("/")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["app"] == "TerraTwin"
+        assert "/api/v1/docs" in data["docs"]
+        assert "/api/v1/health" in data["health"]
 
-    assert response.status_code == 200
-    data = response.json()
-    assert data["app"] == "TerraTwin"
-    assert "/api/v1/docs" in data["docs"]
-    assert "/api/v1/health" in data["health"]
+        # HTML console when browser requests text/html
+        html_response = await client.get("/", headers={"Accept": "text/html,application/xhtml+xml"})
+        assert html_response.status_code == 200
+        assert "text/html" in html_response.headers["content-type"]
+        assert "TerraTwin" in html_response.text
+        assert "Planetary Analogue Discovery" in html_response.text
+
+        # Explicit /console and /docs redirects
+        console_res = await client.get("/console")
+        assert console_res.status_code == 200
+        assert "text/html" in console_res.headers["content-type"]
+
+        docs_res = await client.get("/docs", follow_redirects=False)
+        assert docs_res.status_code in [302, 307]
+        assert "/api/v1/docs" in docs_res.headers["location"]
+
+        # HEAD request on health endpoint
+        head_res = await client.head("/api/v1/health")
+        assert head_res.status_code in [200, 503]
